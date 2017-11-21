@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.fxcontrollers.serverOptionController">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Button fx:id="StartButton" layoutX="284.0" layoutY="255.0" mnemonicParsing="false" onAction="#startServer" text="StartServer" />
+            <Label fx:id="ipLabel" layoutX="106.0" layoutY="43.0" text="IP" />
+            <Label fx:id="serverNameLabel" layoutX="106.0" layoutY="84.0" text="server name" />
+            <Label fx:id="portLabel" layoutX="106.0" layoutY="126.0" text="port" />
+            <Label fx:id="passwordLabel" layoutX="106.0" layoutY="167.0" text="password" />
+            <TextField fx:id="ipTextField" layoutX="217.0" layoutY="39.0" />
+            <TextField fx:id="serverNameTextField" layoutX="217.0" layoutY="80.0" />
+            <TextField fx:id="portTextField" layoutX="217.0" layoutY="122.0" />
+            <PasswordField fx:id="passwordPasswordField" layoutX="217.0" layoutY="163.0" />
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
