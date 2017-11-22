@@ -1,0 +1,25 @@
+.view {
+}
+
+.leftPart {
+    -fx-background-color: #23272a;
+}
+
+.rightPart {
+    -fx-background-color: #2c2f33;
+}
+
+.clientButton {
+    -fx-background-image: url("/drawable/client.png");
+}
+
+.serverButton {
+    -fx-background-image: url("/drawable/server.png");
+}
+
+.serverButton, .clientButton {
+    -fx-background-repeat: no-repeat;
+    -fx-text-fill: white;
+    -fx-background-color: #7289da;
+    -fx-background-position: left;
+}

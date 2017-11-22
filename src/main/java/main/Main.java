@@ -1,5 +1,7 @@
 package main;
 
+import frontend.SwitchGUI;
+import frontend.WindowCore;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,7 +14,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("/layouts/mainView.fxml"));
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setScene(new Scene(root, 900, 565));
         primaryStage.show();
     }
 
@@ -25,8 +27,6 @@ public class Main extends Application {
 
         SwitchGUI switchGUI = new SwitchGUI();
         switchGUI.show();*/
-
-
 
 
         launch(args);
