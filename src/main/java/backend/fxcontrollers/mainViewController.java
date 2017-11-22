@@ -60,23 +60,25 @@ public class mainViewController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-        FadeTransition fadeIn = new FadeTransition(Duration.seconds(1.5), logo);
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(1.2), logo);
         fadeIn.setFromValue(0.0);
         fadeIn.setToValue(0.95);
         fadeIn.play();
         fadeIn.setOnFinished(event -> {
-            FadeTransition fadeIn1 = new FadeTransition(Duration.seconds(1), startClientButton);
-            fadeIn1.setFromValue(0.0);
-            fadeIn1.setToValue(0.95);
-            fadeIn1.play();
-            fadeIn1 = new FadeTransition(Duration.seconds(1), startServerButton);
-            fadeIn1.setFromValue(0.0);
-            fadeIn1.setToValue(0.95);
-            fadeIn1.play();
-            fadeIn1 = new FadeTransition(Duration.seconds(1), desc);
-            fadeIn1.setFromValue(0.0);
-            fadeIn1.setToValue(0.95);
-            fadeIn1.play();
+            FadeTransition fadeIn2 = new FadeTransition(Duration.seconds(0.5), desc);
+            fadeIn2.setFromValue(0.0);
+            fadeIn2.setToValue(0.95);
+            fadeIn2.play();
+            fadeIn2.setOnFinished(event1 -> {
+                FadeTransition fadeIn1 = new FadeTransition(Duration.seconds(1), startClientButton);
+                fadeIn1.setFromValue(0.0);
+                fadeIn1.setToValue(0.95);
+                fadeIn1.play();
+                fadeIn1 = new FadeTransition(Duration.seconds(1), startServerButton);
+                fadeIn1.setFromValue(0.0);
+                fadeIn1.setToValue(0.95);
+                fadeIn1.play();
+            });
         });
 		
 	}
