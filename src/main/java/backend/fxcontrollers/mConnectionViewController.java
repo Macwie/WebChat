@@ -5,10 +5,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import backend.Client;
-import backend.ClientsDAO;
-import backend.Controllers;
-import backend.ServerObject;
+import backend.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -99,14 +96,11 @@ public class mConnectionViewController implements Initializable {
             e.printStackTrace();
         }
     }
-    
-    
-    
-    
-    
+
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		list = Controllers.clientViewController.getList();
+		list = FXTableGenerator.getList();
 		
 	}
 	

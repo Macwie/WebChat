@@ -26,7 +26,7 @@ import javafx.util.Duration;
 
 public class ClientViewController implements Initializable{
 
-	private Stage window ;
+	    private Stage window ;
 
 	    @FXML
         private Pane progress;

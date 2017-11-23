@@ -1,5 +1,6 @@
 package backend;
 
+import com.sun.security.ntlm.Server;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Service;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 public class FXTableGenerator extends Service<TableView> {
 
     private TableView<ServerObject> ServerTable;
-    private ArrayList<ServerObject> list;
+    public static ArrayList<ServerObject> list;
 
     public FXTableGenerator(TableView<ServerObject> ServerTable) {
         this.ServerTable = ServerTable;
@@ -59,5 +60,9 @@ public class FXTableGenerator extends Service<TableView> {
             }
         }
         return servers;
+    }
+
+    public static ArrayList<ServerObject> getList() {
+        return  list;
     }
 }
