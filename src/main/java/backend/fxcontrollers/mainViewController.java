@@ -13,12 +13,16 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import main.Main;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import backend.Controllers;
+
 public class mainViewController implements Initializable{
+	private Stage window;
 
     @FXML
     private ImageView logo;
@@ -42,16 +46,17 @@ public class mainViewController implements Initializable{
     private void startServer(ActionEvent event) {
    	 Parent root;
         try {
-       	 Stage stage = new Stage();
-       	 root = FXMLLoader.load(getClass().getResource(
-                    "/layouts/serverOptionView.fxml"));
+        	
+        	
+        	FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/serverOptionView.fxml"));
+        	root = (Parent) loader.load();
+			Controllers.serverOptionController = loader.getController();
        	 Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("Server Settings");
-            stage.show();
-            Stage stage1 = (Stage) startServerButton.getScene().getWindow();
-            stage1.hide();
-            stage.show();
+       	 	window = Main.window;
+            window.setScene(scene);
+            window.setTitle("Server Settings");
+            window.show();
+            window.show();
         }
         catch (IOException e) {
             e.printStackTrace();

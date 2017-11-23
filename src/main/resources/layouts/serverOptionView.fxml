@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="900.0" stylesheets="@../css/serverView.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.fxcontrollers.serverOptionController">
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="900.0" stylesheets="@../css/serverView.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.fxcontrollers.serverOptionController">
   <children>
     <AnchorPane prefHeight="565.0" prefWidth="350.0" styleClass="leftPart">
          <children>
@@ -53,11 +53,11 @@
     </AnchorPane>
       <AnchorPane prefHeight="565.0" prefWidth="550.0" styleClass="rightPart">
          <children>
-            <Label prefHeight="27.0" prefWidth="550.0" text="Server console" textFill="#99aab5" styleClass="label">
+            <Label prefHeight="27.0" prefWidth="550.0" styleClass="label" text="Server console" textFill="#99aab5">
                <font>
                   <Font name="Calibri" size="18.0" />
                </font></Label>
-            <TextArea editable="false" layoutY="30.0" prefHeight="535.0" prefWidth="550.0" text="test" wrapText="true">
+            <TextArea fx:id="serverLogArea" editable="false" layoutY="30.0" prefHeight="535.0" prefWidth="550.0" text="test" wrapText="true">
                <font>
                   <Font name="Consolas" size="16.0" />
                </font></TextArea>
