@@ -1,8 +1,5 @@
 package backend;
 
-import frontend.ServerGUI;
-import javafx.fxml.FXMLLoader;
-
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -46,7 +43,7 @@ public class ChatServer implements Runnable {
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.out.println("port listen error " + serverPort);
-			Controllers.serverOptionController.addLog("Could not listen on port: " + serverPort);
+			Controllers.serverViewController.addLog("Could not listen on port: " + serverPort);
 			System.exit(1);
 		}
 	}
@@ -65,17 +62,17 @@ public class ChatServer implements Runnable {
 
 	public void acceptClients(ServerSocket serverSocket) {
 
-		Controllers.serverOptionController.addLog("server starts port = " + serverSocket.getLocalSocketAddress());
+		Controllers.serverViewController.addLog("server starts port = " + serverSocket.getLocalSocketAddress());
 		while (true) {
 			try {
 				Socket socket = serverSocket.accept();
-				Controllers.serverOptionController.addLog("accepts : " + socket.getRemoteSocketAddress());
+				Controllers.serverViewController.addLog("accepts : " + socket.getRemoteSocketAddress());
 				ClientThread client = new ClientThread(this, socket);
 				Thread thread = new Thread(client);
 				thread.start();
 				clients.add(client);
 			} catch (IOException ex) {
-				Controllers.serverOptionController.addLog("Accept failed on : " + serverPort);
+				Controllers.serverViewController.addLog("Accept failed on : " + serverPort);
 			}
 		}
 	}

@@ -4,10 +4,12 @@ import backend.ChatServer;
 import backend.Controllers;
 import backend.ServerObject;
 import backend.ServersDAO;
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -16,13 +18,14 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import main.Main;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class serverOptionController implements Initializable {
+public class serverViewController implements Initializable {
 
 	Stage window;
 
@@ -87,6 +90,19 @@ public class serverOptionController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		ipTextField.setText(ServerObject.getServerIP());
+
+		Object[] test = new Object[]{
+		    StartButton, ipLabel, serverNameLabel, portLabel, passwordLabel, ipTextField, serverNameTextField, portTextField,
+                passwordPasswordField, serverLogArea
+        };
+
+		for (int i=0; i<test.length; i++)
+        {
+            FadeTransition fadeIn = new FadeTransition(Duration.seconds(1.0), (Node) test[i]);
+            fadeIn.setFromValue(0.0);
+            fadeIn.setToValue(0.95);
+            fadeIn.play();
+        }
 
 	}
 

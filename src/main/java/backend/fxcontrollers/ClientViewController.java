@@ -3,32 +3,34 @@ package backend.fxcontrollers;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Observable;
 import java.util.ResourceBundle;
 
 import backend.Controllers;
+import backend.FXTableGenerator;
 import backend.ServerObject;
-import backend.ServersDAO;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.animation.FadeTransition;
+import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import main.Main;
+import javafx.util.Duration;
 
 public class ClientViewController implements Initializable{
-	private ServersDAO db;
+	//private ServersDAO db;
 	private ArrayList<ServerObject> list;
 	Stage window ;
+
+	    @FXML
+        private Pane progress;
 
 	   @FXML
 	    private Button connectManuallyButton;
@@ -61,38 +63,6 @@ public class ClientViewController implements Initializable{
     public ArrayList<ServerObject> getList() {
 			return list;
 		}
-
-
-
-
-	public ObservableList<ServerObject> getServers(){
-    	ObservableList<ServerObject> servers = FXCollections.observableArrayList();
-    	 for (int i = 0; i<list.size();i++) {
-    		 if(list.get(i).isS_public()) {
-    			 if(list.get(i).isOnline() && list.get(i).getPassword() != null){
-    				list.get(i).setProtect("TAK");
-    				list.get(i).setOnline("ONLINE");
-    				servers.add(list.get(i));
-    			 }else if(list.get(i).isOnline() && list.get(i).getPassword() == null) {
-    				list.get(i).setProtect("NIE");
-				 	list.get(i).setOnline("ONLINE");
-				 	servers.add(list.get(i));
-    			 }
-                 else if(!list.get(i).isOnline() && list.get(i).getPassword() != null) {
-                	 list.get(i).setProtect("TAK");
-    				 list.get(i).setOnline("OFFLINE");
-    				 servers.add(list.get(i));
-                 }
-                 else {
-                	 list.get(i).setProtect("NIE");
-    				 list.get(i).setOnline("OFFLINE");
-    				 servers.add(list.get(i));
-                 }
-    		 }
-    	 }
-		return servers;
-    	
-    }
     
     
     
@@ -124,16 +94,40 @@ public class ClientViewController implements Initializable{
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		db = ServersDAO.getInstance();
-        list = db.loadAll();
- 
+
+        progress.setTranslateY(200.0);
+        progress.setTranslateX(400.0);
+
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         ipColumn.setCellValueFactory(new PropertyValueFactory<>("ip"));
         portColumn.setCellValueFactory(new PropertyValueFactory<>("port"));
         usersColumn.setCellValueFactory(new PropertyValueFactory<>("current"));
         protectedColumn.setCellValueFactory(new PropertyValueFactory<>("protect"));
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("online"));
-        ServerTable.setItems(getServers());
+
+        final FXTableGenerator gen = new FXTableGenerator(ServerTable);
+
+        //Here you tell your progress indicator is visible only when the service is runing
+        progress.visibleProperty().bind(gen.runningProperty());
+        gen.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
+            @Override
+            public void handle(WorkerStateEvent workerStateEvent) {
+                ServerTable = gen.getValue();   //here you get the return value of your service
+                FadeTransition fadeIn = new FadeTransition(Duration.seconds(1.0), ServerTable);
+                fadeIn.setFromValue(0.0);
+                fadeIn.setToValue(0.95);
+                fadeIn.play();
+            }
+        });
+
+        gen.setOnFailed(new EventHandler<WorkerStateEvent>() {
+            @Override
+            public void handle(WorkerStateEvent workerStateEvent) {
+                System.out.println("FAILED TO LOAD DB DATA");
+            }
+        });
+        gen.restart(); //here you start your service
+
 	}
     
     

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="900.0" stylesheets="@../css/serverView.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.fxcontrollers.serverOptionController">
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="900.0" stylesheets="@../css/serverView.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.fxcontrollers.serverViewController">
   <children>
     <AnchorPane prefHeight="565.0" prefWidth="350.0" styleClass="leftPart">
          <children>
@@ -52,15 +52,15 @@
                </font></TextField>
             <TextField fx:id="serverNameTextField" layoutX="39.0" layoutY="188.0" prefHeight="39.0" prefWidth="290.0" styleClass="inputs">
                <font>
-                  <Font size="16.0" />
+                  <Font name="Calibri" size="16.0" />
                </font></TextField>
             <TextField fx:id="portTextField" layoutX="38.0" layoutY="359.0" prefHeight="39.0" prefWidth="290.0" styleClass="inputs">
                <font>
-                  <Font size="16.0" />
+                  <Font name="Calibri" size="16.0" />
                </font></TextField>
             <PasswordField fx:id="passwordPasswordField" layoutX="40.0" layoutY="272.0" prefHeight="39.0" prefWidth="290.0" styleClass="inputs">
                <font>
-                  <Font size="16.0" />
+                  <Font name="Calibri" size="16.0" />
                </font></PasswordField>
          </children>
     </AnchorPane>

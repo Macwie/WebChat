@@ -2,7 +2,6 @@ package backend.fxcontrollers;
 
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -48,10 +47,10 @@ public class mainViewController implements Initializable{
         try {
         	
         	
-        	FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/serverOptionView.fxml"));
+        	FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/serverView.fxml"));
         	root = (Parent) loader.load();
-			Controllers.serverOptionController = loader.getController();
-       	 Scene scene = new Scene(root);
+			Controllers.serverViewController = loader.getController();
+       	    Scene scene = new Scene(root);
        	 	window = Main.window;
             window.setScene(scene);
             window.setTitle("Server Settings");
@@ -74,7 +73,7 @@ public class mainViewController implements Initializable{
         	FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/ClientView.fxml"));
         	root = (Parent) loader.load();
 			Controllers.clientViewController = loader.getController();
-       	 Scene scene = new Scene(root);
+       	    Scene scene = new Scene(root);
        	 	window = Main.window;
             window.setScene(scene);
             window.setTitle("Client");

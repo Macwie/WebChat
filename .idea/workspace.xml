@@ -59,33 +59,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/main/Main.java">
+      <file leaf-file-name="ClientViewController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/backend/fxcontrollers/ClientViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChatServer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/backend/ChatServer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+            <state relative-caret-position="271">
+              <caret line="98" column="33" lean-forward="false" selection-start-line="98" selection-start-column="33" selection-end-line="98" selection-end-column="33" />
               <folding>
-                <marker date="1511451830986" expanded="true" signature="1683:1739" ph="{...}" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#3735#3736#0" expanded="true" />
+                <element signature="e#3811#3812#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="serverOptionController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/backend/fxcontrollers/serverOptionController.java">
+      <file leaf-file-name="FXTableGenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/backend/FXTableGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-431">
-              <caret line="32" column="35" lean-forward="true" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
+            <state relative-caret-position="-222">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#452#453#0" expanded="true" />
+                <element signature="e#498#499#0" expanded="true" />
+                <element signature="e#575#886#0" expanded="true" />
+                <element signature="e#885#886#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServersDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/backend/ServersDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="181">
+              <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+              <folding>
+                <marker date="1511295890167" expanded="true" signature="436:457" ph="SELECT * FRO... servers" />
+                <marker date="1511295890167" expanded="true" signature="1251:1422" ph="INSERT INTO servers... " />
+                <marker date="1511295890167" expanded="true" signature="1509:1583" ph="SELECT ip FR... servers" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServerObject.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/backend/ServerObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="35" column="37" lean-forward="true" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -94,49 +116,85 @@
       <file leaf-file-name="mainViewController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/backend/fxcontrollers/mainViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="49" column="12" lean-forward="false" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="12" />
+            <state relative-caret-position="334">
+              <caret line="90" column="32" lean-forward="true" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="32" />
               <folding>
-                <marker date="1511451830993" expanded="true" signature="2024:2123" ph="{...}" />
+                <marker date="1511467021620" expanded="true" signature="1988:2087" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mainView.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/css/mainView.css">
+      <file leaf-file-name="clientView.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/css/clientView.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="424">
+              <caret line="67" column="1" lean-forward="true" selection-start-line="67" selection-start-column="1" selection-end-line="67" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="serverView.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/css/serverView.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="53" column="1" lean-forward="true" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
-              <folding />
+      <file leaf-file-name="ClientView.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/ClientView.fxml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="41" column="72" lean-forward="false" selection-start-line="41" selection-start-column="72" selection-end-line="41" selection-end-column="72" />
+              <folding>
+                <marker date="1511477823342" expanded="true" signature="2184:2550" ph="..." />
+                <marker date="1511477823342" expanded="true" signature="2210:2530" ph="..." />
+                <marker date="1511477823342" expanded="true" signature="2666:3638" ph="..." />
+                <marker date="1511477823342" expanded="true" signature="2686:3625" ph="..." />
+                <marker date="1511477823342" expanded="true" signature="2833:3048" ph="..." />
+                <marker date="1511477823342" expanded="true" signature="2855:2937" ph="..." />
+                <marker date="1511477823342" expanded="true" signature="2967:3027" ph="..." />
+                <marker date="1511477823342" expanded="true" signature="3228:3336" ph="..." />
+                <marker date="1511477823342" expanded="true" signature="3250:3327" ph="..." />
+                <marker date="1511477823342" expanded="true" signature="3483:3604" ph="..." />
+                <marker date="1511477823342" expanded="true" signature="3505:3582" ph="..." />
+              </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="serverOptionView.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/serverOptionView.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="68" column="82" lean-forward="false" selection-start-line="68" selection-start-column="82" selection-end-line="68" selection-end-column="82" />
-              <folding />
+        </entry>
+      </file>
+      <file leaf-file-name="serverView.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/serverView.fxml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="-695">
+              <caret line="12" column="183" lean-forward="true" selection-start-line="12" selection-start-column="161" selection-end-line="12" selection-end-column="183" />
+              <folding>
+                <marker date="1511471964903" expanded="true" signature="3151:3262" ph="..." />
+                <marker date="1511471964903" expanded="true" signature="3173:3250" ph="..." />
+                <marker date="1511471964903" expanded="true" signature="3407:3522" ph="..." />
+                <marker date="1511471964903" expanded="true" signature="3429:3506" ph="..." />
+                <marker date="1511471964903" expanded="true" signature="3640:4547" ph="..." />
+                <marker date="1511471964903" expanded="true" signature="3660:4534" ph="..." />
+                <marker date="1511471964903" expanded="true" signature="3745:4245" ph="..." />
+                <marker date="1511471964903" expanded="true" signature="3771:4219" ph="..." />
+                <marker date="1511471964903" expanded="true" signature="3935:4192" ph="..." />
+                <marker date="1511471964903" expanded="true" signature="3963:4057" ph="..." />
+                <marker date="1511471964903" expanded="true" signature="4093:4165" ph="..." />
+                <marker date="1511471964903" expanded="true" signature="4389:4513" ph="..." />
+                <marker date="1511471964903" expanded="true" signature="4411:4489" ph="..." />
+              </folding>
             </state>
+          </provider>
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+            <state />
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -160,14 +218,21 @@
         <option value="$PROJECT_DIR$/src/main/java/backEnd/mainViewController.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/main/Controller.java" />
-        <option value="$PROJECT_DIR$/src/main/java/backend/fxcontrollers/serverViewController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/css/mainView.css" />
-        <option value="$PROJECT_DIR$/src/main/resources/layouts/mainView.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/backend/fxcontrollers/mainViewController.java" />
         <option value="$PROJECT_DIR$/src/main/java/backend/fxcontrollers/serverOptionController.java" />
         <option value="$PROJECT_DIR$/src/main/java/main/Main.java" />
         <option value="$PROJECT_DIR$/src/main/resources/layouts/serverOptionView.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/css/serverView.css" />
+        <option value="$PROJECT_DIR$/src/main/java/backend/fxcontrollers/mainViewController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/backend/fxcontrollers/serverViewController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/layouts/serverView.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/css/clientView.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/layouts/mainView.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/backend/ServerObject.java" />
+        <option value="$PROJECT_DIR$/src/main/java/backend/DBLoad.java" />
+        <option value="$PROJECT_DIR$/src/main/java/backend/FXTableGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/layouts/ClientView.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/backend/fxcontrollers/ClientViewController.java" />
       </list>
     </option>
   </component>
@@ -210,10 +275,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -291,6 +354,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -311,12 +376,12 @@
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\macwi\Desktop\WebChat_GUI\src\main\java" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\macwi\Desktop\WebChat_GUI\src\main\resources\layouts" />
       <recent name="C:\Users\macwi\Desktop\WebChat_GUI\src\main\resources" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\macwi\Desktop\WebChat_GUI\src\main\java" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -694,14 +759,16 @@
       <workItem from="1511350239018" duration="8866000" />
       <workItem from="1511380960503" duration="9841000" />
       <workItem from="1511451856770" duration="7618000" />
+      <workItem from="1511466429065" duration="10932000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28335000" />
+    <option name="totallyTimeSpent" value="39267000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -711,65 +778,31 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16224815" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26511136" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19583334" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16224815" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19583334" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -804,90 +837,8 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/css/mainView.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/css/serverView.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="43" column="20" lean-forward="false" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/mainView.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="54" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="54" />
-          <folding>
-            <marker date="1511451830999" expanded="true" signature="2127:2850" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2127:2876" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2127:2901" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2127:2927" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2127:2948" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2127:2968" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2127:2983" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2242:2386" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2276:2377" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2673:2817" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2707:2808" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/serverOptionView.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="50" column="38" lean-forward="true" selection-start-line="50" selection-start-column="38" selection-end-line="50" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/backend/ChatServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <marker date="1511451830986" expanded="true" signature="1683:1739" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/frontend/SwitchGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/backend/fxcontrollers/serverViewController.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/backend/fxcontrollers/serverViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/backend/fxcontrollers/serverOptionController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1258">
           <caret line="106" column="29" lean-forward="true" selection-start-line="106" selection-start-column="29" selection-end-line="106" selection-end-column="29" />
@@ -900,7 +851,7 @@
         <state relative-caret-position="68">
           <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
           <folding>
-            <marker date="1511451830993" expanded="true" signature="2024:2123" ph="{...}" />
+            <marker date="1511467021620" expanded="true" signature="1988:2087" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -913,48 +864,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/serverView.fxml" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/serverView.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/serverOptionView.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="20" lean-forward="false" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-          <folding />
+          <folding>
+            <marker date="1511471964903" expanded="true" signature="3151:3262" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3173:3250" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3407:3522" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3429:3506" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3640:4547" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3660:4534" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3745:4245" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3771:4219" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3935:4192" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3963:4057" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="4093:4165" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="4389:4513" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="4411:4489" ph="..." />
+          </folding>
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/mainView.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
-            <marker date="1511451830999" expanded="true" signature="2127:2850" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2127:2876" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2127:2901" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2127:2927" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2127:2948" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2127:2968" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2127:2983" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2242:2386" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2276:2377" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2673:2817" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2707:2808" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1300:1313" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1300:1334" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1300:1354" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1300:2985" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1300:2993" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1433:2970" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1453:2950" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1515:2929" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1539:2903" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1650:2878" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1682:2852" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1791:1934" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1825:1926" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="2129:2852" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="2244:2388" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="2278:2379" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="2675:2819" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="2709:2810" ph="..." />
           </folding>
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/main/Main.java">
@@ -970,7 +933,7 @@
         <state relative-caret-position="68">
           <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding>
-            <marker date="1511451830986" expanded="true" signature="1683:1739" ph="{...}" />
+            <marker date="1511466626812" expanded="true" signature="1616:1672" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -982,15 +945,8 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/backend/fxcontrollers/serverViewController.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/backend/fxcontrollers/serverViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/backend/fxcontrollers/serverOptionController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
@@ -1003,53 +959,65 @@
         <state relative-caret-position="68">
           <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
           <folding>
-            <marker date="1511451830993" expanded="true" signature="2024:2123" ph="{...}" />
+            <marker date="1511467021620" expanded="true" signature="1988:2087" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/mainView.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1511451830999" expanded="true" signature="2127:2850" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2127:2876" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2127:2901" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2127:2927" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2127:2948" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2127:2968" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2127:2983" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2242:2386" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2276:2377" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2673:2817" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2707:2808" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1300:1313" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1300:1334" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1300:1354" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1300:2985" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1300:2993" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1433:2970" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1453:2950" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1515:2929" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1539:2903" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1650:2878" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1682:2852" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1791:1934" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1825:1926" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="2129:2852" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="2244:2388" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="2278:2379" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="2675:2819" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="2709:2810" ph="..." />
           </folding>
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/serverView.fxml" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/serverView.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/serverOptionView.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="20" lean-forward="false" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-          <folding />
+          <folding>
+            <marker date="1511471964903" expanded="true" signature="3151:3262" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3173:3250" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3407:3522" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3429:3506" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3640:4547" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3660:4534" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3745:4245" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3771:4219" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3935:4192" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3963:4057" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="4093:4165" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="4389:4513" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="4411:4489" ph="..." />
+          </folding>
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/main/Main.java">
@@ -1068,13 +1036,6 @@
         <state relative-caret-position="602">
           <caret line="50" column="12" lean-forward="false" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/backend/ServerObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1100,13 +1061,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/backend/ClientsDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/backend/ServersDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1149,16 +1103,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/main/Controller.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/backend/ChatServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding>
-            <marker date="1511451830986" expanded="true" signature="1683:1739" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/frontend/WindowCore.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1166,97 +1110,219 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/backend/fxcontrollers/mainViewController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/backend/fxcontrollers/serverViewController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/serverView.fxml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/backend/ChatServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="49" column="12" lean-forward="false" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="12" />
+        <state relative-caret-position="374">
+          <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
           <folding>
-            <marker date="1511451830993" expanded="true" signature="2024:2123" ph="{...}" />
+            <marker date="1511466626812" expanded="true" signature="1616:1672" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/backend/fxcontrollers/serverViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="657">
+          <caret line="104" column="9" lean-forward="false" selection-start-line="104" selection-start-column="9" selection-end-line="104" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/serverView.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/mConnectionView.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-        </state>
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/mainView.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="54" lean-forward="false" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
-          <folding>
-            <marker date="1511451830999" expanded="true" signature="2127:2850" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2127:2876" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2127:2901" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2127:2927" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2127:2948" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2127:2968" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2127:2983" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2242:2386" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2276:2377" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2673:2817" ph="..." />
-            <marker date="1511451830999" expanded="true" signature="2707:2808" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/backend/fxcontrollers/serverOptionController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/chatView.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-431">
-          <caret line="32" column="35" lean-forward="true" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/serverOptionView.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="68" column="82" lean-forward="false" selection-start-line="68" selection-start-column="82" selection-end-line="68" selection-end-column="82" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/css/mainView.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="136">
+          <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/css/serverView.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="53" column="1" lean-forward="true" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
+        <state relative-caret-position="147">
+          <caret line="9" column="26" lean-forward="false" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="34" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/javafx-src.zip!/javafx/concurrent/Service.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="901" column="31" lean-forward="false" selection-start-line="901" selection-start-column="31" selection-end-line="901" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/mainView.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="18" lean-forward="true" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+          <folding>
+            <marker date="1511475039851" expanded="true" signature="1300:1313" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1300:1334" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1300:1354" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1300:2985" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1300:2993" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1433:2970" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1453:2950" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1515:2929" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1539:2903" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1650:2878" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1682:2852" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1791:1934" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="1825:1926" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="2129:2852" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="2244:2388" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="2278:2379" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="2675:2819" ph="..." />
+            <marker date="1511475039851" expanded="true" signature="2709:2810" ph="..." />
+          </folding>
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/serverView.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="-695">
+          <caret line="12" column="183" lean-forward="true" selection-start-line="12" selection-start-column="161" selection-end-line="12" selection-end-column="183" />
+          <folding>
+            <marker date="1511471964903" expanded="true" signature="3151:3262" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3173:3250" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3407:3522" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3429:3506" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3640:4547" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3660:4534" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3745:4245" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3771:4219" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3935:4192" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="3963:4057" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="4093:4165" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="4389:4513" ph="..." />
+            <marker date="1511471964903" expanded="true" signature="4411:4489" ph="..." />
+          </folding>
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/backend/ServersDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding>
+            <marker date="1511295890167" expanded="true" signature="436:457" ph="SELECT * FRO... servers" />
+            <marker date="1511295890167" expanded="true" signature="1251:1422" ph="INSERT INTO servers... " />
+            <marker date="1511295890167" expanded="true" signature="1509:1583" ph="SELECT ip FR... servers" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/backend/ServerObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="35" column="37" lean-forward="true" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/backend/fxcontrollers/mainViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="90" column="32" lean-forward="true" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="32" />
+          <folding>
+            <marker date="1511467021620" expanded="true" signature="1988:2087" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/css/clientView.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="67" column="1" lean-forward="true" selection-start-line="67" selection-start-column="1" selection-end-line="67" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/ClientView.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="41" column="72" lean-forward="false" selection-start-line="41" selection-start-column="72" selection-end-line="41" selection-end-column="72" />
+          <folding>
+            <marker date="1511477823342" expanded="true" signature="2184:2550" ph="..." />
+            <marker date="1511477823342" expanded="true" signature="2210:2530" ph="..." />
+            <marker date="1511477823342" expanded="true" signature="2666:3638" ph="..." />
+            <marker date="1511477823342" expanded="true" signature="2686:3625" ph="..." />
+            <marker date="1511477823342" expanded="true" signature="2833:3048" ph="..." />
+            <marker date="1511477823342" expanded="true" signature="2855:2937" ph="..." />
+            <marker date="1511477823342" expanded="true" signature="2967:3027" ph="..." />
+            <marker date="1511477823342" expanded="true" signature="3228:3336" ph="..." />
+            <marker date="1511477823342" expanded="true" signature="3250:3327" ph="..." />
+            <marker date="1511477823342" expanded="true" signature="3483:3604" ph="..." />
+            <marker date="1511477823342" expanded="true" signature="3505:3582" ph="..." />
+          </folding>
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/backend/FXTableGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-222">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#452#453#0" expanded="true" />
+            <element signature="e#498#499#0" expanded="true" />
+            <element signature="e#575#886#0" expanded="true" />
+            <element signature="e#885#886#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/backend/fxcontrollers/ClientViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="98" column="33" lean-forward="false" selection-start-line="98" selection-start-column="33" selection-end-line="98" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3735#3736#0" expanded="true" />
+            <element signature="e#3811#3812#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
