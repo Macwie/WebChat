@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -13,39 +14,51 @@
   <children>
     <AnchorPane prefHeight="565.0" prefWidth="350.0" styleClass="leftPart">
          <children>
-            <Button fx:id="StartButton" layoutX="132.0" layoutY="381.0" mnemonicParsing="false" onAction="#startServer" text="Start server">
+            <AnchorPane prefHeight="50.0" prefWidth="350.0" styleClass="topSettings">
+                <children>
+                    <Label layoutX="30.0" opacity="0.95" prefHeight="50.0" prefWidth="337.0" styleClass="topLabelSettings" text="    Server settings" textFill="WHITE">
+                        <font>
+                            <Font name="Calibri Bold" size="20.0" />
+                        </font>
+                        <opaqueInsets>
+                            <Insets />
+                        </opaqueInsets>
+                    </Label>
+                </children>
+            </AnchorPane>
+            <Button fx:id="StartButton" layoutX="139.0" layoutY="425.0" mnemonicParsing="false" onAction="#startServer" text="Start server">
                <font>
                   <Font name="Calibri" size="14.0" />
                </font></Button>
-            <Label fx:id="ipLabel" layoutX="31.0" layoutY="33.0" text="IP:" textFill="#99aab5">
+            <Label fx:id="ipLabel" layoutX="38.0" layoutY="77.0" text="IP:" textFill="#99aab5">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font></Label>
-            <Label fx:id="serverNameLabel" layoutX="32.0" layoutY="112.0" text="Name:" textFill="#99aab5">
+            <Label fx:id="serverNameLabel" layoutX="39.0" layoutY="156.0" text="Name:" textFill="#99aab5">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font></Label>
-            <Label fx:id="portLabel" layoutX="32.0" layoutY="283.0" text="Port:" textFill="#99aab5">
+            <Label fx:id="portLabel" layoutX="39.0" layoutY="327.0" text="Port:" textFill="#99aab5">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font></Label>
-            <Label fx:id="passwordLabel" layoutX="33.0" layoutY="194.0" text="Password:" textFill="#99aab5">
+            <Label fx:id="passwordLabel" layoutX="40.0" layoutY="238.0" text="Password:" textFill="#99aab5">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font></Label>
-            <TextField fx:id="ipTextField" layoutX="31.0" layoutY="65.0" prefHeight="39.0" prefWidth="290.0" styleClass="inputs">
+            <TextField fx:id="ipTextField" layoutX="38.0" layoutY="109.0" prefHeight="39.0" prefWidth="290.0" styleClass="inputs">
                <font>
                   <Font name="Calibri" size="16.0" />
                </font></TextField>
-            <TextField fx:id="serverNameTextField" layoutX="32.0" layoutY="144.0" prefHeight="39.0" prefWidth="290.0" styleClass="inputs">
+            <TextField fx:id="serverNameTextField" layoutX="39.0" layoutY="188.0" prefHeight="39.0" prefWidth="290.0" styleClass="inputs">
                <font>
                   <Font size="16.0" />
                </font></TextField>
-            <TextField fx:id="portTextField" layoutX="31.0" layoutY="315.0" prefHeight="39.0" prefWidth="290.0" styleClass="inputs">
+            <TextField fx:id="portTextField" layoutX="38.0" layoutY="359.0" prefHeight="39.0" prefWidth="290.0" styleClass="inputs">
                <font>
                   <Font size="16.0" />
                </font></TextField>
-            <PasswordField fx:id="passwordPasswordField" layoutX="33.0" layoutY="228.0" prefHeight="39.0" prefWidth="290.0" styleClass="inputs">
+            <PasswordField fx:id="passwordPasswordField" layoutX="40.0" layoutY="272.0" prefHeight="39.0" prefWidth="290.0" styleClass="inputs">
                <font>
                   <Font size="16.0" />
                </font></PasswordField>
@@ -53,14 +66,23 @@
     </AnchorPane>
       <AnchorPane prefHeight="565.0" prefWidth="550.0" styleClass="rightPart">
          <children>
-            <Label prefHeight="27.0" prefWidth="550.0" text="Server console" textFill="#99aab5" styleClass="label">
-               <font>
-                  <Font name="Calibri" size="18.0" />
-               </font></Label>
-            <TextArea editable="false" layoutY="30.0" prefHeight="535.0" prefWidth="550.0" text="test" wrapText="true">
+            <AnchorPane prefHeight="50.0" prefWidth="550.0" styleClass="topConsole">
+               <children>
+                  <Label layoutX="17.0" opacity="0.95" prefHeight="50.0" prefWidth="533.0" styleClass="topLabelConsole" text="    Server console" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="20.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <TextArea fx:id="serverLogArea" editable="false" layoutX="9.0" layoutY="60.0" prefHeight="496.0" prefWidth="521.0" wrapText="true">
                <font>
                   <Font name="Consolas" size="16.0" />
-               </font></TextArea>
+               </font>
+            </TextArea>
          </children></AnchorPane>
   </children>
 </HBox>

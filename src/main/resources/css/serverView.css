@@ -7,10 +7,12 @@
 }
 
 .text-area {
-    text-area-background: #36393F;
-    -fx-background-color: #36393F;
+    text-area-background: #292b2f;
+    -fx-background-color: #292b2f;
     -fx-background-radius: 0;
     -fx-text-fill: white;
+    -fx-border-color: #202225;
+    -fx-border-radius: 1%;
 }
 
 .text-area .content {
@@ -40,6 +42,28 @@
     -fx-background-color: #7289da;
 }
 
-.label {
-    -fx-padding: 5%;
+.topLabelConsole {
+    -fx-background-image: url("/drawable/command.png");
+    -fx-background-size: 18px 16px;
+}
+
+.topLabelConsole, .topLabelSettings {
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: left;
+    -fx-padding: 10px;
+}
+
+.topLabelSettings {
+    -fx-background-image: url("/drawable/gear.png");
+    -fx-background-size: 16px 16px;
+}
+
+.topSettings {
+    -fx-border-width: 0px 0px 2px 0px;
+    -fx-border-color: #292b2e;
+}
+
+.topConsole {
+    -fx-border-width: 0px 0px 2px 0px;
+    -fx-border-color: linear-gradient(#292b2e, #33363a);
 }

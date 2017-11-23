@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.fxcontrollers.ClientViewController">
+   <children>
+      <Button fx:id="connectManuallyButton" layoutX="103.0" layoutY="302.0" mnemonicParsing="false" onAction="#startMConnection" text="recznie" />
+      <Button fx:id="switchonlineButton" layoutX="347.0" layoutY="302.0" mnemonicParsing="false" text="pokaz online" />
+      <TableView fx:id="ServerTable" layoutX="120.0" layoutY="34.0" prefHeight="200.0" prefWidth="471.0">
+         <columns>
+            <TableColumn fx:id="nameColumn" prefWidth="75.0" text="name" />
+            <TableColumn fx:id="ipColumn" prefWidth="75.0" text="ip" />
+            <TableColumn fx:id="portColumn" prefWidth="75.0" text="port" />
+            <TableColumn fx:id="usersColumn" prefWidth="75.0" text="uzytkownicy" />
+            <TableColumn fx:id="protectedColumn" prefWidth="75.0" text="zabezpieczony" />
+            <TableColumn fx:id="statusColumn" prefWidth="75.0" text="status" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

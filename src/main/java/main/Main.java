@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
@@ -18,6 +19,7 @@ public class Main extends Application {
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/mainView.fxml"));
     	Parent root = (Parent) loader.load();
 		Controllers.mainViewController = loader.getController();
+		//primaryStage.initStyle(StageStyle.UTILITY);
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 900, 565));
         primaryStage.show();
