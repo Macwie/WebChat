@@ -16,6 +16,8 @@ public class ServerObject {
 	protected int current;
 	protected String password;
 	protected boolean s_public;
+	protected String online;
+	protected String protect;
 
 	public ServerObject(int id, String name, String ip, String port, int current, String password, boolean s_public) {
 		this.id = id;
@@ -110,4 +112,21 @@ public class ServerObject {
 	public void setS_public(boolean s_public) {
 		this.s_public = s_public;
 	}
+
+	public String getOnline() {
+		return online;
+	}
+
+	public void setOnline(String online) {
+		this.online = online;
+	}
+
+	public String getProtect() {
+		return protect;
+	}
+
+	public void setProtect(String protect) {
+		this.protect = protect;
+	}
+	
 }

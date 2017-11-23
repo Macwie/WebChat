@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="900.0" styleClass="view" stylesheets="@../css/mainView.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.fxcontrollers.mainViewController">
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="900.0" styleClass="view" stylesheets="@../css/mainView.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.fxcontrollers.mainViewController">
    <children>
       <AnchorPane prefHeight="565.0" prefWidth="450.0" styleClass="leftPart">
          <children>
@@ -36,7 +36,7 @@
                               <Font name="Calibri" size="20.0" />
                            </font></Label>
                         <Separator opacity="0.0" prefHeight="20.0" prefWidth="200.0" />
-                         <Button fx:id="startClientButton" mnemonicParsing="false" opacity="0.0" prefHeight="110.0" prefWidth="400.0" styleClass="clientButton" text="Client" textAlignment="CENTER">
+                         <Button fx:id="startClientButton" mnemonicParsing="false" onAction="#startClient" opacity="0.0" prefHeight="110.0" prefWidth="400.0" styleClass="clientButton" text="Client" textAlignment="CENTER">
                            <font>
                               <Font name="Calibri" size="24.0" />
                            </font></Button>

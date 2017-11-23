@@ -56,6 +56,28 @@ public class mainViewController implements Initializable{
             window.setScene(scene);
             window.setTitle("Server Settings");
             window.show();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    
+    
+    
+    @FXML
+    private void startClient(ActionEvent event) {
+   	 Parent root;
+        try {
+        	
+        	
+        	FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/ClientView.fxml"));
+        	root = (Parent) loader.load();
+			Controllers.clientViewController = loader.getController();
+       	 Scene scene = new Scene(root);
+       	 	window = Main.window;
+            window.setScene(scene);
+            window.setTitle("Client");
             window.show();
         }
         catch (IOException e) {

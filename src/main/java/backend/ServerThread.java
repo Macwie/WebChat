@@ -44,7 +44,7 @@ public class ServerThread implements Runnable {
 			while (!socket.isClosed()) {
 				if (serverInStream.available() > 0) {
 					if (serverIn.hasNextLine()) {
-						ChatGUI.addMessage(serverIn.nextLine());
+						Controllers.chatViewController.addMessage(serverIn.nextLine());
 					}
 				}
 				if (hasMessages) {

@@ -1,5 +1,6 @@
 package main;
 
+import backend.Controllers;
 import frontend.SwitchGUI;
 import frontend.WindowCore;
 import javafx.application.Application;
@@ -14,7 +15,9 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
     	window = primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("/layouts/mainView.fxml"));
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/mainView.fxml"));
+    	Parent root = (Parent) loader.load();
+		Controllers.mainViewController = loader.getController();
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 900, 565));
         primaryStage.show();
