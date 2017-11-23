@@ -25,9 +25,8 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class ClientViewController implements Initializable{
-	//private ServersDAO db;
-	private ArrayList<ServerObject> list;
-	Stage window ;
+
+	private Stage window ;
 
 	    @FXML
         private Pane progress;
@@ -58,77 +57,70 @@ public class ClientViewController implements Initializable{
 	    
 	    @FXML
 	    private TableColumn<?, ?> nameColumn;
-    
-    
-    public ArrayList<ServerObject> getList() {
-			return list;
-		}
-    
-    
-    
-    
-    @FXML
-    private void startMConnection(ActionEvent event) {
-   	 Parent root;
-        try {
-        	
-        	window = new Stage();
-        	FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/mConnectionView.fxml"));
-        	root = (Parent) loader.load();
-			Controllers.mConnectionViewController = loader.getController();
-       	 	Scene scene = new Scene(root);
-       	 	window.initModality(Modality.APPLICATION_MODAL);
-            window.setScene(scene);
-            window.setTitle("Server Settings");
-            window.show();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    
-    
-    public void close() {
-    	window.close();
-    }
-    
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
 
-        progress.setTranslateY(200.0);
-        progress.setTranslateX(400.0);
+    
+        @FXML
+        private void startMConnection(ActionEvent event) {
+         Parent root;
+            try {
 
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        ipColumn.setCellValueFactory(new PropertyValueFactory<>("ip"));
-        portColumn.setCellValueFactory(new PropertyValueFactory<>("port"));
-        usersColumn.setCellValueFactory(new PropertyValueFactory<>("current"));
-        protectedColumn.setCellValueFactory(new PropertyValueFactory<>("protect"));
-        statusColumn.setCellValueFactory(new PropertyValueFactory<>("online"));
-
-        final FXTableGenerator gen = new FXTableGenerator(ServerTable);
-
-        //Here you tell your progress indicator is visible only when the service is runing
-        progress.visibleProperty().bind(gen.runningProperty());
-        gen.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
-            @Override
-            public void handle(WorkerStateEvent workerStateEvent) {
-                ServerTable = gen.getValue();   //here you get the return value of your service
-                FadeTransition fadeIn = new FadeTransition(Duration.seconds(1.0), ServerTable);
-                fadeIn.setFromValue(0.0);
-                fadeIn.setToValue(0.95);
-                fadeIn.play();
+                window = new Stage();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/mConnectionView.fxml"));
+                root = (Parent) loader.load();
+                Controllers.mConnectionViewController = loader.getController();
+                Scene scene = new Scene(root);
+                window.initModality(Modality.APPLICATION_MODAL);
+                window.setScene(scene);
+                window.setTitle("Server Settings");
+                window.show();
             }
-        });
-
-        gen.setOnFailed(new EventHandler<WorkerStateEvent>() {
-            @Override
-            public void handle(WorkerStateEvent workerStateEvent) {
-                System.out.println("FAILED TO LOAD DB DATA");
+            catch (IOException e) {
+                e.printStackTrace();
             }
-        });
-        gen.restart(); //here you start your service
+        }
 
-	}
+
+        public void close() {
+            window.close();
+        }
+
+        @Override
+        public void initialize(URL location, ResourceBundle resources) {
+
+            progress.setTranslateY(200.0);
+            progress.setTranslateX(400.0);
+
+            nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+            ipColumn.setCellValueFactory(new PropertyValueFactory<>("ip"));
+            portColumn.setCellValueFactory(new PropertyValueFactory<>("port"));
+            usersColumn.setCellValueFactory(new PropertyValueFactory<>("current"));
+            protectedColumn.setCellValueFactory(new PropertyValueFactory<>("protect"));
+            statusColumn.setCellValueFactory(new PropertyValueFactory<>("online"));
+
+            final FXTableGenerator gen = new FXTableGenerator(ServerTable);
+
+
+            progress.visibleProperty().bind(gen.runningProperty());
+            gen.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
+                @Override
+                public void handle(WorkerStateEvent workerStateEvent) {
+                    ServerTable = gen.getValue();
+                    FadeTransition fadeIn = new FadeTransition(Duration.seconds(1.0), ServerTable);
+                    fadeIn.setFromValue(0.0);
+                    fadeIn.setToValue(0.95);
+                    fadeIn.play();
+                }
+            });
+
+            gen.setOnFailed(new EventHandler<WorkerStateEvent>() {
+                @Override
+                public void handle(WorkerStateEvent workerStateEvent) {
+                    System.out.println("FAILED TO LOAD DB DATA");
+                }
+            });
+            gen.restart();
+
+        }
     
     
 
