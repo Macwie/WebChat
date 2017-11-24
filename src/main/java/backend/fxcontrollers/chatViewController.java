@@ -10,6 +10,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class chatViewController implements Initializable{
+	public boolean ready = false;
 	
 	String message;
 
@@ -30,7 +31,23 @@ public class chatViewController implements Initializable{
 		// TODO Auto-generated method stub
 		
 	}
-	public void addMessage(String message) {
-		chatTextArea.setText("\n" + message);
+	
+	public String getInput() {
+		return messageTextField.getText();
+	}
+	public void clearInput() {
+		messageTextField.setText("");
+	}
+	public void send() {
+		ready = true;
+	}
+	public void addMessage(String log) {
+		chatTextArea.setText(chatTextArea.getText() +"\n" + log);
+	}
+	public void addUsers(String user) {
+		activeUsersTextArea.setText(activeUsersTextArea.getText() +"\n" + user);
+	}
+	public void clearUsers() {
+		activeUsersTextArea.setText("");
 	}
 }

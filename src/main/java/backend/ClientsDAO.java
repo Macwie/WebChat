@@ -83,11 +83,13 @@ public class ClientsDAO implements Runnable, DataBase {
 			connection = DriverManager.getConnection(DBURL, DBUSER, DBPASS);
 			statement = connection.createStatement();
 			ResultSet r = statement.executeQuery(query);
-			ChatGUI.usersBox.setText("");
+			//ChatGUI.usersBox.setText("");
+			Controllers.chatViewController.clearUsers();
 			if (r != null) {
 				try {
 					while (r.next()) {
-						ChatGUI.usersBox.addLine(" > " + r.getString("name"));
+						//ChatGUI.usersBox.addLine(" > " + r.getString("name"));
+						 Controllers.chatViewController.addUsers(" > " + r.getString("name"));
 					}
 				} catch (SQLException e) {
 					e.printStackTrace();

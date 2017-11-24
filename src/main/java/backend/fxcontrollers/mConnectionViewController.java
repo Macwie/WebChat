@@ -60,14 +60,14 @@ public class mConnectionViewController implements Initializable {
     	password = passwordPasswordField.getText();
 		IP = ipTextField.getText();
 		port = portTextLabel.getText();
-		password = passwordPasswordField.getText();
+		nick = nickTextField.getText();
     	
    	 Parent root;
         try {
         	FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/chatView.fxml"));
         	root = (Parent) loader.load();
 			Controllers.chatViewController = loader.getController();
-       	 Scene scene = new Scene(root);
+       	    Scene scene = new Scene(root);
        	 	Stage window = Main.window;
             window.setScene(scene);
             window.setTitle("Server Settings");

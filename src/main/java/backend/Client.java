@@ -43,10 +43,11 @@ public class Client implements Runnable{
             Thread serverAccessThread = new Thread(serverThread);
             serverAccessThread.start();
             while(serverAccessThread.isAlive() && running){
-                if(ChatGUI.ready){
-                    serverThread.addNextMessage(ChatGUI.textInput.getText());
-                    ChatGUI.ready = false;
-                    ChatGUI.textInput.setText("");
+                if(Controllers.chatViewController.ready){
+                    serverThread.addNextMessage(Controllers.chatViewController.getInput());//gettext
+                    Controllers.chatViewController.ready = false;
+                    //ChatGUI.textInput.setText("");
+                    Controllers.chatViewController.clearInput();
                 }
                 else {
                    Thread.sleep(200);
