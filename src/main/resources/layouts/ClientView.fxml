@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="900.0" styleClass="view" stylesheets="@../css/clientView.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.fxcontrollers.ClientViewController">
+<VBox fx:id="client_stage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="900.0" styleClass="view" stylesheets="@../css/clientView.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.fxcontrollers.ClientViewController">
    <children>
       <AnchorPane prefHeight="50.0" prefWidth="900.0" styleClass="top">
          <children>

@@ -6,17 +6,22 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import backend.*;
+import javafx.animation.FadeTransition;
+import javafx.animation.ScaleTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import main.Main;
 
 public class mConnectionViewController implements Initializable {
@@ -27,26 +32,21 @@ public class mConnectionViewController implements Initializable {
 	static String nick;
 	static String password;
 	private ArrayList<ServerObject> list;
+
+	@FXML
+    private AnchorPane pane;
+
     @FXML
-    private Button openChatButton;
+    private Button connectButton;
+
+    @FXML
+    private Button cancelButton;
 
     @FXML
     private TextField ipTextField;
 
     @FXML
-    private TextField portTextLabel;
-
-    @FXML
-    private Label ipLabel;
-
-    @FXML
-    private Label portLabel;
-
-    @FXML
-    private Label passwordLabel;
-
-    @FXML
-    private Label nickLabel;
+    private TextField portTextField;
 
     @FXML
     private PasswordField passwordPasswordField;
@@ -59,10 +59,10 @@ public class mConnectionViewController implements Initializable {
     	
     	password = passwordPasswordField.getText();
 		IP = ipTextField.getText();
-		port = portTextLabel.getText();
+		port = portTextField.getText();
 		nick = nickTextField.getText();
     	
-   	 Parent root;
+   	    Parent root;
         try {
         	FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/chatView.fxml"));
         	root = (Parent) loader.load();
@@ -97,10 +97,35 @@ public class mConnectionViewController implements Initializable {
         }
     }
 
+    @FXML
+    private void cancelCustomConnection (ActionEvent event) {
+        // get a handle to the stage
+        Stage stage = (Stage) cancelButton.getScene().getWindow();
+        ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(0.4), pane);
+        scaleTransition.setFromX(1.0);
+        scaleTransition.setFromY(1.0);
+        scaleTransition.setToY(0.0);
+        scaleTransition.setToX(0.0);
+        scaleTransition.setByX(1.0);
+        scaleTransition.setByY(1.0);
+        scaleTransition.play();
+        scaleTransition.setOnFinished(event1 -> {
+                ClientViewController.getClient_stage().setEffect(null);
+                stage.close();
+        });
+    }
+
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		list = FXTableGenerator.getList();
+
+        ScaleTransition test = new ScaleTransition(Duration.seconds(0.4), pane);
+        test.setFromX(0);
+        test.setFromY(0);
+        test.setByX(1.0);
+        test.setByY(1.0);
+        test.play();
 		
 	}
 	
