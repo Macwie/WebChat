@@ -89,7 +89,7 @@ public class ClientsDAO implements Runnable, DataBase {
 				try {
 					while (r.next()) {
 						//ChatGUI.usersBox.addLine(" > " + r.getString("name"));
-						 Controllers.chatViewController.addUsers(" > " + r.getString("name"));
+						 Controllers.chatViewController.addUsers(r.getString("name"));
 					}
 				} catch (SQLException e) {
 					e.printStackTrace();

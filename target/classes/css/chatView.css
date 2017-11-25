@@ -1,0 +1,89 @@
+.leftPart {
+    -fx-background-color: #36393F;
+}
+
+.rightPart {
+    -fx-background-color: #2F3136;
+}
+
+.topLabelRight {
+    -fx-background-image: url("/drawable/user.png");
+    -fx-background-size: 18px 18px;
+}
+
+.topLabelLeft, .topLabelRight {
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: left;
+    -fx-padding: 10px;
+}
+
+.topLabelLeft {
+    -fx-background-image: url("/drawable/chat.png");
+    -fx-background-size: 18px 18px;
+}
+
+.topLeft {
+    -fx-border-width: 0px 0px 2px 0px;
+    -fx-border-color: linear-gradient(#292b2e, #33363a);
+}
+
+.topRight {
+    -fx-border-width: 0px 0px 2px 0px;
+    -fx-border-color: #292b2e;
+}
+
+.text-area {
+    text-area-background: #36393F;
+    -fx-background-color: #36393F;
+    -fx-background-radius: 0;
+    -fx-text-fill: white;
+}
+
+.text-area .content{
+    -fx-background-color: text-area-background ;
+    -fx-background-radius: 0;
+}
+
+.text-area:focused .content{
+    -fx-background-color: text-area-background ;
+    -fx-background-radius: 0;
+}
+
+.activeUsersTextArea {
+    text-area-background: #2F3136;
+    -fx-background-color: #2F3136;
+    -fx-background-radius: 0;
+    -fx-text-fill: white;
+}
+
+.activeUsersTextArea .content{
+    -fx-background-color: text-area-background ;
+    -fx-background-radius: 0;
+}
+
+.activeUsersTextArea:focused .content{
+    -fx-background-color: text-area-background ;
+    -fx-background-radius: 0;
+}
+
+.text-field {
+    text-field-background: #484b51;
+    -fx-background-color: #484b51;
+    -fx-background-radius: 7;
+    -fx-text-fill: white;
+}
+
+.text-field .content{
+    -fx-background-color: text-field-background ;
+    -fx-background-radius: 7;
+}
+
+.text-field:focused .content{
+    -fx-background-color: text-field-background ;
+    -fx-background-radius: 7;
+}
+
+.button {
+    -fx-text-fill: white;
+    -fx-background-color: #7289da;
+}

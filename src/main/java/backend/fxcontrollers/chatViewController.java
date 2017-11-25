@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -13,6 +14,9 @@ public class chatViewController implements Initializable{
 	public boolean ready = false;
 	
 	String message;
+
+	@FXML
+	private Label server_name;
 
     @FXML
     private Button sendButton;
@@ -28,7 +32,11 @@ public class chatViewController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+
+        if(mConnectionViewController.IP != null)
+            server_name.setText("IP: "+mConnectionViewController.IP);
+        else
+            server_name.setText("IP: z listy TODO");
 		
 	}
 	

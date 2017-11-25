@@ -54,7 +54,7 @@ public class ServerThread implements Runnable {
 						hasMessages = !messagesToSend.isEmpty();
 					}
 					System.out.println("ServerThread: " + userName + " > " + nextSend);
-					serverOut.println(userName + " > " + nextSend);
+					serverOut.println(userName + ": " + nextSend);
 					serverOut.flush();
 				}
 			}
