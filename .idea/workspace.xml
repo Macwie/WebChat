@@ -107,8 +107,8 @@
       <file leaf-file-name="mConnectionViewController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/backend/fxcontrollers/mConnectionViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="83" column="18" lean-forward="true" selection-start-line="83" selection-start-column="18" selection-end-line="83" selection-end-column="18" />
+            <state relative-caret-position="238">
+              <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -124,11 +124,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chatViewController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="serverView.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/css/serverView.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="chatViewController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/backend/fxcontrollers/chatViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="36" column="33" lean-forward="false" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
+            <state relative-caret-position="459">
+              <caret line="75" column="20" lean-forward="true" selection-start-line="75" selection-start-column="20" selection-end-line="75" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -137,23 +147,29 @@
       <file leaf-file-name="chatView.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/css/chatView.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="66" column="1" lean-forward="true" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
+            <state relative-caret-position="529">
+              <caret line="117" column="0" lean-forward="true" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chatView.fxml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="chatView.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/chatView.fxml">
           <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
           <provider editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="65" column="33" lean-forward="true" selection-start-line="65" selection-start-column="33" selection-end-line="65" selection-end-column="33" />
+            <state relative-caret-position="415">
+              <caret line="67" column="31" lean-forward="true" selection-start-line="67" selection-start-column="31" selection-end-line="67" selection-end-column="31" />
               <folding>
-                <marker date="1511634969387" expanded="true" signature="3657:3767" ph="..." />
+                <marker date="1511637960925" expanded="true" signature="3705:4130" ph="..." />
+                <marker date="1511637960925" expanded="true" signature="3729:4104" ph="..." />
+                <marker date="1511637960925" expanded="true" signature="3795:4079" ph="..." />
+                <marker date="1511637960925" expanded="true" signature="3827:4047" ph="..." />
+                <marker date="1511637960925" expanded="true" signature="3987:4014" ph="..." />
+                <marker date="1511637960925" expanded="true" signature="4364:4505" ph="..." />
+                <marker date="1511637960925" expanded="true" signature="4391:4479" ph="..." />
               </folding>
             </state>
           </provider>
@@ -172,19 +188,19 @@
       <file leaf-file-name="ClientsDAO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/backend/ClientsDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="93" column="42" lean-forward="true" selection-start-line="93" selection-start-column="42" selection-end-line="93" selection-end-column="42" />
+            <state relative-caret-position="510">
+              <caret line="96" column="93" lean-forward="false" selection-start-line="96" selection-start-column="93" selection-end-line="96" selection-end-column="93" />
               <folding>
-                <marker date="1511634588906" expanded="true" signature="519:567" ph="INSERT INTO users... " />
-                <marker date="1511634588906" expanded="true" signature="618:666" ph="SELECT id FR... users" />
-                <marker date="1511634588906" expanded="true" signature="834:882" ph="SELECT id FR... users" />
-                <marker date="1511634588906" expanded="true" signature="1157:1228" ph="INSERT INTO srvUsr... " />
-                <marker date="1511634588906" expanded="true" signature="1686:1734" ph="SELECT id FR... users" />
-                <marker date="1511634588906" expanded="true" signature="1998:2077" ph="DELETE FROM " />
-                <marker date="1511634588906" expanded="true" signature="2302:2392" ph="SELECT name users" />
-                <marker date="1511634588906" expanded="true" signature="2338:2377" ph="SELECT usrId... srvUsr" />
-                <marker date="1511634588906" expanded="true" signature="3273:3324" ph="UPDATE serve... " />
-                <marker date="1511634588906" expanded="true" signature="3361:3412" ph="UPDATE serve... " />
+                <marker date="1511639770872" expanded="true" signature="598:646" ph="INSERT INTO users... " />
+                <marker date="1511639770872" expanded="true" signature="697:745" ph="SELECT id FR... users" />
+                <marker date="1511639770872" expanded="true" signature="913:961" ph="SELECT id FR... users" />
+                <marker date="1511639770872" expanded="true" signature="1236:1307" ph="INSERT INTO srvUsr... " />
+                <marker date="1511639770872" expanded="true" signature="1765:1813" ph="SELECT id FR... users" />
+                <marker date="1511639770872" expanded="true" signature="2077:2156" ph="DELETE FROM " />
+                <marker date="1511639770872" expanded="true" signature="2381:2471" ph="SELECT name users" />
+                <marker date="1511639770872" expanded="true" signature="2417:2456" ph="SELECT usrId... srvUsr" />
+                <marker date="1511639770872" expanded="true" signature="3566:3617" ph="UPDATE serve... " />
+                <marker date="1511639770872" expanded="true" signature="3654:3705" ph="UPDATE serve... " />
               </folding>
             </state>
           </provider>
@@ -202,6 +218,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>radiu</find>
+      <find>text</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -244,11 +261,11 @@
         <option value="$PROJECT_DIR$/src/main/java/backend/fxcontrollers/ClientViewController.java" />
         <option value="$PROJECT_DIR$/src/main/java/backend/fxcontrollers/mConnectionViewController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/layouts/mConnectionView.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/backend/fxcontrollers/chatViewController.java" />
         <option value="$PROJECT_DIR$/src/main/java/backend/ServerThread.java" />
-        <option value="$PROJECT_DIR$/src/main/java/backend/ClientsDAO.java" />
         <option value="$PROJECT_DIR$/src/main/resources/css/chatView.css" />
         <option value="$PROJECT_DIR$/src/main/resources/layouts/chatView.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/backend/ClientsDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/backend/fxcontrollers/chatViewController.java" />
       </list>
     </option>
   </component>
@@ -786,12 +803,12 @@
       <workItem from="1511451856770" duration="7618000" />
       <workItem from="1511466429065" duration="11510000" />
       <workItem from="1511526087986" duration="2075000" />
-      <workItem from="1511616147540" duration="17379000" />
+      <workItem from="1511616147540" duration="22114000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59299000" />
+    <option name="totallyTimeSpent" value="64034000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -857,7 +874,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1095,14 +1112,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/css/serverView.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="68" column="1" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="68" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/85f39108-7c19-4d57-9c35-c5958bb5898e/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1182,22 +1191,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/backend/fxcontrollers/serverViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="91" column="0" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/backend/fxcontrollers/mConnectionViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="83" column="18" lean-forward="true" selection-start-line="83" selection-start-column="18" selection-end-line="83" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/backend/ServersDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-100">
@@ -1210,10 +1203,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/backend/fxcontrollers/chatViewController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/css/serverView.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="36" column="33" lean-forward="false" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
+        <state relative-caret-position="153">
+          <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/chatView.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="67" column="31" lean-forward="true" selection-start-line="67" selection-start-column="31" selection-end-line="67" selection-end-column="31" />
+          <folding>
+            <marker date="1511637960925" expanded="true" signature="3705:4130" ph="..." />
+            <marker date="1511637960925" expanded="true" signature="3729:4104" ph="..." />
+            <marker date="1511637960925" expanded="true" signature="3795:4079" ph="..." />
+            <marker date="1511637960925" expanded="true" signature="3827:4047" ph="..." />
+            <marker date="1511637960925" expanded="true" signature="3987:4014" ph="..." />
+            <marker date="1511637960925" expanded="true" signature="4364:4505" ph="..." />
+            <marker date="1511637960925" expanded="true" signature="4391:4479" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/css/chatView.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="117" column="0" lean-forward="true" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/backend/fxcontrollers/mConnectionViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/backend/fxcontrollers/serverViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="91" column="0" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1228,41 +1264,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/backend/ClientsDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="93" column="42" lean-forward="true" selection-start-line="93" selection-start-column="42" selection-end-line="93" selection-end-column="42" />
-          <folding>
-            <marker date="1511634588906" expanded="true" signature="519:567" ph="INSERT INTO users... " />
-            <marker date="1511634588906" expanded="true" signature="618:666" ph="SELECT id FR... users" />
-            <marker date="1511634588906" expanded="true" signature="834:882" ph="SELECT id FR... users" />
-            <marker date="1511634588906" expanded="true" signature="1157:1228" ph="INSERT INTO srvUsr... " />
-            <marker date="1511634588906" expanded="true" signature="1686:1734" ph="SELECT id FR... users" />
-            <marker date="1511634588906" expanded="true" signature="1998:2077" ph="DELETE FROM " />
-            <marker date="1511634588906" expanded="true" signature="2302:2392" ph="SELECT name users" />
-            <marker date="1511634588906" expanded="true" signature="2338:2377" ph="SELECT usrId... srvUsr" />
-            <marker date="1511634588906" expanded="true" signature="3273:3324" ph="UPDATE serve... " />
-            <marker date="1511634588906" expanded="true" signature="3361:3412" ph="UPDATE serve... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/css/chatView.css">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
-          <caret line="66" column="1" lean-forward="true" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
-          <folding />
+          <caret line="96" column="93" lean-forward="false" selection-start-line="96" selection-start-column="93" selection-end-line="96" selection-end-column="93" />
+          <folding>
+            <marker date="1511639770872" expanded="true" signature="598:646" ph="INSERT INTO users... " />
+            <marker date="1511639770872" expanded="true" signature="697:745" ph="SELECT id FR... users" />
+            <marker date="1511639770872" expanded="true" signature="913:961" ph="SELECT id FR... users" />
+            <marker date="1511639770872" expanded="true" signature="1236:1307" ph="INSERT INTO srvUsr... " />
+            <marker date="1511639770872" expanded="true" signature="1765:1813" ph="SELECT id FR... users" />
+            <marker date="1511639770872" expanded="true" signature="2077:2156" ph="DELETE FROM " />
+            <marker date="1511639770872" expanded="true" signature="2381:2471" ph="SELECT name users" />
+            <marker date="1511639770872" expanded="true" signature="2417:2456" ph="SELECT usrId... srvUsr" />
+            <marker date="1511639770872" expanded="true" signature="3566:3617" ph="UPDATE serve... " />
+            <marker date="1511639770872" expanded="true" signature="3654:3705" ph="UPDATE serve... " />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/chatView.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="65" column="33" lean-forward="true" selection-start-line="65" selection-start-column="33" selection-end-line="65" selection-end-column="33" />
-          <folding>
-            <marker date="1511634969387" expanded="true" signature="3657:3767" ph="..." />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/src/main/java/backend/fxcontrollers/chatViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="75" column="20" lean-forward="true" selection-start-line="75" selection-start-column="20" selection-end-line="75" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>

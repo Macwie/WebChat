@@ -1,19 +1,30 @@
 package backend.fxcontrollers;
 
+import java.awt.*;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Random;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 
 public class chatViewController implements Initializable{
-	public boolean ready = false;
-	
-	String message;
+
+    public boolean ready = false;
+	public static ArrayList<String> colors;
+	private int count = 0;
+
+	String style = "-fx-font-family: Calibri; -fx-font-weight: bold; -fx-font-size: 20px;";
 
 	@FXML
 	private Label server_name;
@@ -25,13 +36,18 @@ public class chatViewController implements Initializable{
     private TextField messageTextField;
 
     @FXML
-    private TextArea activeUsersTextArea;
+    private TextFlow activeUsersTextFlow;
 
     @FXML
     private TextArea chatTextArea;
 
+    @FXML
+    private ScrollPane scrollPane;
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+
+	    colors = new ArrayList<>();
 
         if(mConnectionViewController.IP != null)
             server_name.setText("IP: "+mConnectionViewController.IP);
@@ -52,10 +68,32 @@ public class chatViewController implements Initializable{
 	public void addMessage(String log) {
 		chatTextArea.setText(chatTextArea.getText() +"\n" + log);
 	}
-	public void addUsers(String user) {
-		activeUsersTextArea.setText(activeUsersTextArea.getText() +"\n" + user);
+	public void addUsers(String user, String color) {
+		//activeUsersTextArea.setText(activeUsersTextArea.getText() +"\n" + user);
+        Platform.runLater(() -> {
+            Text temp = new Text(user+"\n");
+            temp.setStyle(style+" -fx-fill: "+colors.get(count)+";");
+            count++;
+            activeUsersTextFlow.getChildren().add(temp);
+        });
 	}
 	public void clearUsers() {
-		activeUsersTextArea.setText("");
+		//activeUsersTextArea.setText("");
+        Platform.runLater(() -> {
+		    activeUsersTextFlow.getChildren().clear();
+		    count = 0;
+        });
 	}
+
+	public static String generateColor() {
+        Random rand = new Random();
+        float r = rand.nextFloat();
+        float g = rand.nextFloat();
+        float b = rand.nextFloat();
+
+        Color c = new Color(r, g, b);
+        String hex = String.format("#%06x", c.getRGB() & 0x00FFFFFF);
+        colors.add(hex);
+        return hex;
+    }
 }

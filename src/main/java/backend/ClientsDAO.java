@@ -1,5 +1,6 @@
 package backend;
 
+import backend.fxcontrollers.chatViewController;
 import frontend.ChatGUI;
 
 import java.sql.*;
@@ -12,6 +13,7 @@ public class ClientsDAO implements Runnable, DataBase {
 	private String query;
 	private int server;
 	private Thread thread;
+	private boolean once = true;
 
 	public void startUpdatingUsers(int server) {
 		this.server = server;
@@ -89,12 +91,16 @@ public class ClientsDAO implements Runnable, DataBase {
 				try {
 					while (r.next()) {
 						//ChatGUI.usersBox.addLine(" > " + r.getString("name"));
-						 Controllers.chatViewController.addUsers(r.getString("name"));
+                        if(once)
+						    Controllers.chatViewController.addUsers(r.getString("name"), chatViewController.generateColor());
+                        else
+                            Controllers.chatViewController.addUsers(r.getString("name"), null);
 					}
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
 			}
+			once = false;
 			statement.close();
 			connection.close();
 		} catch (SQLException e) {
