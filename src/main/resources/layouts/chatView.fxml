@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="900.0" stylesheets="@../css/chatView.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.fxcontrollers.chatViewController">
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="900.0" stylesheets="@../css/chatView.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.fxcontrollers.chatViewController">
     <children>
         <AnchorPane prefHeight="565.0" prefWidth="650.0" styleClass="leftPart">
             <children>
@@ -73,7 +73,7 @@
               </content>
             </ScrollPane>
             <Separator layoutX="10.0" layoutY="500.0" opacity="0.08" prefHeight="3.0" prefWidth="232.0" />
-                <Button layoutX="84.0" layoutY="511.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="82.0" text="Exit">
+                <Button fx:id="exitButton" layoutX="84.0" layoutY="511.0" mnemonicParsing="false" onAction="#exitChat" prefHeight="27.0" prefWidth="82.0" text="Exit">
                     <font>
                         <Font name="Calibri" size="18.0" />
                     </font>

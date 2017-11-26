@@ -32,6 +32,7 @@ public class mConnectionViewController implements Initializable {
 	static String nick;
 	static String password;
 	private ArrayList<ServerObject> list;
+	static int serverId;
 
 	@FXML
     private AnchorPane pane;
@@ -80,6 +81,7 @@ public class mConnectionViewController implements Initializable {
 				System.out.println(s.getPort() + " " + s.getIp());
 				if (s.getPort().equals(port) && s.getIp().equals(IP)) {
 					server = s;
+					serverId = s.getId();
 					break;
 				}}
 			
@@ -90,6 +92,11 @@ public class mConnectionViewController implements Initializable {
             client.startClient();
             Controllers.clientViewController.close();
             window.show();
+            window.setOnCloseRequest(e -> {
+                Controllers.chatViewController.exitChat();
+            
+        });
+            
             
         }
         catch (IOException e) {

@@ -65,7 +65,7 @@ public class mainViewController implements Initializable{
     
     
     @FXML
-    private void startClient(ActionEvent event) {
+    public void startClient() {
    	 Parent root;
         try {
         	

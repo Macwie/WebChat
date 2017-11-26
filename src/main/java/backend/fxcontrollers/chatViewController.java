@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.ResourceBundle;
 
+import backend.Client;
+import backend.ClientsDAO;
+import backend.Controllers;
+import frontend.ClientGUI;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -96,4 +100,12 @@ public class chatViewController implements Initializable{
         colors.add(hex);
         return hex;
     }
+	
+	public void exitChat() {
+		ClientsDAO clientsDAO = new ClientsDAO();
+		clientsDAO.removeClient(Controllers.mConnectionViewController.serverId, Controllers.mConnectionViewController.nick);
+		clientsDAO.updateCurrentUsers(Controllers.mConnectionViewController.serverId, false);
+		Client.stopClient();
+		Controllers.mainViewController.startClient();
+	}
 }
