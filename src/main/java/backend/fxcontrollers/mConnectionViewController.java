@@ -77,7 +77,7 @@ public class mConnectionViewController implements Initializable {
        	    Scene scene = new Scene(root);
        	 	Stage window = Main.window;
             window.setScene(scene);
-            window.setTitle("Server Settings");
+            window.setTitle("WebChat");
             int port2 = Integer.parseInt(port);
             Client client = new Client(nick, IP, port2);
             ClientsDAO clientsDAO = new ClientsDAO();   //dodawanie do online list

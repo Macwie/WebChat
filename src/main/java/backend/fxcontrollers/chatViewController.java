@@ -68,8 +68,6 @@ public class chatViewController implements Initializable{
 
         if(mConnectionViewController.IP != null)
             server_name.setText("IP: "+mConnectionViewController.IP);
-        else
-            server_name.setText("IP: z listy TODO");
 		
 	}
 	

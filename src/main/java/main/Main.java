@@ -19,9 +19,9 @@ public class Main extends Application {
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/mainView.fxml"));
     	Parent root = (Parent) loader.load();
 		Controllers.mainViewController = loader.getController();
-		//primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 900, 565));
+        primaryStage.setResizable(false);
+        primaryStage.setTitle("WebChat");
+        primaryStage.setScene(new Scene(root, 890, 565));
         primaryStage.show();
     }
 

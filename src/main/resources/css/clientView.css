@@ -46,15 +46,18 @@
 
 .table-view .column-header-background{
     -fx-background-color: #36393F;
+    -fx-background-radius: 7 7 0 0;
 }
 
 .table-view .column-header-background .label{
     -fx-background-color: transparent;
     -fx-text-fill: white;
+    -fx-background-radius: 7;
 }
 
 .table-view .column-header {
     -fx-background-color: transparent;
+    -fx-background-radius: 7;
 }
 
 .table-view .table-cell{

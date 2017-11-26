@@ -53,7 +53,7 @@ public class mainViewController implements Initializable{
        	    Scene scene = new Scene(root);
        	 	window = Main.window;
             window.setScene(scene);
-            window.setTitle("Server Settings");
+            window.setTitle("WebChat");
             window.show();
         }
         catch (IOException e) {
@@ -76,7 +76,7 @@ public class mainViewController implements Initializable{
        	    Scene scene = new Scene(root);
        	 	window = Main.window;
             window.setScene(scene);
-            window.setTitle("Client");
+            window.setTitle("WebChat");
             window.show();
         }
         catch (IOException e) {

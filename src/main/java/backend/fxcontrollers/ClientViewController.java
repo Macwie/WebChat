@@ -90,7 +90,7 @@ public class ClientViewController implements Initializable{
                 window.initModality(Modality.APPLICATION_MODAL);
                 window.initStyle(StageStyle.TRANSPARENT);
                 window.setScene(scene);
-                window.setTitle("Server Settings");
+                window.setTitle("WebChat");
 
                 //Centrowanie mConnectionView według pozycji ClientView
                 Node source = (Node) event.getSource();
