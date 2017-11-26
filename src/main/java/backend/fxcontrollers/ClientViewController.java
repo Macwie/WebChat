@@ -24,6 +24,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.effect.GaussianBlur;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -73,11 +74,9 @@ public class ClientViewController implements Initializable{
 	    private TableColumn<?, ?> nameColumn;
 
     
-        @FXML
         private void startMConnection(ActionEvent event) {
          Parent root;
             try {
-
                 BoxBlur blur = new BoxBlur();
                 blur.setIterations(3);
                 client_stage.setEffect(blur);
@@ -113,6 +112,7 @@ public class ClientViewController implements Initializable{
                     window.widthProperty().removeListener(widthListener);
                     window.heightProperty().removeListener(heightListener);
                 });
+                Controllers.mConnectionViewController.tableConnection=false;
 
                 window.show();
 
@@ -122,6 +122,55 @@ public class ClientViewController implements Initializable{
             }
         }
 
+        
+        
+        
+        private void startConnection(MouseEvent event) {
+            Parent root;
+               try {
+                   BoxBlur blur = new BoxBlur();
+                   blur.setIterations(3);
+                   client_stage.setEffect(blur);
+
+                   window = new Stage();
+                   FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/mConnectionView.fxml"));
+                   root = (Parent) loader.load();
+                   Controllers.mConnectionViewController = loader.getController();
+                   Scene scene = new Scene(root);
+                   scene.setFill(Color.TRANSPARENT);
+                   window.initModality(Modality.APPLICATION_MODAL);
+                   window.initStyle(StageStyle.TRANSPARENT);
+                   window.setScene(scene);
+                   window.setTitle("Server Settings");
+
+                   //Centrowanie mConnectionView według pozycji ClientView
+                   Node source = (Node) event.getSource();
+                   Window parentStage = source.getScene().getWindow();
+
+                   ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
+                       double stageWidth = newValue.doubleValue();
+                       window.setX(parentStage.getX() + parentStage.getWidth() / 2 - stageWidth / 2);
+                   };
+                   ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
+                       double stageHeight = newValue.doubleValue();
+                       window.setY(parentStage.getY() + parentStage.getHeight() / 2 - stageHeight / 2);
+                   };
+
+                   window.widthProperty().addListener(widthListener);
+                   window.heightProperty().addListener(heightListener);
+
+                   window.setOnShown(e -> {
+                       window.widthProperty().removeListener(widthListener);
+                       window.heightProperty().removeListener(heightListener);
+                   });
+                   Controllers.mConnectionViewController.tableConnection=true;
+                   window.show();
+
+               }
+               catch (IOException e) {
+                   e.printStackTrace();
+               }
+           }
 
         public void close() {
             window.close();
@@ -171,7 +220,29 @@ public class ClientViewController implements Initializable{
 
         }
 
-
+        public void clicker(MouseEvent event) {
+            if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
+                Node node = ((Node) event.getTarget()).getParent();
+                TableRow row;
+                if (node instanceof TableRow) {
+                    row = (TableRow) node;
+                } else {
+                    // clicking on text part
+                    row = (TableRow) node.getParent();
+                }
+                ServerObject s = (ServerObject) row.getItem();
+                Controllers.mConnectionViewController.tableConnection = true;
+                Controllers.mConnectionViewController.IP = s.getIp();
+                Controllers.mConnectionViewController.port = s.getPort();
+                startConnection(event);
+                //System.out.println(s.getIp());
+            }
+        }
+        public void clicker2(ActionEvent event) {
+        	Controllers.mConnectionViewController.tableConnection = false;
+        	startMConnection(event);
+        }
+        
         @Override
         public void initialize(URL location, ResourceBundle resources) {
         	onOrOf = true;
@@ -184,7 +255,7 @@ public class ClientViewController implements Initializable{
         public static VBox getClient_stage() {
             return vbox;
         }
-        
+        @FXML
         public void filter() {
         	if(switchonlineButton.getText().equals("Show online only")) {
         		switchonlineButton.setText("Show all servers");

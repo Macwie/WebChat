@@ -33,6 +33,7 @@ public class mConnectionViewController implements Initializable {
 	static String password;
 	private ArrayList<ServerObject> list;
 	static int serverId;
+	public static boolean tableConnection;
 
 	@FXML
     private AnchorPane pane;
@@ -58,11 +59,16 @@ public class mConnectionViewController implements Initializable {
     @FXML
     private void startChat(ActionEvent event) {
     	
-    	password = passwordPasswordField.getText();
-		IP = ipTextField.getText();
-		port = portTextField.getText();
-		nick = nickTextField.getText();
-    	
+    	if(isTableConnection() == true) {
+    		password = passwordPasswordField.getText();
+    		nick = nickTextField.getText();
+    	}else{
+    		password = passwordPasswordField.getText();
+    		IP = ipTextField.getText();
+    		port = portTextField.getText();
+    		nick = nickTextField.getText();
+    	}
+
    	    Parent root;
         try {
         	FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/chatView.fxml"));
@@ -126,6 +132,17 @@ public class mConnectionViewController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		list = FXTableGenerator.getList();
+		if(isTableConnection() == true) {
+			ipTextField.setText(IP);
+			portTextField.setText(port);
+			portTextField.setDisable(true);
+			ipTextField.setDisable(true);
+		}else {
+			ipTextField.setText("");
+			portTextField.setText("");
+			portTextField.setDisable(false);
+			ipTextField.setDisable(false);
+		}
 
         ScaleTransition test = new ScaleTransition(Duration.seconds(0.4), pane);
         test.setFromX(0);
@@ -134,6 +151,14 @@ public class mConnectionViewController implements Initializable {
         test.setByY(1.0);
         test.play();
 		
+	}
+
+	public static boolean isTableConnection() {
+		return tableConnection;
+	}
+
+	public static void setTableConnection(boolean tableConnection) {
+		mConnectionViewController.tableConnection = tableConnection;
 	}
 	
 	
