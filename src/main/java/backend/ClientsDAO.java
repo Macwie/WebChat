@@ -3,7 +3,9 @@ package backend;
 import backend.fxcontrollers.chatViewController;
 import frontend.ChatGUI;
 
+import java.awt.*;
 import java.sql.*;
+import java.util.Random;
 
 public class ClientsDAO implements Runnable, DataBase {
 
@@ -13,7 +15,6 @@ public class ClientsDAO implements Runnable, DataBase {
 	private String query;
 	private int server;
 	private Thread thread;
-	private boolean once = true;
 
 	public void startUpdatingUsers(int server) {
 		this.server = server;
@@ -26,7 +27,8 @@ public class ClientsDAO implements Runnable, DataBase {
 
 	public boolean addClient(int server, String nick) {
 		this.server = server;
-		query = "INSERT INTO users (name) VALUES ('" + nick + "')"; // dodaj usera
+		String color = generateColor();
+		query = "INSERT INTO users (name, color) VALUES ('" + nick + "', "+"'" + color + "')"; // dodaj usera
 		try {
 			String queryUserId = "SELECT id FROM users WHERE name = '" + nick + "'"; // pobierz jego id
 			int usrId;
@@ -80,7 +82,7 @@ public class ClientsDAO implements Runnable, DataBase {
 	}
 
 	public void getAllClients() {
-		query = "SELECT name FROM users WHERE id IN (SELECT usrId FROM srvUsr WHERE srvId = " + server + ")";
+		query = "SELECT name, color FROM users WHERE id IN (SELECT usrId FROM srvUsr WHERE srvId = " + server + ")";
 		try {
 			connection = DriverManager.getConnection(DBURL, DBUSER, DBPASS);
 			statement = connection.createStatement();
@@ -91,16 +93,12 @@ public class ClientsDAO implements Runnable, DataBase {
 				try {
 					while (r.next()) {
 						//ChatGUI.usersBox.addLine(" > " + r.getString("name"));
-                        if(once)
-						    Controllers.chatViewController.addUsers(r.getString("name"), chatViewController.generateColor());
-                        else
-                            Controllers.chatViewController.addUsers(r.getString("name"), null);
+						Controllers.chatViewController.addUsers(r.getString("name"), r.getString("color"));
 					}
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
 			}
-			once = false;
 			statement.close();
 			connection.close();
 		} catch (SQLException e) {
@@ -129,6 +127,17 @@ public class ClientsDAO implements Runnable, DataBase {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public static String generateColor() {
+		Random rand = new Random();
+		float r = rand.nextFloat();
+		float g = rand.nextFloat();
+		float b = rand.nextFloat();
+
+		Color c = new Color(r, g, b);
+		String hex = String.format("#%06x", c.getRGB() & 0x00FFFFFF);
+		return hex;
 	}
 
 	@Override

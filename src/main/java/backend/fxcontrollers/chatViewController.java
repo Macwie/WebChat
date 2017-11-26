@@ -25,8 +25,6 @@ import javafx.scene.text.TextFlow;
 public class chatViewController implements Initializable{
 
     public boolean ready = false;
-	public static ArrayList<String> colors;
-	private int count = 0;
 
 	String style = "-fx-font-family: Calibri; -fx-font-weight: bold; -fx-font-size: 20px;";
 
@@ -51,8 +49,6 @@ public class chatViewController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-	    colors = new ArrayList<>();
-
         if(mConnectionViewController.IP != null)
             server_name.setText("IP: "+mConnectionViewController.IP);
         else
@@ -76,8 +72,7 @@ public class chatViewController implements Initializable{
 		//activeUsersTextArea.setText(activeUsersTextArea.getText() +"\n" + user);
         Platform.runLater(() -> {
             Text temp = new Text(user+"\n");
-            temp.setStyle(style+" -fx-fill: "+colors.get(count)+";");
-            count++;
+            temp.setStyle(style+" -fx-fill: "+color+";");
             activeUsersTextFlow.getChildren().add(temp);
         });
 	}
@@ -85,21 +80,8 @@ public class chatViewController implements Initializable{
 		//activeUsersTextArea.setText("");
         Platform.runLater(() -> {
 		    activeUsersTextFlow.getChildren().clear();
-		    count = 0;
         });
 	}
-
-	public static String generateColor() {
-        Random rand = new Random();
-        float r = rand.nextFloat();
-        float g = rand.nextFloat();
-        float b = rand.nextFloat();
-
-        Color c = new Color(r, g, b);
-        String hex = String.format("#%06x", c.getRGB() & 0x00FFFFFF);
-        colors.add(hex);
-        return hex;
-    }
 	
 	public void exitChat() {
 		ClientsDAO clientsDAO = new ClientsDAO();
