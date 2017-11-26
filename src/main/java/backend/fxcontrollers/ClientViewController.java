@@ -156,6 +156,8 @@ public class ClientViewController implements Initializable{
                     fadeIn.setFromValue(0.0);
                     fadeIn.setToValue(0.95);
                     fadeIn.play();
+                    connectManuallyButton.setDisable(false);
+                    switchonlineButton.setDisable(false);
                 }
             });
 
@@ -173,6 +175,8 @@ public class ClientViewController implements Initializable{
         @Override
         public void initialize(URL location, ResourceBundle resources) {
         	onOrOf = true;
+        	connectManuallyButton.setDisable(true);
+            switchonlineButton.setDisable(true);
         	init2();
         }
 
@@ -185,11 +189,15 @@ public class ClientViewController implements Initializable{
         	if(switchonlineButton.getText().equals("Show online only")) {
         		switchonlineButton.setText("Show all servers");
         		onOrOf = false;
+        		connectManuallyButton.setDisable(true);
+                switchonlineButton.setDisable(true);
         		init2();
         	}
         	else if(switchonlineButton.getText().equals("Show all servers")) {
         		switchonlineButton.setText("Show online only");
         		onOrOf = true;
+        		connectManuallyButton.setDisable(true);
+                switchonlineButton.setDisable(true);
         		init2();
         	}
         }
