@@ -32,19 +32,19 @@
     -fx-border-color: #292b2e;
 }
 
-.text-area {
+.chatTextArea {
     text-area-background: #36393F;
     -fx-background-color: #36393F;
     -fx-background-radius: 0;
     -fx-text-fill: white;
 }
 
-.text-area .content{
+.chatTextArea .content{
     -fx-background-color: text-area-background ;
     -fx-background-radius: 0;
 }
 
-.text-area:focused .content{
+.chatTextArea:focused .content{
     -fx-background-color: text-area-background ;
     -fx-background-radius: 0;
 }

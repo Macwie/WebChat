@@ -5,14 +5,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="900.0" stylesheets="@../css/chatView.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.fxcontrollers.chatViewController">
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="900.0" stylesheets="@../css/chatView.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.fxcontrollers.chatViewController">
     <children>
         <AnchorPane prefHeight="565.0" prefWidth="650.0" styleClass="leftPart">
             <children>
@@ -41,10 +40,15 @@
                <font>
                   <Font name="Calibri" size="16.0" />
                </font></TextField>
-                <TextArea fx:id="chatTextArea" editable="false" layoutX="7.0" layoutY="54.0" prefHeight="438.0" prefWidth="639.0" wrapText="true">
-               <font>
-                  <Font name="Calibri Bold" size="16.0" />
-               </font></TextArea>
+            <ScrollPane fx:id="chatScrollPane" hbarPolicy="NEVER" layoutX="11.0" layoutY="62.0" prefHeight="438.0" prefWidth="639.0" styleClass="scrollPane">
+               <content>
+                  <AnchorPane prefHeight="438.0" prefWidth="639.0">
+                     <children>
+                            <TextFlow fx:id="chatTextFlow" prefHeight="438.0" prefWidth="639.0" styleClass="chatTextArea" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
             <Separator layoutX="18.0" layoutY="500.0" opacity="0.1" prefHeight="3.0" prefWidth="618.0" />
             </children>
         </AnchorPane>
@@ -62,12 +66,11 @@
                         </Label>
                     </children>
                 </AnchorPane>
-            <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="10.0" layoutY="53.0" prefHeight="438.0" prefWidth="240.0" styleClass="scrollPane">
+            <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="10.0" layoutY="61.0" prefHeight="430.0" prefWidth="240.0" styleClass="scrollPane">
               <content>
                 <AnchorPane prefHeight="438.0" prefWidth="240.0">
                      <children>
-                            <TextFlow fx:id="activeUsersTextFlow" prefHeight="438.0" prefWidth="240.0" styleClass="activeUsersTextArea" textAlignment="CENTER">
-               </TextFlow>
+                            <TextFlow fx:id="activeUsersTextFlow" prefHeight="438.0" prefWidth="240.0" styleClass="activeUsersTextArea" textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
               </content>
