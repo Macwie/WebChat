@@ -48,6 +48,15 @@ public class chatViewController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		Runtime.getRuntime().addShutdownHook(new Thread() // usun usera z listy online w przypadku wyjscia przez X
+				{
+					@Override
+					public void run() {
+						ClientsDAO clientsDAO = new ClientsDAO();
+						clientsDAO.removeClient(Controllers.mConnectionViewController.serverId, Controllers.mConnectionViewController.nick);
+						clientsDAO.updateCurrentUsers(Controllers.mConnectionViewController.serverId, false);
+					}
+				});
 
         if(mConnectionViewController.IP != null)
             server_name.setText("IP: "+mConnectionViewController.IP);
