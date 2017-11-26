@@ -37,6 +37,7 @@ public class ClientViewController implements Initializable{
 
 	    private Stage window;
 	    private static VBox vbox;
+	    public static boolean onOrOf;  //true to all false to online
 
 	    @FXML
         private Pane progress;
@@ -126,8 +127,10 @@ public class ClientViewController implements Initializable{
             window.close();
         }
 
-        @Override
-        public void initialize(URL location, ResourceBundle resources) {
+        
+        
+        public void init2() {
+
 
             vbox = client_stage;
 
@@ -167,8 +170,28 @@ public class ClientViewController implements Initializable{
         }
 
 
+        @Override
+        public void initialize(URL location, ResourceBundle resources) {
+        	onOrOf = true;
+        	init2();
+        }
+
+
         public static VBox getClient_stage() {
             return vbox;
+        }
+        
+        public void filter() {
+        	if(switchonlineButton.getText().equals("Show online only")) {
+        		switchonlineButton.setText("Show all servers");
+        		onOrOf = false;
+        		init2();
+        	}
+        	else if(switchonlineButton.getText().equals("Show all servers")) {
+        		switchonlineButton.setText("Show online only");
+        		onOrOf = true;
+        		init2();
+        	}
         }
     
 

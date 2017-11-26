@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="client_stage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="900.0" styleClass="view" stylesheets="@../css/clientView.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.fxcontrollers.ClientViewController">
+<VBox fx:id="client_stage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="900.0" styleClass="view" stylesheets="@../css/clientView.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="backend.fxcontrollers.ClientViewController">
    <children>
       <AnchorPane prefHeight="50.0" prefWidth="900.0" styleClass="top">
          <children>
@@ -61,7 +61,7 @@
                <font>
                   <Font name="Calibri" size="14.0" />
                </font></Button>
-            <Button fx:id="switchonlineButton" layoutX="759.0" layoutY="13.0" mnemonicParsing="false" styleClass="button" text="Show online only">
+            <Button fx:id="switchonlineButton" layoutX="759.0" layoutY="13.0" mnemonicParsing="false" onAction="#filter" styleClass="button" text="Show online only">
                <font>
                   <Font name="Calibri" size="14.0" />
                </font>

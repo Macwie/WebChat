@@ -35,30 +35,52 @@ public class FXTableGenerator extends Service<TableView> {
     public ObservableList<ServerObject> getServers(){
         ObservableList<ServerObject> servers = FXCollections.observableArrayList();
         boolean isOnline;
-        for (int i = 0; i<list.size();i++) {
-            isOnline = list.get(i).isOnline();
-            if(list.get(i).isS_public()) {
-                if(isOnline && list.get(i).getPassword() != null){
-                    list.get(i).setProtect("YES");
-                    list.get(i).setOnline("ONLINE");
-                    servers.add(list.get(i));
-                }else if(isOnline && list.get(i).getPassword() == null) {
-                    list.get(i).setProtect("NO");
-                    list.get(i).setOnline("ONLINE");
-                    servers.add(list.get(i));
+        
+        if(Controllers.clientViewController.onOrOf) {
+        	for (int i = 0; i<list.size();i++) {
+                isOnline = list.get(i).isOnline();
+                if(list.get(i).isS_public()) {
+                    if(isOnline && list.get(i).getPassword() != null){
+                        list.get(i).setProtect("YES");
+                        list.get(i).setOnline("ONLINE");
+                        servers.add(list.get(i));
+                    }else if(isOnline && list.get(i).getPassword() == null) {
+                        list.get(i).setProtect("NO");
+                        list.get(i).setOnline("ONLINE");
+                        servers.add(list.get(i));
+                    }
+                    else if(!isOnline && list.get(i).getPassword() != null) {
+                        list.get(i).setProtect("NO");
+                        list.get(i).setOnline("OFFLINE");
+                        servers.add(list.get(i));
+                    }
+                    else {
+                        list.get(i).setProtect("NO");
+                        list.get(i).setOnline("OFFLINE");
+                        servers.add(list.get(i));
+                    }
                 }
-                else if(!isOnline && list.get(i).getPassword() != null) {
-                    list.get(i).setProtect("NO");
-                    list.get(i).setOnline("OFFLINE");
-                    servers.add(list.get(i));
-                }
-                else {
-                    list.get(i).setProtect("NO");
-                    list.get(i).setOnline("OFFLINE");
-                    servers.add(list.get(i));
+            }
+        }else {
+        	for (int i = 0; i<list.size();i++) {
+                isOnline = list.get(i).isOnline();
+                if(list.get(i).isS_public()) {
+                    if(isOnline && list.get(i).getPassword() != null){
+                        list.get(i).setProtect("YES");
+                        list.get(i).setOnline("ONLINE");
+                        servers.add(list.get(i));
+                    }else if(isOnline && list.get(i).getPassword() == null) {
+                        list.get(i).setProtect("NO");
+                        list.get(i).setOnline("ONLINE");
+                        servers.add(list.get(i));
+                    }
+
                 }
             }
         }
+        	
+        	
+        
         return servers;
     }
 
