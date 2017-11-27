@@ -20,6 +20,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.effect.ColorAdjust;
@@ -40,6 +41,7 @@ public class ClientViewController implements Initializable{
 	    private static VBox vbox;
 	    public static boolean onOrOf;  //true to all false to online
 
+	    private ServerObject s;
 	    @FXML
         private Pane progress;
 
@@ -230,17 +232,46 @@ public class ClientViewController implements Initializable{
                     // clicking on text part
                     row = (TableRow) node.getParent();
                 }
-                ServerObject s = (ServerObject) row.getItem();
+                s = (ServerObject) row.getItem();
+                if(s.getOnline().equals("OFFLINE")) {
+            		Alert alert = new Alert(AlertType.WARNING);
+            		
+            		
+            		
+            		DialogPane dialogPane = alert.getDialogPane();
+            		dialogPane.getStylesheets().add(getClass().getResource("/css/dialog.css").toExternalForm());
+            		dialogPane.getStyleClass().add("view");
+            		
+            		
+            		
+            		alert.setTitle("WARNING");
+            		alert.setHeaderText("THIS SERVER IS OFFLINE");
+
+            		alert.showAndWait();
+            		
+            	}else
+            	{
+            		
+                if(s.getPassword().length() == 0)
+                	Controllers.mConnectionViewController.isPassword = true;
+                else 
+                	Controllers.mConnectionViewController.isPassword = false;
                 Controllers.mConnectionViewController.tableConnection = true;
                 Controllers.mConnectionViewController.IP = s.getIp();
                 Controllers.mConnectionViewController.port = s.getPort();
+            	
                 startConnection(event);
+            }
                 //System.out.println(s.getIp());
             }
         }
         public void clicker2(ActionEvent event) {
-        	Controllers.mConnectionViewController.tableConnection = false;
-        	startMConnection(event);
+        	
+
+        		Controllers.mConnectionViewController.tableConnection = false;
+            	Controllers.mConnectionViewController.isPassword = false;
+            	startMConnection(event);
+        	
         }
         
         @Override

@@ -43,12 +43,10 @@ public class FXTableGenerator extends Service<TableView> {
                     if(isOnline && list.get(i).getPassword().length() != 0){
                         list.get(i).setProtect("YES");
                         list.get(i).setOnline("ONLINE");
-                        System.out.println("yes - oonline");
                         servers.add(list.get(i));
                     }else if(isOnline && list.get(i).getPassword().length() == 0) {
                         list.get(i).setProtect("NO");
                         list.get(i).setOnline("ONLINE");
-                        System.out.println("no - online");
                         servers.add(list.get(i));
                     }
                     else if(!isOnline && list.get(i).getPassword().length() != 0) {
@@ -60,7 +58,6 @@ public class FXTableGenerator extends Service<TableView> {
                     else {
                         list.get(i).setProtect("NO");
                         list.get(i).setOnline("OFFLINE");
-                        System.out.println("no - offline");
                         servers.add(list.get(i));
                     }
                 }

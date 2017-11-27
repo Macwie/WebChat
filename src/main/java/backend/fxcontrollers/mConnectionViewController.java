@@ -34,6 +34,7 @@ public class mConnectionViewController implements Initializable {
 	private ArrayList<ServerObject> list;
 	static int serverId;
 	public static boolean tableConnection;
+	public static boolean isPassword;
 
 	@FXML
     private AnchorPane pane;
@@ -143,6 +144,10 @@ public class mConnectionViewController implements Initializable {
 			portTextField.setDisable(false);
 			ipTextField.setDisable(false);
 		}
+		if(isPassword)
+			passwordPasswordField.setDisable(true);
+		else
+			passwordPasswordField.setDisable(false);
 
         ScaleTransition test = new ScaleTransition(Duration.seconds(0.4), pane);
         test.setFromX(0);
