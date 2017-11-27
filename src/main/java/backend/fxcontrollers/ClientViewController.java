@@ -3,6 +3,7 @@ package backend.fxcontrollers;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import backend.Controllers;
@@ -235,19 +236,28 @@ public class ClientViewController implements Initializable{
                 s = (ServerObject) row.getItem();
                 if(s.getOnline().equals("OFFLINE")) {
             		Alert alert = new Alert(AlertType.WARNING);
+            		alert.initModality(Modality.APPLICATION_MODAL);
+            		alert.initStyle(StageStyle.TRANSPARENT);
+            		BoxBlur blur = new BoxBlur();
+                    blur.setIterations(3);
+                    client_stage.setEffect(blur);
             		
-            		
-            		
+            	
             		DialogPane dialogPane = alert.getDialogPane();
             		dialogPane.getStylesheets().add(getClass().getResource("/css/dialog.css").toExternalForm());
             		dialogPane.getStyleClass().add("view");
+            		dialogPane.getScene().setFill(Color.TRANSPARENT);
             		
             		
             		
             		alert.setTitle("WARNING");
             		alert.setHeaderText("THIS SERVER IS OFFLINE");
 
-            		alert.showAndWait();
+            		Optional<ButtonType> result = alert.showAndWait();
+            		if(result.get() == ButtonType.OK) {
+            			client_stage.setEffect(null);
+            		}
+            		     //oke button is pressed
             		
             	}else
             	{

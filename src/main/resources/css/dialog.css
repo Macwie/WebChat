@@ -1,8 +1,10 @@
 .view {
     -fx-background-color: #2F3136;
+    -fx-background-radius: 2%;
 }
 .dialog-pane {
     -fx-background-color: #2F3136;
+    -fx-background-radius: 2%;
 }
 
 .dialog-pane .label {
@@ -11,6 +13,7 @@
 
 .dialog-pane:header .header-panel {
     -fx-background-color: #2F3136;
+    -fx-background-radius: 2%;
 }
 
 .dialog-pane:header .header-panel .label {

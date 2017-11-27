@@ -3,6 +3,7 @@ package backend.fxcontrollers;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import backend.*;
@@ -15,12 +16,20 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.effect.BoxBlur;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import main.Main;
 
@@ -33,6 +42,7 @@ public class mConnectionViewController implements Initializable {
 	static String password;
 	private ArrayList<ServerObject> list;
 	static int serverId;
+	static String passwordMatch;
 	public static boolean tableConnection;
 	public static boolean isPassword;
 
@@ -60,6 +70,16 @@ public class mConnectionViewController implements Initializable {
     @FXML
     private void startChat(ActionEvent event) {
     	
+    	
+    	ServerObject server = null;
+		for (ServerObject s : list) {
+			if (s.getPort().equals(port) && s.getIp().equals(IP)) {
+				server = s;
+				passwordMatch = s.getPassword();
+				serverId = s.getId();
+				break;
+			}}
+
     	if(isTableConnection() == true) {
     		password = passwordPasswordField.getText();
     		nick = nickTextField.getText();
@@ -69,9 +89,35 @@ public class mConnectionViewController implements Initializable {
     		port = portTextField.getText();
     		nick = nickTextField.getText();
     	}
+    	
+    	if(!password.equals(passwordMatch)) {
+    		
+    		
+    		Alert alert = new Alert(AlertType.ERROR);
+    		alert.initModality(Modality.APPLICATION_MODAL);
+    		alert.initStyle(StageStyle.TRANSPARENT);
 
+    		
+    	
+    		DialogPane dialogPane = alert.getDialogPane();
+    		dialogPane.getStylesheets().add(getClass().getResource("/css/dialog.css").toExternalForm());
+    		dialogPane.getStyleClass().add("view");
+    		dialogPane.getScene().setFill(Color.TRANSPARENT);
+    		
+    		
+    		
+    		alert.setTitle("ERROR");
+    		alert.setHeaderText("BAD PASSWORD");
+
+    		alert.showAndWait();
+    	
+    		
+    		return;
+    	}
+    	
    	    Parent root;
         try {
+        	
         	FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/chatView.fxml"));
         	root = (Parent) loader.load();
 			Controllers.chatViewController = loader.getController();
@@ -82,16 +128,7 @@ public class mConnectionViewController implements Initializable {
             int port2 = Integer.parseInt(port);
             Client client = new Client(nick, IP, port2);
             ClientsDAO clientsDAO = new ClientsDAO();   //dodawanie do online list
-            
-            ServerObject server = null;
-			for (ServerObject s : list) {
-				System.out.println(s.getPort() + " " + s.getIp());
-				if (s.getPort().equals(port) && s.getIp().equals(IP)) {
-					server = s;
-					serverId = s.getId();
-					break;
-				}}
-			
+
 		    System.out.println(server.getId());
             clientsDAO.addClient(server.getId(), nick);
             clientsDAO.updateCurrentUsers(server.getId(), true);
