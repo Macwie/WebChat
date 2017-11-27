@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="sql11203736@sql11.freesqldatabase.com">
-  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
     <root id="1"/>
     <schema id="2" parent="1" name="sql11203736">
       <Current>1</Current>
@@ -50,7 +50,6 @@
       <ColNames>PatientPesel</ColNames>
     </index>
     <key id="23" parent="4" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
@@ -59,7 +58,7 @@
       <RefSchemaName>sql11203736</RefSchemaName>
       <RefTableName>Patient</RefTableName>
       <RefColNames>Pesel</RefColNames>
-      <OnDelete>cascade</OnDelete>
+      <OnDelete>delete</OnDelete>
     </foreign-key>
     <column id="25" parent="5" name="Id">
       <Position>1</Position>
@@ -80,7 +79,6 @@
       <ColNames>MedicineId</ColNames>
     </index>
     <key id="29" parent="5" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
@@ -117,7 +115,6 @@
       <NotNull>1</NotNull>
     </column>
     <key id="36" parent="6" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
@@ -146,7 +143,6 @@
       <ColNames>termId</ColNames>
     </index>
     <key id="42" parent="7" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
@@ -155,7 +151,7 @@
       <RefSchemaName>sql11203736</RefSchemaName>
       <RefTableName>Term</RefTableName>
       <RefColNames>Id</RefColNames>
-      <OnDelete>cascade</OnDelete>
+      <OnDelete>delete</OnDelete>
     </foreign-key>
     <column id="44" parent="8" name="Id">
       <Position>1</Position>
@@ -174,7 +170,6 @@
       <NotNull>1</NotNull>
     </column>
     <key id="47" parent="8" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
@@ -204,7 +199,6 @@
       <NotNull>1</NotNull>
     </column>
     <key id="53" parent="9" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
       <ColNames>Pesel</ColNames>
       <Primary>1</Primary>
     </key>
@@ -241,7 +235,6 @@
       <ColNames>MedicineId</ColNames>
     </index>
     <key id="61" parent="10" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
@@ -256,7 +249,7 @@
       <RefSchemaName>sql11203736</RefSchemaName>
       <RefTableName>Term</RefTableName>
       <RefColNames>Id</RefColNames>
-      <OnDelete>cascade</OnDelete>
+      <OnDelete>delete</OnDelete>
     </foreign-key>
     <column id="64" parent="11" name="Id">
       <Position>1</Position>
@@ -283,7 +276,6 @@
       <ColNames>termId</ColNames>
     </index>
     <key id="69" parent="11" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
@@ -292,7 +284,7 @@
       <RefSchemaName>sql11203736</RefSchemaName>
       <RefTableName>Term</RefTableName>
       <RefColNames>Id</RefColNames>
-      <OnDelete>cascade</OnDelete>
+      <OnDelete>delete</OnDelete>
     </foreign-key>
     <column id="71" parent="12" name="Id">
       <Position>1</Position>
@@ -327,7 +319,6 @@
       <ColNames>PatientPesel</ColNames>
     </index>
     <key id="78" parent="12" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
@@ -342,7 +333,7 @@
       <RefSchemaName>sql11203736</RefSchemaName>
       <RefTableName>Patient</RefTableName>
       <RefColNames>Pesel</RefColNames>
-      <OnDelete>cascade</OnDelete>
+      <OnDelete>delete</OnDelete>
     </foreign-key>
     <column id="81" parent="13" name="Id">
       <Position>1</Position>
@@ -379,7 +370,6 @@
       <ColNames>DoctorId</ColNames>
     </index>
     <key id="88" parent="13" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
@@ -388,7 +378,7 @@
       <RefSchemaName>sql11203736</RefSchemaName>
       <RefTableName>Doctor</RefTableName>
       <RefColNames>Id</RefColNames>
-      <OnDelete>cascade</OnDelete>
+      <OnDelete>delete</OnDelete>
     </foreign-key>
     <column id="90" parent="14" name="id">
       <Position>1</Position>
@@ -428,7 +418,6 @@
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
     </column>
     <key id="97" parent="14" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
@@ -448,7 +437,6 @@
       <ColNames>usrId</ColNames>
     </index>
     <key id="101" parent="15" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
       <ColNames>srvId
 usrId</ColNames>
       <Primary>1</Primary>
@@ -458,14 +446,14 @@ usrId</ColNames>
       <RefSchemaName>sql11203736</RefSchemaName>
       <RefTableName>servers</RefTableName>
       <RefColNames>id</RefColNames>
-      <OnDelete>cascade</OnDelete>
+      <OnDelete>delete</OnDelete>
     </foreign-key>
     <foreign-key id="103" parent="15" name="srvUsr_ibfk_2">
       <ColNames>usrId</ColNames>
       <RefSchemaName>sql11203736</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
-      <OnDelete>cascade</OnDelete>
+      <OnDelete>delete</OnDelete>
     </foreign-key>
     <column id="104" parent="16" name="id">
       <Position>1</Position>
@@ -483,7 +471,6 @@ usrId</ColNames>
       <DataType>varchar(255)|0</DataType>
     </column>
     <key id="107" parent="16" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>

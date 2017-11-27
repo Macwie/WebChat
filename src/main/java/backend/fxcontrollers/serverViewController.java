@@ -82,7 +82,7 @@ public class serverViewController implements Initializable {
 			serversDAO.addServer(serverName, IP, Integer.toString(port), password, false);
 		}
 		
-		serverLogs = " Server: " + IP + " online on port: " + port + "\n Name:" + serverName + " Password:" + password;
+		serverLogs = " Server: " + IP + " online on port: " + port + "\n Name:" + serverName + " Password:" + password+"\n";
 		serverLogArea.setText(serverLogs);
 
 	}
@@ -107,7 +107,8 @@ public class serverViewController implements Initializable {
 	}
 
 	public void addLog(String log) {
-		serverLogArea.setText(serverLogs + "\n" + log);
+		//serverLogArea.setText(serverLogs + "\n" + log);
+		serverLogArea.appendText("\n"+log);
 	}
 
 }

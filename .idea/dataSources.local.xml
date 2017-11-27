@@ -9,7 +9,6 @@
       <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
       <user-name>sql11203736</user-name>
-      <introspection-schemas>*:sql11203736</introspection-schemas>
     </data-source>
   </component>
 </project>
