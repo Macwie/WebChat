@@ -1,7 +1,6 @@
 package backend;
 
 import backend.fxcontrollers.chatViewController;
-import frontend.ChatGUI;
 
 import java.awt.*;
 import java.sql.*;

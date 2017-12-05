@@ -10,7 +10,6 @@ import java.util.ResourceBundle;
 import backend.Client;
 import backend.ClientsDAO;
 import backend.Controllers;
-import frontend.ClientGUI;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

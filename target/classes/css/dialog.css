@@ -1,0 +1,25 @@
+.view {
+    -fx-background-color: #2F3136;
+    -fx-background-radius: 2%;
+}
+.dialog-pane {
+    -fx-background-color: #2F3136;
+    -fx-background-radius: 2%;
+}
+
+.dialog-pane .label {
+    -fx-text-fill: white;
+}
+
+.dialog-pane:header .header-panel {
+    -fx-background-color: #2F3136;
+    -fx-background-radius: 2%;
+}
+
+.dialog-pane:header .header-panel .label {
+  	-fx-font-family: Calibri;
+}
+.button {
+    -fx-text-fill: white;
+    -fx-background-color: #7289da;
+}

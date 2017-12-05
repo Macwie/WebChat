@@ -1,14 +1,11 @@
 package main;
 
 import backend.Controllers;
-import frontend.SwitchGUI;
-import frontend.WindowCore;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 public class Main extends Application {
 

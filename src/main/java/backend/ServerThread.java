@@ -1,7 +1,5 @@
 package backend;
 
-import frontend.ChatGUI;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
