@@ -1,14 +1,9 @@
 package backend;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.InetSocketAddress;
-import java.net.MalformedURLException;
-import java.net.Socket;
-import java.net.URL;
+import java.net.InetAddress;
 
 public class ServerObject {
+
 	protected int id;
 	protected String name;
 	protected String ip;
@@ -29,33 +24,25 @@ public class ServerObject {
 		this.s_public = s_public;
 	}
 
-	public boolean isOnline() {
-		boolean b = true;
-		try {
-			InetSocketAddress sa = new InetSocketAddress(ip, Integer.parseInt(port));
-			Socket ss = new Socket();
-			ss.connect(sa, 100);
-			ss.close();
-		} catch (Exception e) {
-			b = false;
-		}
-		return b;
-	}
-
-	public static String getServerIP() {
-		URL whatismyip = null;
-		String ip = "localhost";
-		try {
-			whatismyip = new URL("http://checkip.amazonaws.com");
-			BufferedReader in = new BufferedReader(new InputStreamReader(whatismyip.openStream()));
-			ip = in.readLine();
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return ip;
-	}
+    public boolean isOnline() {
+        boolean online = false;
+        try {
+            InetAddress address = InetAddress.getByName(ip);
+            if (!(address.isSiteLocalAddress() ||
+                    address.isAnyLocalAddress()  ||
+                    address.isLinkLocalAddress() ||
+                    address.isLoopbackAddress() ||
+                    address.isMulticastAddress())){
+                //System.out.println("Name: " + address.getHostName());
+                //System.out.println("Addr: " + address.getHostAddress());
+                if(address.isReachable(100))
+                    online = true;
+            }
+        } catch (Exception e) {
+            online = false;
+        }
+        return online;
+    }
 
 	public String getName() {
 		return name;

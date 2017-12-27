@@ -1,7 +1,8 @@
 package main;
 
-import backend.Controllers;
+import backend.fxcontrollers.Controllers;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,26 +14,21 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
     	window = primaryStage;
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/mainView.fxml"));
-    	Parent root = (Parent) loader.load();
-		Controllers.mainViewController = loader.getController();
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/GreetingView.fxml"));
+    	Parent root = loader.load();
+		Controllers.GreetingController = loader.getController();
         primaryStage.setResizable(false);
         primaryStage.setTitle("WebChat");
         primaryStage.setScene(new Scene(root, 890, 565));
         primaryStage.show();
+        primaryStage.setOnCloseRequest(e -> {   //zakoncz wszystkie watki jak zamyka sie aplkacje Xem
+            Platform.exit();
+            System.exit(0);
+        });
     }
 
 
     public static void main(String[] args) {
-
-
-        /*WindowCore windowCore = new WindowCore();
-        windowCore.init();
-
-        SwitchGUI switchGUI = new SwitchGUI();
-        switchGUI.show();*/
-
-
         launch(args);
     }
 }

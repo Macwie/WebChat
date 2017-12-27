@@ -1,5 +1,7 @@
 package backend;
 
+import backend.database.ServersDAO;
+import backend.fxcontrollers.Controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Service;
@@ -35,7 +37,7 @@ public class FXTableGenerator extends Service<TableView> {
         ObservableList<ServerObject> servers = FXCollections.observableArrayList();
         boolean isOnline;
         
-        if(Controllers.clientViewController.onOrOf) {
+        if(Controllers.clientController.onOrOf) {
         	for (int i = 0; i<list.size();i++) {
                 isOnline = list.get(i).isOnline();
                 if(list.get(i).isS_public()) {
