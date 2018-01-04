@@ -21,83 +21,83 @@ import java.util.ResourceBundle;
 
 public class ServerController implements Initializable {
 
+    private String password;
+    private String IP;
+    private String serverName;
+    private int port;
+
     @FXML
-	private Button StartButton;
+    private Button StartButton;
 
-	@FXML
-	private Label ipLabel;
+    @FXML
+    private Label ipLabel;
 
-	@FXML
-	private Label serverNameLabel;
+    @FXML
+    private Label serverNameLabel;
 
-	@FXML
-	private Label portLabel;
+    @FXML
+    private Label portLabel;
 
-	@FXML
-	private Label passwordLabel;
+    @FXML
+    private Label passwordLabel;
 
-	@FXML
-	private TextField ipTextField;
+    @FXML
+    private TextField ipTextField;
 
-	@FXML
-	private TextField serverNameTextField;
+    @FXML
+    private TextField serverNameTextField;
 
-	@FXML
-	private TextField portTextField;
+    @FXML
+    private TextField portTextField;
 
-	@FXML
-	private PasswordField passwordPasswordField;
+    @FXML
+    private PasswordField passwordPasswordField;
 
-	@FXML
-	private TextArea serverLogArea;
+    @FXML
+    private TextArea serverLogArea;
 
-	@FXML
-	void startServer() {
-
-	    //Pass data from inputs
-        String password = passwordPasswordField.getText();
-        String IP = ipTextField.getText();
-        String serverName = serverNameTextField.getText();
-        int port = Integer.parseInt(portTextField.getText());
+    @FXML
+    void startServer() {
+        //Pass data from inputs
+        password = passwordPasswordField.getText();
+        IP = ipTextField.getText();
+        serverName = serverNameTextField.getText();
+        port = Integer.parseInt(portTextField.getText());
 
         //Start server and it's logs
-        serverLogArea.setText("Server: " + IP + " online on port: " + port + "\nName:" + serverName + " Password:" + password + "\nWaiting for clients ...");
-		Server server = Server.getInstance(port);
-		server.start(serverLogArea);
+        serverLogArea.setText("Server: "
+                + IP + " online on port: " + port + "\nName:" + serverName
+                + " Password:" + password + "\nWaiting for clients ...");
+        Server server = Server.getInstance(port);
+        server.start(serverLogArea);
 
-		//Adding new server to DB
-		if (IP.equals(getPublicIP())) {
-			ServersDAO serversDAO = ServersDAO.getInstance();
-			serversDAO.addServer(serverName, IP, Integer.toString(port), password, true);
-		} else {
-			ServersDAO serversDAO = ServersDAO.getInstance();
-			serversDAO.addServer(serverName, IP, Integer.toString(port), password, false);
-		}
+        //Adding new server to DB
+        ServersDAO serversDAO = ServersDAO.getInstance();
+        if (IP.equals(getPublicIP())) {
+            serversDAO.addServer(serverName, IP, Integer.toString(port), password, true);
+        } else {
+            serversDAO.addServer(serverName, IP, Integer.toString(port), password, false);
+        }
+    }
 
-	}
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        //Get public IP address as default server address
+        ipTextField.setText(getPublicIP());
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-
-	    //Get public IP address as default server address
-		ipTextField.setText(getPublicIP());
-
-
-		//Animations
-		Object[] inputs = new Object[]{
-		    StartButton, ipLabel, serverNameLabel, portLabel, passwordLabel, ipTextField, serverNameTextField, portTextField,
+        //Animations
+        Object[] inputs = new Object[]{
+                StartButton, ipLabel, serverNameLabel, portLabel, passwordLabel, ipTextField, serverNameTextField, portTextField,
                 passwordPasswordField, serverLogArea
         };
 
-		for (int i=0; i<inputs.length; i++)
-        {
+        for (int i = 0; i < inputs.length; i++) {
             FadeTransition fadeIn = new FadeTransition(Duration.seconds(1.0), (Node) inputs[i]);
             fadeIn.setFromValue(0.0);
             fadeIn.setToValue(0.95);
             fadeIn.play();
         }
-
-	}
+    }
 
     private String getPublicIP() {
         URL whatismyip;
@@ -111,5 +111,4 @@ public class ServerController implements Initializable {
         }
         return ip;
     }
-
 }

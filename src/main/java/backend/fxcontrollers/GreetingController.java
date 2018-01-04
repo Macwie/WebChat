@@ -18,8 +18,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class GreetingController implements Initializable{
-	private Stage window;
+public class GreetingController implements Initializable {
+    private final Stage window = Main.WINDOW;
+    private Scene scene;
+    private Parent root;
+    private FXMLLoader loader;
+    private final String clientViewPath = "/layouts/ClientView.fxml";
+    private final String serverViewPath = "/layouts/ServerView.fxml";
 
     @FXML
     private ImageView logo;
@@ -35,43 +40,16 @@ public class GreetingController implements Initializable{
 
     @FXML
     private void startServer() {
-   	 Parent root;
-        try {
-        	FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/ServerView.fxml"));
-        	root = loader.load();
-			Controllers.ServerController = loader.getController();
-       	    Scene scene = new Scene(root);
-       	 	window = Main.window;
-            window.setScene(scene);
-            window.setTitle("WebChat");
-            window.show();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
+        start(serverViewPath, "Server");
     }
 
     @FXML
     public void startClient() {
-   	 Parent root;
-        try {
-        	FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/ClientView.fxml"));
-        	root = loader.load();
-			Controllers.clientController = loader.getController();
-       	    Scene scene = new Scene(root);
-       	 	window = Main.window;
-            window.setScene(scene);
-            window.setTitle("WebChat");
-            window.show();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
+        start(clientViewPath, "Client");
     }
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
         //Animations
         FadeTransition fadeIn = new FadeTransition(Duration.seconds(1.2), logo);
         fadeIn.setFromValue(0.0);
@@ -93,6 +71,23 @@ public class GreetingController implements Initializable{
                 fadeIn1.play();
             });
         });
-		
-	}
+    }
+
+    private void start(String path, String type) {
+        try {
+            loader = new FXMLLoader(getClass().getResource(path));
+            root = loader.load();
+            if (type.equals("Client")) {
+                Controllers.clientController = loader.getController();
+            } else if (type.equals("Server")) {
+                Controllers.ServerController = loader.getController();
+            }
+            scene = new Scene(root);
+            window.setScene(scene);
+            window.setTitle("WebChat");
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -119,7 +119,7 @@ public class CustomConnectionController implements Initializable {
 			Controllers.ChatController.init(IP, port, nick);
 
        	    Scene scene = new Scene(root);
-       	 	Stage window = Main.window;
+       	 	Stage window = Main.WINDOW;
             window.setScene(scene);
             window.setTitle("WebChat");
             ClientsDAO clientsDAO = new ClientsDAO();   //dodawanie do online list
