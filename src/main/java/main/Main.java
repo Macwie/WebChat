@@ -10,10 +10,10 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-	public static Stage window;
+	public static Stage WINDOW;
     @Override
     public void start(Stage primaryStage) throws Exception{
-    	window = primaryStage;
+    	WINDOW = primaryStage;
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/GreetingView.fxml"));
     	Parent root = loader.load();
 		Controllers.GreetingController = loader.getController();
