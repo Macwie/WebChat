@@ -37,7 +37,7 @@ public class FXTableGenerator extends Service<TableView> {
         ObservableList<ServerObject> servers = FXCollections.observableArrayList();
         boolean isOnline;
         
-        if(Controllers.clientController.onOrOf) {
+        if(Controllers.clientController.showOnlyPublic) {
         	for (int i = 0; i<list.size();i++) {
                 isOnline = list.get(i).isOnline();
                 if(list.get(i).isS_public()) {

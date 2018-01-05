@@ -26,7 +26,7 @@
          </children></AnchorPane>
       <AnchorPane prefHeight="465.0" prefWidth="900.0">
          <children>
-            <TableView fx:id="ServerTable" layoutX="22.0" layoutY="24.0" onMousePressed="#clicker" opacity="0.0" prefHeight="414.0" prefWidth="856.0">
+            <TableView fx:id="ServerTable" layoutX="22.0" layoutY="24.0" onMousePressed="#startConnection" opacity="0.0" prefHeight="414.0" prefWidth="856.0">
                <columns>
                   <TableColumn fx:id="nameColumn" prefWidth="248.0" text="Name" />
                   <TableColumn fx:id="ipColumn" minWidth="2.0" prefWidth="188.0" text="IP" />
@@ -57,7 +57,7 @@
                   <Insets />
                </opaqueInsets>
             </Label>
-            <Button fx:id="connectManuallyButton" layoutX="606.0" layoutY="13.0" mnemonicParsing="false" onAction="#clicker2" styleClass="button" text="Custom connection">
+            <Button fx:id="connectManuallyButton" layoutX="606.0" layoutY="13.0" mnemonicParsing="false" onAction="#startManuallyConnection" styleClass="button" text="Custom connection">
                <font>
                   <Font name="Calibri" size="14.0" />
                </font></Button>
