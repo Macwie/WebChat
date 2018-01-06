@@ -130,6 +130,7 @@ public class CustomConnectionController implements Initializable {
                 Stage window = Main.WINDOW;
                 window.setScene(scene);
                 window.setTitle("WebChat");
+                window.setUserData("Chat");
                 /*ClientsDAO clientsDAO = new ClientsDAO();   //dodawanie do online list
 
                 // System.out.println(server.getId());

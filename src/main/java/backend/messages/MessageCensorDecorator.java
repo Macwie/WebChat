@@ -13,8 +13,8 @@ public class MessageCensorDecorator extends MessageDecorator {
     }
 
     @Override
-    public void show(TextFlow chatBox) {
-        super.show(chatBox);
+    public void show(TextFlow chatBox, TextFlow activeUsers) {
+        super.show(chatBox, activeUsers);
     }
 
 

@@ -1,9 +1,12 @@
 package backend.database;
 
 import backend.fxcontrollers.Controllers;
+import backend.server.Server;
 
 import java.awt.*;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 public class ClientsDAO implements Runnable, DataBase {
@@ -12,11 +15,30 @@ public class ClientsDAO implements Runnable, DataBase {
 	private Connection connection;
 	private Statement statement;
 	private String query;
-	private int server;
 	private Thread thread;
+    private static int server;
+
+    private HashMap<String, String> usersMap;
+
+	private static ClientsDAO instance = null;
+
+	private ClientsDAO(int serverId) {
+	    server = serverId;
+    }
+
+	public static ClientsDAO getInstance(int serverId) {
+		if(instance == null || server != serverId)
+			instance = new ClientsDAO(serverId);
+
+		return instance;
+	}
+
+    public static ClientsDAO getInstance() {
+        return instance;
+    }
 
 	public void startUpdatingUsers(int server) {
-		this.server = server;
+		//this.server = server;
 		if (thread == null) {
 			thread = new Thread(this);
 			thread.setDaemon(true);
@@ -24,8 +46,8 @@ public class ClientsDAO implements Runnable, DataBase {
 		}
 	}
 
-	public boolean addClient(int server, String nick) {
-		this.server = server;
+	public boolean addClient(String nick) {
+		//this.server = server;
 		String color = generateColor();
 		query = "INSERT INTO users (name, color) VALUES ('" + nick + "', "+"'" + color + "')"; // dodaj usera
 		try {
@@ -58,8 +80,8 @@ public class ClientsDAO implements Runnable, DataBase {
 		}
 	}
 
-	public boolean removeClient(int server, String nick) {
-		this.server = server;
+	public boolean removeClient(String nick) {
+		//this.server = server;
 		try {
 			String queryUserId = "SELECT id FROM users WHERE name = '" + nick + "'"; // pobierz id usera
 			int usrId;
@@ -80,19 +102,17 @@ public class ClientsDAO implements Runnable, DataBase {
 		}
 	}
 
-	public void getAllClients() {
+	public HashMap<String, String> getAllClients() {
 		query = "SELECT name, color FROM users WHERE id IN (SELECT usrId FROM srvUsr WHERE srvId = " + server + ")";
+        HashMap<String, String> data = new HashMap<>();
 		try {
 			connection = DriverManager.getConnection(DBURL, DBUSER, DBPASS);
 			statement = connection.createStatement();
 			ResultSet r = statement.executeQuery(query);
-			//ChatGUI.usersBox.setText("");
-			Controllers.ChatController.clearUsers();
 			if (r != null) {
 				try {
 					while (r.next()) {
-						//ChatGUI.usersBox.addLine(" > " + r.getString("name"));
-						Controllers.ChatController.addUsers(r.getString("name"), r.getString("color"));
+                        data.put(r.getString("name"), r.getString("color"));
 					}
 				} catch (SQLException e) {
 					e.printStackTrace();
@@ -103,10 +123,12 @@ public class ClientsDAO implements Runnable, DataBase {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		usersMap = data;
+		return usersMap;
 	}
 
 	public void updateCurrentUsers(int server, boolean add) {
-		this.server = server;
+		//this.server = server;
 
 		try {
 			connection = DriverManager.getConnection(DBURL, DBUSER, DBPASS);
@@ -139,11 +161,15 @@ public class ClientsDAO implements Runnable, DataBase {
 		return hex;
 	}
 
+    public HashMap<String, String> getUsersMap() {
+        return usersMap;
+    }
+
 	@Override
 	public void run() {
 		while (true) {
 			try {
-				getAllClients();
+				//getAllClients();
 				Thread.sleep(10000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();

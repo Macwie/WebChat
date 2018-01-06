@@ -1,5 +1,6 @@
 package main;
 
+import backend.fxcontrollers.ChatController;
 import backend.fxcontrollers.Controllers;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -22,8 +23,14 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 890, 565));
         primaryStage.show();
         primaryStage.setOnCloseRequest(e -> {   //zakoncz wszystkie watki jak zamyka sie aplkacje Xem
-            Platform.exit();
-            System.exit(0);
+
+            if(WINDOW.getUserData() != null && WINDOW.getUserData().equals("Chat")) {   //do stuff on ChatView X end
+                ChatController.exit();
+            }else{  //end all threads on every other view
+                Platform.exit();
+                System.exit(0);
+            }
+
         });
     }
 

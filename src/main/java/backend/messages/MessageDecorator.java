@@ -10,8 +10,8 @@ public abstract class MessageDecorator implements iMessage {
         this.message = message;
     }
 
-    public void show(TextFlow chatBox) {
-        message.show(chatBox);
+    public void show(TextFlow chatBox, TextFlow activeUsers) {
+        message.show(chatBox, activeUsers);
     }
 
 }

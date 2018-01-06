@@ -19,15 +19,16 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
+import main.Main;
 
 public class ChatController implements Initializable{
 
-    public boolean ready = false;
     private HashMap<String, String> colors;
 
-    private Client client;
+    private static Client client;
     private ServerObject server;
-    private String nick;
+    private static String nick;
+    private static ClientsDAO clientsDAO;
 
 	private String style = "-fx-font-family: Calibri; -fx-font-weight: bold; -fx-font-size: 20px;";
 	private String msg_style = "-fx-font-family: Calibri; -fx-font-size: 20px;";
@@ -53,33 +54,24 @@ public class ChatController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-		/*Runtime.getRuntime().addShutdownHook(new Thread() // usun usera z listy online w przypadku wyjscia przez X
-				{
-					@Override
-					public void run() {
-						//ClientsDAO clientsDAO = new ClientsDAO();
-						//clientsDAO.removeClient(Controllers.CustomConnectionController.serverId, Controllers.CustomConnectionController.nick);
-						//clientsDAO.updateCurrentUsers(Controllers.CustomConnectionController.serverId, false);
-						client.stopConnection();
-					}
-				});*/
-
 	    colors = new HashMap<>();
-
-        //if(CustomConnectionController.IP != null)
-            //server_name.setText("IP: "+ CustomConnectionController.IP);
 		
 	}
 
 	public void init(ServerObject server, String nick) {
         this.server = server;
-        this.nick = nick;
+        ChatController.nick = nick;
+
+        //Set ID of the server for clients DAO
+        clientsDAO = ClientsDAO.getInstance(server.getId());
+        clientsDAO.addClient(nick);
+
 
         //Client start
         ExecutorService async = Executors.newSingleThreadExecutor();
 
         async.execute(() -> {
-            client = new Client(server.getIp(), server.getPort(), nick, chatTextFlow);
+            client = new Client(server.getIp(), server.getPort(), nick, chatTextFlow, activeUsersTextFlow);
             client.startConnection();
         });
 
@@ -118,32 +110,19 @@ public class ChatController implements Initializable{
             chatTextFlow.getChildren().addAll(nick, msg);
             chatScrollPane.setVvalue(1.0);
         });
-		//chatTextArea.setText(chatTextArea.getText() +"\n" + message);
 	}
 
-	public void addUsers(String user, String color) {
-		//activeUsersTextArea.setText(activeUsersTextArea.getText() +"\n" + user);
-        Platform.runLater(() -> {
-            Text temp = new Text(user+"\n");
-            temp.setStyle(style+" -fx-fill: "+color+";");
-            colors.put(user, color);
-            activeUsersTextFlow.getChildren().add(temp);
-        });
-	}
-
-	public void clearUsers() {
-		//activeUsersTextArea.setText("");
-        Platform.runLater(() -> {
-		    activeUsersTextFlow.getChildren().clear();
-        });
-	}
 	
-	public void exitChat() {
-		//ClientsDAO clientsDAO = new ClientsDAO();
-		//clientsDAO.removeClient(Controllers.CustomConnectionController.serverId, Controllers.CustomConnectionController.nick);
-		//clientsDAO.updateCurrentUsers(Controllers.CustomConnectionController.serverId, false);
-		//Client.stopClient();
-        client.stopConnection();
-		Controllers.GreetingController.startClient();
+	public void exitChat() {    //method for button
+        exit();
 	}
+
+	public static void exit(){  //static method for closing chat view and removing active client
+        clientsDAO.removeClient(nick);
+        //ClientsDAO clientsDAO = new ClientsDAO();
+        //clientsDAO.removeClient(Controllers.CustomConnectionController.serverId, Controllers.CustomConnectionController.nick);
+        //clientsDAO.updateCurrentUsers(Controllers.CustomConnectionController.serverId, false);
+        client.stopConnection();
+        Controllers.GreetingController.startClient();
+    }
 }

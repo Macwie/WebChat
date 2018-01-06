@@ -17,10 +17,11 @@ public class MessageDateDecorator extends MessageDecorator {
     }
 
     @Override
-    public void show(TextFlow chatBox) {
-        super.show(chatBox);
+    public void show(TextFlow chatBox, TextFlow activeUsers) {
+        super.show(chatBox, activeUsers);
         setDate();
-        Text t_date = new Text("               "+ date);
+        Text t_date = new Text("\t\t\t\t\t"+date);
+        t_date.setStyle(" -fx-fill: white;");
 
         Platform.runLater(() -> {
             chatBox.getChildren().addAll(t_date);

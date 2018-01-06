@@ -16,13 +16,15 @@ public class Client {
     private int serverPort;
     private String nick;
     private TextFlow chatBox;
+    private TextFlow activeUsers;
 
 
-    public Client(String serverIP, String serverPort, String nick, TextFlow chatBox) {
+    public Client(String serverIP, String serverPort, String nick, TextFlow chatBox, TextFlow activeUsers) {
         this.serverIP = serverIP;
         this.serverPort = Integer.parseInt(serverPort);
         this.nick = nick;
         this.chatBox = chatBox;
+        this.activeUsers = activeUsers;
         clientThread = null;
     }
 
@@ -65,10 +67,13 @@ public class Client {
     }
 
     public void handle(Message msg) {
-        iMessage temp = new MessageDateDecorator(new MessageCensorDecorator(new Message(msg), new PredefinedCensor()));
-        //System.out.println(msg.getNick()+": "+msg.getMessage());
-        if(!msg.getNick().equals("JqK9ZG5TSabOAND81Clp"))   //nie pokazuj zadania aktualizacji listy aktywnych clientow na chacie
-            temp.show(chatBox);
+        iMessage temp;
+        if(!msg.getNick().equals("JqK9ZG5TSabOAND81Clp")) { //notify client for updating active users
+            temp = new MessageDateDecorator(new MessageCensorDecorator(new Message(msg), new PredefinedCensor()));
+        }else{
+            temp = new Message(msg);
+        }
+            temp.show(chatBox, activeUsers);
     }
 
     public void sendMsg(Message message) {
