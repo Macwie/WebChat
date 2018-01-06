@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import backend.ServerObject;
 import backend.client.Client;
 import backend.database.ClientsDAO;
 import backend.messages.Message;
@@ -25,9 +26,8 @@ public class ChatController implements Initializable{
     private HashMap<String, String> colors;
 
     private Client client;
-    private String IP;
+    private ServerObject server;
     private String nick;
-    private String port;
 
 	private String style = "-fx-font-family: Calibri; -fx-font-weight: bold; -fx-font-size: 20px;";
 	private String msg_style = "-fx-font-family: Calibri; -fx-font-size: 20px;";
@@ -66,21 +66,20 @@ public class ChatController implements Initializable{
 
 	    colors = new HashMap<>();
 
-        if(CustomConnectionController.IP != null)
-            server_name.setText("IP: "+ CustomConnectionController.IP);
+        //if(CustomConnectionController.IP != null)
+            //server_name.setText("IP: "+ CustomConnectionController.IP);
 		
 	}
 
-	public void init(String IP, String port, String nick) {
-        this.IP = IP;
-        this.port = port;
+	public void init(ServerObject server, String nick) {
+        this.server = server;
         this.nick = nick;
 
         //Client start
         ExecutorService async = Executors.newSingleThreadExecutor();
 
         async.execute(() -> {
-            client = new Client(IP, port, nick, chatTextFlow);
+            client = new Client(server.getIp(), server.getPort(), nick, chatTextFlow);
             client.startConnection();
         });
 

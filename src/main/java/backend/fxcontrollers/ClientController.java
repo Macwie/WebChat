@@ -10,6 +10,7 @@ import backend.ServerObject;
 import javafx.animation.FadeTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -36,7 +37,8 @@ public class ClientController implements Initializable {
     private static VBox vbox;
     public static boolean showOnlyPublic;  //true to all false to online
 
-    private ServerObject s;
+    private ServerObject server;
+
     @FXML
     private Pane progress;
 
@@ -70,20 +72,58 @@ public class ClientController implements Initializable {
     @FXML
     private TableColumn<?, ?> nameColumn;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        showOnlyPublic = true;
+        connectManuallyButton.setDisable(true);
+        switchonlineButton.setDisable(true);
+        refresh();
+    }
+
+    private void refresh() {
+        vbox = client_stage;
+        progress.setTranslateY(200.0);
+        progress.setTranslateX(400.0);
+
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        ipColumn.setCellValueFactory(new PropertyValueFactory<>("ip"));
+        portColumn.setCellValueFactory(new PropertyValueFactory<>("port"));
+        usersColumn.setCellValueFactory(new PropertyValueFactory<>("current"));
+        protectedColumn.setCellValueFactory(new PropertyValueFactory<>("protect"));
+        statusColumn.setCellValueFactory(new PropertyValueFactory<>("online"));
+
+        final FXTableGenerator gen = new FXTableGenerator(ServerTable);
+        progress.visibleProperty().bind(gen.runningProperty());
+        gen.setOnSucceeded(workerStateEvent -> {
+            ServerTable = gen.getValue();
+            FadeTransition fadeIn = new FadeTransition(Duration.seconds(1.0), ServerTable);
+            fadeIn.setFromValue(0.0);
+            fadeIn.setToValue(0.95);
+            fadeIn.play();
+            connectManuallyButton.setDisable(false);
+            switchonlineButton.setDisable(false);
+        });
+        gen.setOnFailed(workerStateEvent -> System.out.println("FAILED TO LOAD DB DATA"));
+        gen.restart();
+    }
+
     @FXML
-    private void startManuallyConnection(ActionEvent event) {
+    private void startManualConnection(ActionEvent event) { //Manual connection from button
+
         Parent root;
-        Controllers.CustomConnectionController.tableConnection = false;
-        Controllers.CustomConnectionController.isPassword = false;
+
         try {
+            //Styling dialog
             BoxBlur blur = new BoxBlur();
             blur.setIterations(3);
             client_stage.setEffect(blur);
 
+
+            //Loading CustomConnectionView
             window = new Stage();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/CustomConnectionView.fxml"));
             root = loader.load();
-            Controllers.CustomConnectionController = loader.getController();
+
             Scene scene = new Scene(root);
             scene.setFill(Color.TRANSPARENT);
             window.initModality(Modality.APPLICATION_MODAL);
@@ -92,26 +132,7 @@ public class ClientController implements Initializable {
             window.setTitle("WebChat");
 
             //Centrowanie mConnectionView według pozycji ClientView
-            Node source = (Node) event.getSource();
-            Window parentStage = source.getScene().getWindow();
-
-            ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
-                double stageWidth = newValue.doubleValue();
-                window.setX(parentStage.getX() + parentStage.getWidth() / 2 - stageWidth / 2);
-            };
-            ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
-                double stageHeight = newValue.doubleValue();
-                window.setY(parentStage.getY() + parentStage.getHeight() / 2 - stageHeight / 2);
-            };
-
-            window.widthProperty().addListener(widthListener);
-            window.heightProperty().addListener(heightListener);
-
-            window.setOnShown(e -> {
-                window.widthProperty().removeListener(widthListener);
-                window.heightProperty().removeListener(heightListener);
-            });
-            Controllers.CustomConnectionController.tableConnection = false;
+            centerConnectionDialog(event);
 
             window.show();
 
@@ -121,18 +142,32 @@ public class ClientController implements Initializable {
     }
 
     @FXML
-    private void startConnection(MouseEvent event) {
-        if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
+    private void startConnection(MouseEvent event) {    //Connection from table
+
+
+        System.out.println("tesssst");
+        //2-click on table row
+        //if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
+
             Node node = ((Node) event.getTarget()).getParent();
             TableRow row;
+
             if (node instanceof TableRow) {
                 row = (TableRow) node;
             } else {
                 // clicking on text part
                 row = (TableRow) node.getParent();
             }
-            s = (ServerObject) row.getItem();
-            if (s.getOnline().equals("OFFLINE")) {
+
+            //Pass data from clicked row
+            server = (ServerObject) row.getItem();
+
+            System.out.println("Data from row: "+server.getId()+" "+server.getIp()+" "+server.getPort()+" "+server.getPassword());
+
+            //Check if server is offline
+            if (server.getOnline().equals("OFFLINE")) {
+
+                //Display warning dialog
                 Alert alert = new Alert(AlertType.WARNING);
                 alert.initModality(Modality.APPLICATION_MODAL);
                 alert.initStyle(StageStyle.TRANSPARENT);
@@ -149,99 +184,42 @@ public class ClientController implements Initializable {
                 if (result.get() == ButtonType.OK) {
                     client_stage.setEffect(null);
                 }
-                //oke button is pressed
-            } else {
-                if (s.getPassword().length() == 0)
-                    Controllers.CustomConnectionController.isPassword = true;
-                else
-                    Controllers.CustomConnectionController.isPassword = false;
-                Controllers.CustomConnectionController.tableConnection = true;
-                Controllers.CustomConnectionController.IP = s.getIp();
-                Controllers.CustomConnectionController.port = s.getPort();
             }
-        }
+            else
+            {    //if server is ONLINE pass server data to CustomConnectionView
+                Parent root;
 
-        Parent root;
-        try {
-            BoxBlur blur = new BoxBlur();
-            blur.setIterations(3);
-            client_stage.setEffect(blur);
-            window = new Stage();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/CustomConnectionView.fxml"));
-            root = loader.load();
-            Controllers.CustomConnectionController = loader.getController();
-            Scene scene = new Scene(root);
-            scene.setFill(Color.TRANSPARENT);
-            window.initModality(Modality.APPLICATION_MODAL);
-            window.initStyle(StageStyle.TRANSPARENT);
-            window.setScene(scene);
-            window.setTitle("Server Settings");
-
-            //Centrowanie mConnectionView według pozycji ClientView
-            Node source = (Node) event.getSource();
-            Window parentStage = source.getScene().getWindow();
-
-            ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
-                double stageWidth = newValue.doubleValue();
-                window.setX(parentStage.getX() + parentStage.getWidth() / 2 - stageWidth / 2);
-            };
-            ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
-                double stageHeight = newValue.doubleValue();
-                window.setY(parentStage.getY() + parentStage.getHeight() / 2 - stageHeight / 2);
-            };
-            window.widthProperty().addListener(widthListener);
-            window.heightProperty().addListener(heightListener);
-            window.setOnShown(e -> {
-                window.widthProperty().removeListener(widthListener);
-                window.heightProperty().removeListener(heightListener);
-            });
-            Controllers.CustomConnectionController.tableConnection = true;
-            window.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    public void close() {
-        window.close();
-    }
+                try {
+                    //Styling dialog
+                    BoxBlur blur = new BoxBlur();
+                    blur.setIterations(3);
+                    client_stage.setEffect(blur);
 
 
-    public void refresh() {
-        vbox = client_stage;
-        progress.setTranslateY(200.0);
-        progress.setTranslateX(400.0);
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        ipColumn.setCellValueFactory(new PropertyValueFactory<>("ip"));
-        portColumn.setCellValueFactory(new PropertyValueFactory<>("port"));
-        usersColumn.setCellValueFactory(new PropertyValueFactory<>("current"));
-        protectedColumn.setCellValueFactory(new PropertyValueFactory<>("protect"));
-        statusColumn.setCellValueFactory(new PropertyValueFactory<>("online"));
-        final FXTableGenerator gen = new FXTableGenerator(ServerTable);
-        progress.visibleProperty().bind(gen.runningProperty());
-        gen.setOnSucceeded(workerStateEvent -> {
-            ServerTable = gen.getValue();
-            FadeTransition fadeIn = new FadeTransition(Duration.seconds(1.0), ServerTable);
-            fadeIn.setFromValue(0.0);
-            fadeIn.setToValue(0.95);
-            fadeIn.play();
-            connectManuallyButton.setDisable(false);
-            switchonlineButton.setDisable(false);
-        });
-        gen.setOnFailed(workerStateEvent -> System.out.println("FAILED TO LOAD DB DATA"));
-        gen.restart();
-    }
+                    //Loading CustomConnectionView
+                    window = new Stage();
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/CustomConnectionView.fxml"));
+                    root = loader.load();
+                    Scene scene = new Scene(root);
+                    scene.setFill(Color.TRANSPARENT);
+                    window.initModality(Modality.APPLICATION_MODAL);
+                    window.initStyle(StageStyle.TRANSPARENT);
+                    window.setScene(scene);
+                    window.setTitle("WebChat");
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        showOnlyPublic = true;
-        connectManuallyButton.setDisable(true);
-        switchonlineButton.setDisable(true);
-        refresh();
-    }
+                    CustomConnectionController customConnectionController = loader.getController();
+                    customConnectionController.setServerData(server);       //Pass server data to CustomConnectionView
 
+                    //Centrowanie mConnectionView według pozycji ClientView
+                    centerConnectionDialog(event);
 
-    public static VBox getClient_stage() {
-        return vbox;
+                    window.show();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        //}
     }
 
     @FXML
@@ -256,5 +234,35 @@ public class ClientController implements Initializable {
         connectManuallyButton.setDisable(true);
         switchonlineButton.setDisable(true);
         refresh();
+    }
+
+    private void centerConnectionDialog(Event event) {
+        Node source = (Node) event.getSource();
+        Window parentStage = source.getScene().getWindow();
+
+        ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
+            double stageWidth = newValue.doubleValue();
+            window.setX(parentStage.getX() + parentStage.getWidth() / 2 - stageWidth / 2);
+        };
+        ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
+            double stageHeight = newValue.doubleValue();
+            window.setY(parentStage.getY() + parentStage.getHeight() / 2 - stageHeight / 2);
+        };
+
+        window.widthProperty().addListener(widthListener);
+        window.heightProperty().addListener(heightListener);
+
+        window.setOnShown(e -> {
+            window.widthProperty().removeListener(widthListener);
+            window.heightProperty().removeListener(heightListener);
+        });
+    }
+
+    public void close() {
+        window.close();
+    }
+
+    public static VBox getClient_stage() {
+        return vbox;
     }
 }

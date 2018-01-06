@@ -57,7 +57,7 @@
                   <Insets />
                </opaqueInsets>
             </Label>
-            <Button fx:id="connectManuallyButton" layoutX="606.0" layoutY="13.0" mnemonicParsing="false" onAction="#startManuallyConnection" styleClass="button" text="Custom connection">
+            <Button fx:id="connectManuallyButton" layoutX="606.0" layoutY="13.0" mnemonicParsing="false" onAction="#startManualConnection" styleClass="button" text="Custom connection">
                <font>
                   <Font name="Calibri" size="14.0" />
                </font></Button>

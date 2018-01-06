@@ -31,21 +31,11 @@ import main.Main;
 public class CustomConnectionController implements Initializable {
 
 
-    static String IP;
-    static String port;
-    static String nick;
-    static String password;
     private ArrayList<ServerObject> list;
-    static int serverId;
-    static String passwordMatch;
-    public static boolean tableConnection;
-    public static boolean isPassword;
+    public  ServerObject server;
 
     @FXML
     private AnchorPane pane;
-
-    @FXML
-    private Button connectButton;
 
     @FXML
     private Button cancelButton;
@@ -62,30 +52,59 @@ public class CustomConnectionController implements Initializable {
     @FXML
     private TextField nickTextField;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        list = FXTableGenerator.getList();
+
+        //Animation
+        ScaleTransition anim = new ScaleTransition(Duration.seconds(0.4), pane);
+        anim.setFromX(0);
+        anim.setFromY(0);
+        anim.setByX(1.0);
+        anim.setByY(1.0);
+        anim.play();
+
+    }
+
     @FXML
     private void startChat(ActionEvent event) {
-        ServerObject server = null;
-        for (ServerObject s : list) {
-            if (s.getPort().equals(port) && s.getIp().equals(IP)) {
-                server = s;
-                if (s.getPassword() == null)
-                    passwordMatch = "";
-                else
-                    passwordMatch = s.getPassword();
-                serverId = s.getId();
-                break;
+
+        //Get data from inputs
+        String ip = ipTextField.getText();
+        String port = portTextField.getText();
+        String password = passwordPasswordField.getText();
+        String nick = nickTextField.getText();
+
+        boolean goodPassword = true;
+
+        if(server == null)  //ManualConnection
+        {
+            //Find server id using ip and port delivered by user
+            for (ServerObject s : list) {
+                if (s.getPort().equals(port) && s.getIp().equals(ip)) {
+                    server = s;
+                    //Server has password
+                    if(server.getPassword() != null){
+                        //Passwords match
+                        if(server.getPassword().equals(password)) {
+                            goodPassword = true;
+                        }else{
+                            goodPassword = false;
+                        }
+                    }
+                    break;
+                }
             }
         }
-
-
-        password = passwordPasswordField.getText();
-        nick = nickTextField.getText();
-        if (isTableConnection() == false) {
-            IP = ipTextField.getText();
-            port = portTextField.getText();
+        else    //Table connection
+        {
+            //Wrong password
+            if(!server.getPassword().equals(password))
+                goodPassword = false;
         }
 
-        if (!password.equals(passwordMatch)) {
+        //Wrong password
+        if (!goodPassword) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.initModality(Modality.APPLICATION_MODAL);
             alert.initStyle(StageStyle.TRANSPARENT);
@@ -94,42 +113,48 @@ public class CustomConnectionController implements Initializable {
             dialogPane.getStyleClass().add("view");
             dialogPane.getScene().setFill(Color.TRANSPARENT);
             alert.setTitle("ERROR");
-            alert.setHeaderText("BAD PASSWORD");
+            alert.setHeaderText("Wrong password !");
             alert.showAndWait();
-            return;
+        }
+        else    //Password match -> open chat view
+        {
+            Parent root;
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/ChatView.fxml"));
+                root = loader.load();
+                Controllers.ChatController = loader.getController();
+                Controllers.ChatController.init(server, nick);
+
+                Scene scene = new Scene(root);
+                Stage window = Main.WINDOW;
+                window.setScene(scene);
+                window.setTitle("WebChat");
+                /*ClientsDAO clientsDAO = new ClientsDAO();   //dodawanie do online list
+
+                // System.out.println(server.getId());
+                clientsDAO.addClient(server.getId(), nick);
+                clientsDAO.updateCurrentUsers(server.getId(), true);
+                clientsDAO.startUpdatingUsers(server.getId());*/
+                Controllers.clientController.close();
+                window.show();
+                window.setOnCloseRequest(e -> {
+                    Controllers.ChatController.exitChat();
+                });
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
-        Parent root;
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/ChatView.fxml"));
-            root = loader.load();
-            Controllers.ChatController = loader.getController();
-            Controllers.ChatController.init(IP, port, nick);
 
-            Scene scene = new Scene(root);
-            Stage window = Main.WINDOW;
-            window.setScene(scene);
-            window.setTitle("WebChat");
-            ClientsDAO clientsDAO = new ClientsDAO();   //dodawanie do online list
-
-            // System.out.println(server.getId());
-            clientsDAO.addClient(server.getId(), nick);
-            clientsDAO.updateCurrentUsers(server.getId(), true);
-            clientsDAO.startUpdatingUsers(server.getId());
-            Controllers.clientController.close();
-            window.show();
-            window.setOnCloseRequest(e -> {
-                Controllers.ChatController.exitChat();
-            });
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     @FXML
     private void cancelCustomConnection(ActionEvent event) {
         // get a handle to the stage
         Stage stage = (Stage) cancelButton.getScene().getWindow();
+
+        //Animations
         ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(0.4), pane);
         scaleTransition.setFromX(1.0);
         scaleTransition.setFromY(1.0);
@@ -144,41 +169,33 @@ public class CustomConnectionController implements Initializable {
         });
     }
 
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        list = FXTableGenerator.getList();
-        if (isTableConnection() == true) {
-            ipTextField.setText(IP);
-            portTextField.setText(port);
+    public void controlInputs() {
+        if (server != null) {   //Connection from table
+            System.out.println("test");
+            ipTextField.setText(server.getIp());
+            portTextField.setText(server.getPort());
             portTextField.setDisable(true);
             ipTextField.setDisable(true);
-        } else {
+
+            if (server.getPassword().length() == 0)     //block password input if server doesn't need password
+                passwordPasswordField.setDisable(true);
+            else
+                passwordPasswordField.setDisable(false);
+
+        }
+        else
+        {
+            //Connection manual from button
             ipTextField.setText("");
             portTextField.setText("");
             portTextField.setDisable(false);
             ipTextField.setDisable(false);
         }
-        if (isPassword)
-            passwordPasswordField.setDisable(true);
-        else
-            passwordPasswordField.setDisable(false);
-
-        ScaleTransition test = new ScaleTransition(Duration.seconds(0.4), pane);
-        test.setFromX(0);
-        test.setFromY(0);
-        test.setByX(1.0);
-        test.setByY(1.0);
-        test.play();
-
-    }
-    public static boolean isTableConnection() {
-        return tableConnection;
     }
 
-    public static void setTableConnection(boolean tableConnection) {
-        CustomConnectionController.tableConnection = tableConnection;
-    }
-
+    public void setServerData(ServerObject serverObject) {
+        server = serverObject;
+        controlInputs();
+}
 
 }
