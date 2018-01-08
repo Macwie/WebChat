@@ -1,22 +1,25 @@
 package backend.fxcontrollers;
 
 import java.net.URL;
-import java.util.HashMap;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import backend.ServerObject;
 import backend.client.Client;
 import backend.database.ClientsDAO;
+import backend.messages.CustomCensor;
 import backend.messages.Message;
+import backend.messages.PredefinedCensor;
+import backend.messages.Strategy;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import main.Main;
@@ -26,6 +29,7 @@ public class ChatController implements Initializable{
     private HashMap<String, String> colors;
 
     private static Client client;
+    private Strategy strategy;
     private ServerObject server;
     private static String nick;
     private static ClientsDAO clientsDAO;
@@ -51,6 +55,10 @@ public class ChatController implements Initializable{
     @FXML
     private ScrollPane chatScrollPane;
 
+    @FXML
+    private ChoiceBox<String> censorOptions;
+
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
@@ -61,7 +69,7 @@ public class ChatController implements Initializable{
 	public void init(ServerObject server, String nick) {
         this.server = server;
         ChatController.nick = nick;
-
+        initializeCensorshipMethodChoiceBox();
         //Set ID of the server for clients DAO
         clientsDAO = ClientsDAO.getInstance(server.getId());
         clientsDAO.addClient(nick);
@@ -71,9 +79,11 @@ public class ChatController implements Initializable{
         ExecutorService async = Executors.newSingleThreadExecutor();
 
         async.execute(() -> {
-            client = new Client(server.getIp(), server.getPort(), nick, chatTextFlow, activeUsersTextFlow);
+
+            client = new Client(server.getIp(), server.getPort(), nick, chatTextFlow, activeUsersTextFlow, new PredefinedCensor());
             client.startConnection();
         });
+
 
 	}
 	
@@ -124,5 +134,30 @@ public class ChatController implements Initializable{
         //clientsDAO.updateCurrentUsers(Controllers.CustomConnectionController.serverId, false);
         client.stopConnection();
         Controllers.GreetingController.startClient();
+    }
+    public void initializeCensorshipMethodChoiceBox(){
+        //List<String> observableList=new ArrayList<>();
+        ObservableList<String> list = FXCollections.observableArrayList("Censor1","Censor2");
+         censorOptions.setItems(list);
+        censorOptions.setValue(list.get(0));
+
+        censorOptions.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number number2) {
+                if("Censor1"==censorOptions.getValue()){
+                    client.setStrategy(new CustomCensor());
+                    System.out.println(censorOptions.getItems().get((Integer) number2));
+                    System.out.println("aaa");
+
+                }
+                else  {
+                    client.setStrategy(new PredefinedCensor());
+                    System.out.println(censorOptions.getItems().get((Integer) number2));
+                    System.out.println("dsffs");
+                }
+
+            }
+        });
+
     }
 }
