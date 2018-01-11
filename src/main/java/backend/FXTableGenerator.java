@@ -1,5 +1,6 @@
 package backend;
 
+import backend.database.ServerObjects;
 import backend.database.ServersDAO;
 import backend.fxcontrollers.Controllers;
 import javafx.collections.FXCollections;
@@ -9,11 +10,14 @@ import javafx.concurrent.Task;
 import javafx.scene.control.TableView;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class FXTableGenerator extends Service<TableView> {
 
     private TableView<ServerObject> ServerTable;
-    public static ArrayList<ServerObject> list;
+    //public static ArrayList<ServerObject> list;
+
+    public static ServerObjects serverObjects = new ServerObjects();
 
     public FXTableGenerator(TableView<ServerObject> ServerTable) {
         this.ServerTable = ServerTable;
@@ -25,7 +29,8 @@ public class FXTableGenerator extends Service<TableView> {
             @Override
             protected TableView call() throws Exception {
                 ServersDAO db = ServersDAO.getInstance();
-                list = db.loadAll();
+                //list = db.loadAll();
+                serverObjects.setServerList(db.loadAll());
                 ServerTable.setItems(getServers());
 
                 return ServerTable;
@@ -33,11 +38,36 @@ public class FXTableGenerator extends Service<TableView> {
         };
     }
 
-    public ObservableList<ServerObject> getServers(){
+    public ObservableList<ServerObject> getServers() {
         ObservableList<ServerObject> servers = FXCollections.observableArrayList();
         boolean isOnline;
-        
-        if(Controllers.clientController.showOnlyPublic) {
+
+        Iterator<ServerObject> publicIter = serverObjects.publicIterator();
+        boolean showOnlyPublic = Controllers.clientController.showOnlyPublic;
+        boolean canIAdd = false;
+
+
+        while (publicIter.hasNext()) {
+            if (publicIter.next().getPassword().length() != 0)
+                publicIter.next().setProtect("YES");
+            else
+                publicIter.next().setProtect("NO");
+            if (publicIter.next().isOnline()) {
+                publicIter.next().setOnline("ONLINE");
+                canIAdd = true;
+            } else {
+                publicIter.next().setOnline("OFFLINE");
+                if (showOnlyPublic)
+                    canIAdd = true;
+            }
+            if (canIAdd)
+                servers.add(publicIter.next());
+        }
+
+
+
+
+        /*if(Controllers.clientController.showOnlyPublic) {
         	for (int i = 0; i<list.size();i++) {
                 isOnline = list.get(i).isOnline();
                 if(list.get(i).isS_public()) {
@@ -78,14 +108,14 @@ public class FXTableGenerator extends Service<TableView> {
                     }
                 }
             }
-        }
-        	
-        	
-        
+        }*/
+
+
         return servers;
     }
 
     public static ArrayList<ServerObject> getList() {
-        return  list;
+        //return list;
+        return serverObjects.getServerList();
     }
 }
