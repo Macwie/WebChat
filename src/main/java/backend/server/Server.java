@@ -13,22 +13,26 @@ import java.util.concurrent.Executors;
 
 public class Server {
 
+
 	private ServerSocket serverSocket;
 	private ExecutorService async;
 	private List<ServerThread> serverThreads;
 	private boolean isOnline;
 	private int port;
-	private TextArea serverLogs;
+	private static TextArea serverLogs;
+	AbstractLogger loggerChain = getChainOfLoggers();
 
 	private static Server instance = null;
 
 	private Server (int port) {
+		System.out.println("Server - Server ");
 		this.port = port;
 		async = null;
 		serverThreads = new ArrayList<>();
 	}
 
 	public static Server getInstance(int port) {
+		System.out.println("Server - getInstance ");
 		if(instance == null)
 			instance = new Server(port);
 
@@ -36,6 +40,7 @@ public class Server {
 	}
 
 	private int findClient(int ID) {
+		System.out.println("Server - findClient ");
 		for (int i=0; i<serverThreads.size();i++) {
 			if(serverThreads.get(i).getID() == ID)
 				return i;
@@ -44,12 +49,20 @@ public class Server {
 	}
 
 	public synchronized void handle(Message msg) {
+		System.out.println("Server - handle ");
 		for(int i=0; i<serverThreads.size(); i++) {
 			serverThreads.get(i).send(msg);
+
+
+			/*if(!msg.getNick().equals("JqK9ZG5TSabOAND81Clp")){
+				serverLogs.appendText("przesylam wiadomosc" + " " +msg.getMessage() + msg.getNick() + " ");
+			}*/
+
 		}
 	}
 
 	public synchronized void remove(int ID) {
+		System.out.println("Server - remove ");
 		int index = findClient(ID);
 		if(index >= 0) {
 			ServerThread toTerminate = serverThreads.get(index);
@@ -63,7 +76,7 @@ public class Server {
 	}
 
 	public void start(TextArea serverLogs) {
-
+		System.out.println("Server - start ");
 		try {
 			System.out.println("Binding to port " + port + ", please wait  ...");
 			serverSocket = new ServerSocket(port);
@@ -88,7 +101,12 @@ public class Server {
 	private void acceptClients() {
 		try {
 			Socket socket = serverSocket.accept();
-            serverLogs.appendText("\nClient connected: "+socket);
+
+
+			loggerChain.logMessage(AbstractLogger.INFO,
+					"\nClient connected: "+socket);
+
+            //serverLogs.appendText("\nClient connected: "+socket);
 			ServerThread serverThread = new ServerThread(this, socket, serverLogs);
 			serverThreads.add(serverThread);
 			serverThread.start();
@@ -97,5 +115,10 @@ public class Server {
 		}
 	}
 
-
+	private static AbstractLogger getChainOfLoggers(){
+		AbstractLogger fileLogger = new FileLogger(AbstractLogger.LOG);
+		AbstractLogger consoleLogger = new ConsoleLogger(AbstractLogger.INFO,serverLogs);
+		consoleLogger.setNextLogger(fileLogger);
+		return consoleLogger;
+	}
 }

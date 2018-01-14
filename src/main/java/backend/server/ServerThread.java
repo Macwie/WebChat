@@ -17,16 +17,19 @@ public class ServerThread {
 	private ObjectInputStream streamIn;
 	private ObjectOutputStream streamOut;
 	private ExecutorService async;
-	private TextArea serverLogs;
+	private static TextArea serverLogs;
+	AbstractLogger loggerChain = getChainOfLoggers();
 
 	public ServerThread(Server server, Socket socket, TextArea serverLogs) {
 		this.server = server;
 		this.socket = socket;
 		this.serverLogs = serverLogs;
 		ID = socket.getPort();
+		System.out.println("ServerThread - ServerThread ");
 	}
 
     public void start() {
+		System.out.println("ServerThread - Start ");
 		async = Executors.newSingleThreadExecutor();
 
 		async.execute(() -> {
@@ -40,12 +43,14 @@ public class ServerThread {
 		try {
 			streamIn = new ObjectInputStream(socket.getInputStream());
 			streamOut = new ObjectOutputStream(socket.getOutputStream());
+			System.out.println("ServerThread - OpenStream ");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
 	public void closeConnection()  {
+		System.out.println("ServerThread - closeConnection");
 		try {
 			if (socket != null)
 				socket.close();
@@ -60,6 +65,13 @@ public class ServerThread {
 	}
 
 	public void send(Message msg) {
+
+		if(!msg.getNick().equals("JqK9ZG5TSabOAND81Clp")) {
+			loggerChain.logMessage(AbstractLogger.LOG,
+					"WIADOMOSC PRZESLANA. nick: " + msg.getNick() + "tresc: " + msg.getMessage() + "IP: " + socket.getInetAddress());
+		}
+
+		//serverLogs.appendText(msg.getNick() + " " +msg.getMessage() + " " +socket.getInetAddress());
 		try {
 			streamOut.writeObject(msg);
 			streamOut.flush();
@@ -72,6 +84,7 @@ public class ServerThread {
 	}
 
 	private void sendMessagesToAll() {
+
 		while(true) {
 			try {
 				Message msg = (Message) streamIn.readObject();
@@ -80,7 +93,13 @@ public class ServerThread {
 				server.remove(ID);
 				sendUpdateCommandToAll();
 				async.shutdown();
-                serverLogs.appendText("\nClient disconnected: "+socket);
+
+
+				loggerChain.logMessage(AbstractLogger.INFO,
+						"\nClient disconnected: "+socket);
+
+
+               // serverLogs.appendText("\nClient disconnected: "+socket);
 
 				break;
 			} catch (ClassNotFoundException e) {
@@ -98,4 +117,10 @@ public class ServerThread {
 	}
 
 
+	private static AbstractLogger getChainOfLoggers(){
+		AbstractLogger fileLogger = new FileLogger(AbstractLogger.LOG);
+		AbstractLogger consoleLogger = new ConsoleLogger(AbstractLogger.INFO,serverLogs);
+		consoleLogger.setNextLogger(fileLogger);
+		return consoleLogger;
+	}
 }

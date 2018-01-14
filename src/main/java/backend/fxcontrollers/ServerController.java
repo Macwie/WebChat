@@ -111,4 +111,8 @@ public class ServerController implements Initializable {
         }
         return ip;
     }
+
+    public TextArea getServerLogArea() {
+        return serverLogArea;
+    }
 }
