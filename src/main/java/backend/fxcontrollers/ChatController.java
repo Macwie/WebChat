@@ -12,6 +12,7 @@ import backend.messages.CustomCensor;
 import backend.messages.Message;
 import backend.messages.PredefinedCensor;
 import backend.messages.Strategy;
+import backend.server.ConversationArchive;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -19,6 +20,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
@@ -29,6 +31,8 @@ public class ChatController implements Initializable{
     private static Client client;
     private static String nick;
     private static ClientsDAO clientsDAO;
+    private static TextFlow chat;
+    private static ServerObject server;
 
 	@FXML
 	private Label server_name;
@@ -49,10 +53,12 @@ public class ChatController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
+	    chat = chatTextFlow;
 		
 	}
 
 	public void init(ServerObject server, String nick) {
+	    ChatController.server = server;
         ChatController.nick = nick;
         initializeCensorshipMethodChoiceBox();
         //Set ID of the server for clients DAO
@@ -60,6 +66,8 @@ public class ChatController implements Initializable{
         clientsDAO.addClient(nick);
         //Set active users ++
         clientsDAO.updateCurrentUsers(true);
+        //Load conversation archive
+        ConversationArchive.read(chat, server.getName());
 
         server_name.setText("Server: "+server.getName()+" IP: "+server.getIp());
 
@@ -90,10 +98,12 @@ public class ChatController implements Initializable{
 	public static void exit(){  //static method for closing chat view and removing active client
         clientsDAO.removeClient(nick);
         clientsDAO.updateCurrentUsers(false);
+        ConversationArchive.write(chat, server.getName());
         client.stopConnection();
-        Controllers.GreetingController.startClient();
     }
-    public void initializeCensorshipMethodChoiceBox(){
+
+
+    private void initializeCensorshipMethodChoiceBox(){
 
         ObservableList<String> list = FXCollections.observableArrayList("Censor1","Censor2");
          censorOptions.setItems(list);

@@ -18,3 +18,80 @@ Client connected: Socket[addr=/95.49.133.172,port=56456,localport=4567]
 WIADOMOSC PRZESLANA. nick: test3tresc: dfgIP: /95.49.133.172
 
 Client disconnected: Socket[addr=/95.49.133.172,port=56456,localport=4567]
+
+Client connected: Socket[addr=/95.49.133.172,port=56698,localport=4567]
+WIADOMOSC PRZESLANA. nick: testtresc: testIP: /95.49.133.172
+WIADOMOSC PRZESLANA. nick: testtresc: blablaIP: /95.49.133.172
+WIADOMOSC PRZESLANA. nick: testtresc: kldkflgkIP: /95.49.133.172
+
+Client disconnected: Socket[addr=/95.49.133.172,port=56698,localport=4567]
+
+Client connected: Socket[addr=/95.49.133.172,port=56730,localport=4567]
+WIADOMOSC PRZESLANA. nick: testtresc: dfghIP: /95.49.133.172
+WIADOMOSC PRZESLANA. nick: testtresc: nbvnIP: /95.49.133.172
+WIADOMOSC PRZESLANA. nick: testtresc: sdfIP: /95.49.133.172
+WIADOMOSC PRZESLANA. nick: testtresc: hgfIP: /95.49.133.172
+
+Client disconnected: Socket[addr=/95.49.133.172,port=56730,localport=4567]
+
+Client connected: Socket[addr=/95.49.133.172,port=56754,localport=4567]
+WIADOMOSC PRZESLANA. nick: testtresc: sdfgIP: /95.49.133.172
+WIADOMOSC PRZESLANA. nick: testtresc: mooIP: /95.49.133.172
+WIADOMOSC PRZESLANA. nick: testtresc: dfgoIP: /95.49.133.172
+WIADOMOSC PRZESLANA. nick: testtresc: asdfIP: /95.49.133.172
+
+Client disconnected: Socket[addr=/95.49.133.172,port=56754,localport=4567]
+
+Client connected: Socket[addr=/95.49.133.172,port=56802,localport=4567]
+WIADOMOSC PRZESLANA. nick: testtresc: dfgIP: /95.49.133.172
+WIADOMOSC PRZESLANA. nick: testtresc: asdfIP: /95.49.133.172
+WIADOMOSC PRZESLANA. nick: testtresc: hfgdIP: /95.49.133.172
+WIADOMOSC PRZESLANA. nick: testtresc: cbIP: /95.49.133.172
+
+Client disconnected: Socket[addr=/95.49.133.172,port=56802,localport=4567]
+
+Client connected: Socket[addr=/95.49.133.172,port=56823,localport=4567]
+WIADOMOSC PRZESLANA. nick: test3tresc: fgdhIP: /95.49.133.172
+WIADOMOSC PRZESLANA. nick: test3tresc: sdfIP: /95.49.133.172
+WIADOMOSC PRZESLANA. nick: test3tresc: asdfIP: /95.49.133.172
+WIADOMOSC PRZESLANA. nick: test3tresc: hfgIP: /95.49.133.172
+
+Client disconnected: Socket[addr=/95.49.133.172,port=56823,localport=4567]
+
+Client connected: Socket[addr=/95.49.133.172,port=56924,localport=4567]
+WIADOMOSC PRZESLANA. nick: testtresc: sdfgIP: /95.49.133.172
+WIADOMOSC PRZESLANA. nick: testtresc: asdfIP: /95.49.133.172
+WIADOMOSC PRZESLANA. nick: testtresc: hjgIP: /95.49.133.172
+WIADOMOSC PRZESLANA. nick: testtresc: sadIP: /95.49.133.172
+WIADOMOSC PRZESLANA. nick: testtresc: hfdIP: /95.49.133.172
+WIADOMOSC PRZESLANA. nick: testtresc: asdfIP: /95.49.133.172
+
+Client disconnected: Socket[addr=/95.49.133.172,port=56924,localport=4567]
+
+Client connected: Socket[addr=/95.49.133.172,port=56971,localport=4567]
+WIADOMOSC PRZESLANA. nick: testtresc: eloIP: /95.49.133.172
+
+Client disconnected: Socket[addr=/95.49.133.172,port=56971,localport=4567]
+
+Client connected: Socket[addr=/95.49.133.172,port=57028,localport=4567]
+WIADOMOSC PRZESLANA. nick: test2tresc: elooIP: /95.49.133.172
+
+Client disconnected: Socket[addr=/95.49.133.172,port=57028,localport=4567]
+
+Client connected: Socket[addr=/95.49.133.172,port=57049,localport=4567]
+WIADOMOSC PRZESLANA. nick: testtresc: kjdfgs jashdf jhdfg sdfgIP: /95.49.133.172
+
+Client disconnected: Socket[addr=/95.49.133.172,port=57049,localport=4567]
+
+Client connected: Socket[addr=/95.49.133.172,port=57066,localport=4567]
+
+Client disconnected: Socket[addr=/95.49.133.172,port=57066,localport=4567]
+
+Client connected: Socket[addr=/95.49.133.172,port=57112,localport=4567]
+WIADOMOSC PRZESLANA. nick: testtresc: dlkfg skdjf jhgfdIP: /95.49.133.172
+WIADOMOSC PRZESLANA. nick: testtresc: lkgfdIP: /95.49.133.172
+WIADOMOSC PRZESLANA. nick: testtresc: mnsdIP: /95.49.133.172
+WIADOMOSC PRZESLANA. nick: testtresc: fsklIP: /95.49.133.172
+WIADOMOSC PRZESLANA. nick: testtresc: gdflIP: /95.49.133.172
+
+Client disconnected: Socket[addr=/95.49.133.172,port=57112,localport=4567]
