@@ -13,8 +13,9 @@ public class ServerObject {
 	protected boolean s_public;
 	protected String online;
 	protected String protect;
+	protected boolean s_online;
 
-	public ServerObject(int id, String name, String ip, String port, int current, String password, boolean s_public) {
+	public ServerObject(int id, String name, String ip, String port, int current, String password, boolean s_public, boolean s_online) {
 		this.id = id;
 		this.name = name;
 		this.ip = ip;
@@ -22,9 +23,10 @@ public class ServerObject {
 		this.current = current;
 		this.password = password;
 		this.s_public = s_public;
+		this.s_online = s_online;
 	}
 
-    public boolean isOnline() {
+    /*public boolean isOnline() {
         boolean online = false;
         try {
             InetAddress address = InetAddress.getByName(ip);
@@ -42,7 +44,7 @@ public class ServerObject {
             online = false;
         }
         return online;
-    }
+    }*/
 
 	public String getName() {
 		return name;
@@ -115,5 +117,12 @@ public class ServerObject {
 	public void setProtect(String protect) {
 		this.protect = protect;
 	}
-	
+
+	public boolean isS_online() {
+		return s_online;
+	}
+
+	public void setS_online(boolean s_online) {
+		this.s_online = s_online;
+	}
 }

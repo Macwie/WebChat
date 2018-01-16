@@ -79,13 +79,18 @@ public class GreetingController implements Initializable {
             root = loader.load();
             if (type.equals("Client")) {
                 Controllers.clientController = loader.getController();
+                scene = new Scene(root);
+                window.setScene(scene);
+                window.setTitle("WebChat");
+                window.show();
             } else if (type.equals("Server")) {
                 Controllers.ServerController = loader.getController();
+                scene = new Scene(root);
+                Stage window = Main.WINDOW;
+                window.setScene(scene);
+                window.setTitle("WebChat");
+                window.setUserData("Server");
             }
-            scene = new Scene(root);
-            window.setScene(scene);
-            window.setTitle("WebChat");
-            window.show();
         } catch (IOException e) {
             e.printStackTrace();
         }

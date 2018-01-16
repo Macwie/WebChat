@@ -52,7 +52,7 @@ public class FXTableGenerator extends Service<TableView> {
                 publicIter.next().setProtect("YES");
             else
                 publicIter.next().setProtect("NO");
-            if (publicIter.next().isOnline()) {
+            if (publicIter.next().isS_online()) {
                 publicIter.next().setOnline("ONLINE");
                 canIAdd = true;
             } else {

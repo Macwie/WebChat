@@ -95,3 +95,33 @@ WIADOMOSC PRZESLANA. nick: testtresc: fsklIP: /95.49.133.172
 WIADOMOSC PRZESLANA. nick: testtresc: gdflIP: /95.49.133.172
 
 Client disconnected: Socket[addr=/95.49.133.172,port=57112,localport=4567]
+Server: 95.49.87.211 online on port: 4567
+Name:test Password:123
+Waiting for clients ...
+Server: 95.49.87.211 online on port: 4567
+Name:test Password:123
+Waiting for clients ...
+Server: 95.49.87.211 online on port: 4567
+Name:test Password:123
+Waiting for clients ...
+Server: 95.49.87.211 online on port: 4567
+Name:test Password:123
+Waiting for clients ...
+Server: 95.49.87.211 online on port: 4567
+Name:test Password:123
+Waiting for clients ...
+Server: 95.49.87.211 online on port: 4567
+Name:test Password:123
+Waiting for clients ...
+Server: 95.49.87.211 online on port: 4567
+Name:test Password:123
+Waiting for clients ...
+Server: localhost online on port: 4568
+Name:test2 Password:
+Waiting for clients ...
+Server: 95.49.87.211 online on port: 4567
+Name:test Password:123
+Waiting for clients ...
+Client connected: Socket[addr=/95.49.87.211,port=57437,localport=4567]
+WIADOMOSC PRZESLANA: nick: testtresc: bryIP: /95.49.87.211
+Client disconnected: Socket[addr=/95.49.87.211,port=57437,localport=4567]

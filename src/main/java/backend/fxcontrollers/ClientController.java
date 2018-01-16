@@ -103,7 +103,7 @@ public class ClientController implements Initializable {
             connectManuallyButton.setDisable(false);
             switchonlineButton.setDisable(false);
         });
-        gen.setOnFailed(workerStateEvent -> System.out.println("FAILED TO LOAD DB DATA"));
+        gen.setOnFailed(workerStateEvent -> workerStateEvent.getSource().getException().printStackTrace());
         gen.restart();
     }
 

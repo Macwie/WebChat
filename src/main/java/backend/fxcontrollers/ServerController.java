@@ -22,9 +22,9 @@ import java.util.ResourceBundle;
 public class ServerController implements Initializable {
 
     private String password;
-    private String IP;
+    public static String IP;
     private String serverName;
-    private int port;
+    public static int port;
     String infoStart;
 
     @FXML
@@ -78,9 +78,9 @@ public class ServerController implements Initializable {
         //Adding new server to DB
         ServersDAO serversDAO = ServersDAO.getInstance();
         if (IP.equals(getPublicIP())) {
-            serversDAO.addServer(serverName, IP, Integer.toString(port), password, true);
+            serversDAO.addServer(serverName, IP, Integer.toString(port), password, 1, 1);
         } else {
-            serversDAO.addServer(serverName, IP, Integer.toString(port), password, false);
+            serversDAO.addServer(serverName, IP, Integer.toString(port), password, 0, 1);
         }
     }
 

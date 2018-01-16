@@ -36,7 +36,7 @@ public class ServersDAO implements DataBase {
 					while (r.next()) {
 						result.add(new ServerObject(r.getInt("id"), r.getString("name"), r.getString("ip"),
 								r.getString("port"), r.getInt("current"), r.getString("password"),
-								r.getBoolean("s_public")));
+								r.getBoolean("s_public"), r.getBoolean("s_online")));
 					}
 				} catch (SQLException e) {
 					e.printStackTrace();
@@ -50,9 +50,9 @@ public class ServersDAO implements DataBase {
 		return result;
 	}
 
-	public boolean addServer(String Sname, String Sip, String Sport, String Spassword, boolean s_public) {
-		query = "INSERT INTO servers (name, ip, port, current, password, s_public) VALUES ('" + Sname + "','" + Sip
-				+ "','" + Sport + "'," + 0 + ",'" + Spassword + "'," + s_public + ")";
+	public boolean addServer(String Sname, String Sip, String Sport, String Spassword, int s_public, int s_online) {
+		query = "INSERT INTO servers (name, ip, port, current, password, s_public, s_online) VALUES ('" + Sname + "','" + Sip
+				+ "','" + Sport + "'," + 0 + ",'" + Spassword + "','" + s_public + "','" + s_online + "')";
 		try {
 			System.out.println("IP: " + Sip + " Port: " + Sport);
 			String check = "SELECT ip FROM servers WHERE ip = '" + Sip + "' AND port = '" + Sport + "'";
@@ -61,6 +61,8 @@ public class ServersDAO implements DataBase {
 			ResultSet r = statement.executeQuery(check);
 			if (!r.next()) {
 				statement.executeUpdate(query);
+			}else{
+				setServerOnline(Sip, Sport);
 			}
 
 			statement.close();
@@ -69,6 +71,40 @@ public class ServersDAO implements DataBase {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
+		}
+	}
+
+	public void setServerOnline(String Sip, String Sport) {
+		try {
+			connection = DriverManager.getConnection(DBURL, DBUSER, DBPASS);
+			statement = connection.createStatement();
+			query = "UPDATE servers SET s_online = TRUE WHERE ip ='" + Sip+"' AND port='"+Sport+"'";
+			try {
+				statement.executeUpdate(query);
+			} catch (SQLException s) {
+				s.printStackTrace();
+			}
+			statement.close();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void setServerOffline(String Sip, String Sport) {
+		try {
+			connection = DriverManager.getConnection(DBURL, DBUSER, DBPASS);
+			statement = connection.createStatement();
+			query = "UPDATE servers SET s_online = FALSE WHERE ip ='" + Sip+"' AND port='"+Sport+"'";
+			try {
+				statement.executeUpdate(query);
+			} catch (SQLException s) {
+				s.printStackTrace();
+			}
+			statement.close();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 	}
 }

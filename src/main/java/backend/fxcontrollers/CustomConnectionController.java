@@ -132,13 +132,6 @@ public class CustomConnectionController implements Initializable {
                 window.setTitle("WebChat");
                 window.setUserData("Chat");
 
-
-                /*ClientsDAO clientsDAO = new ClientsDAO();   //dodawanie do online list
-
-                // System.out.println(server.getId());
-                clientsDAO.addClient(server.getId(), nick);
-                clientsDAO.updateCurrentUsers(server.getId(), true);
-                clientsDAO.startUpdatingUsers(server.getId());*/
                 Controllers.clientController.close();
                 window.show();
                 window.setOnCloseRequest(e -> {
