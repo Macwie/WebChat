@@ -1,5 +1,6 @@
 package main;
 
+import backend.database.ClientsDAO;
 import backend.fxcontrollers.ChatController;
 import backend.fxcontrollers.Controllers;
 import javafx.application.Application;
@@ -28,6 +29,7 @@ public class Main extends Application {
 
             if(WINDOW.getUserData() != null && WINDOW.getUserData().equals("Chat")) {   //do stuff on ChatView X end
                 ChatController.exit();
+                ClientsDAO.getInstance().updateCurrentUsers(false);
             }else{  //end all threads on every other view
                 Platform.exit();
                 System.exit(0);

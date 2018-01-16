@@ -1,21 +1,16 @@
 package backend.database;
 
-import backend.fxcontrollers.Controllers;
-import backend.server.Server;
-
 import java.awt.*;
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
-public class ClientsDAO implements Runnable, DataBase {
+public class ClientsDAO implements DataBase {
 
 
 	private Connection connection;
 	private Statement statement;
 	private String query;
-	private Thread thread;
     private static int server;
 
     private HashMap<String, String> usersMap;
@@ -36,15 +31,6 @@ public class ClientsDAO implements Runnable, DataBase {
     public static ClientsDAO getInstance() {
         return instance;
     }
-
-	public void startUpdatingUsers(int server) {
-		//this.server = server;
-		if (thread == null) {
-			thread = new Thread(this);
-			thread.setDaemon(true);
-			thread.start();
-		}
-	}
 
 	public boolean addClient(String nick) {
 		//this.server = server;
@@ -81,7 +67,7 @@ public class ClientsDAO implements Runnable, DataBase {
 	}
 
 	public boolean removeClient(String nick) {
-		//this.server = server;
+
 		try {
 			String queryUserId = "SELECT id FROM users WHERE name = '" + nick + "'"; // pobierz id usera
 			int usrId;
@@ -127,8 +113,7 @@ public class ClientsDAO implements Runnable, DataBase {
 		return usersMap;
 	}
 
-	public void updateCurrentUsers(int server, boolean add) {
-		//this.server = server;
+	public void updateCurrentUsers(boolean add) {
 
 		try {
 			connection = DriverManager.getConnection(DBURL, DBUSER, DBPASS);
@@ -164,17 +149,4 @@ public class ClientsDAO implements Runnable, DataBase {
     public HashMap<String, String> getUsersMap() {
         return usersMap;
     }
-
-	@Override
-	public void run() {
-		while (true) {
-			try {
-				//getAllClients();
-				Thread.sleep(10000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-
-	}
 }

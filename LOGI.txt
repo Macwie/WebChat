@@ -1,0 +1,20 @@
+
+Client connected: Socket[addr=/95.49.133.172,port=56381,localport=4567]
+WIADOMOSC PRZESLANA. nick: testtresc: sdfgIP: /95.49.133.172
+
+Client connected: Socket[addr=/95.49.133.172,port=56399,localport=4567]
+WIADOMOSC PRZESLANA. nick: test3tresc: bryIP: /95.49.133.172
+WIADOMOSC PRZESLANA. nick: test3tresc: bryIP: /95.49.133.172
+
+Client disconnected: Socket[addr=/95.49.133.172,port=56399,localport=4567]
+
+Client disconnected: Socket[addr=/95.49.133.172,port=56381,localport=4567]
+
+Client connected: Socket[addr=/95.49.133.172,port=56438,localport=4567]
+
+Client disconnected: Socket[addr=/95.49.133.172,port=56438,localport=4567]
+
+Client connected: Socket[addr=/95.49.133.172,port=56456,localport=4567]
+WIADOMOSC PRZESLANA. nick: test3tresc: dfgIP: /95.49.133.172
+
+Client disconnected: Socket[addr=/95.49.133.172,port=56456,localport=4567]
