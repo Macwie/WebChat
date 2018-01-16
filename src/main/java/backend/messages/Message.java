@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * Created by Maciek on 13.12.2017.
  */
-public class Message implements Serializable, iMessage {
+public class Message implements Serializable,iMessage {
 
     private String nick;
     private String message;
@@ -53,28 +53,35 @@ public class Message implements Serializable, iMessage {
     @Override
     public void show(TextFlow chatBox, TextFlow activeUsers) {
 
-        if (nick.equals("JqK9ZG5TSabOAND81Clp")) //Update current active users
+        if(nick.equals("JqK9ZG5TSabOAND81Clp")) //Update current active users
         {
             usersMap = ClientsDAO.getInstance().getAllClients();  //download current users
             Platform.runLater(() -> {
                 activeUsers.getChildren().clear();
-                for (Map.Entry<String, String> entry : usersMap.entrySet()) {
-                    Text user = new Text(entry.getKey() + "\n");
-                    user.setStyle(nick_style + " -fx-fill: " + entry.getValue() + ";");
+                for(Map.Entry<String, String> entry: usersMap.entrySet()) {
+                    System.out.println(entry.getKey()+" "+entry.getValue());
+                    Text user = new Text(entry.getKey()+"\n");
+                    user.setStyle(nick_style+" -fx-fill: "+entry.getValue()+";");
                     activeUsers.getChildren().add(user);
                 }
             });
-        } else {
+        }
+        else
+        {
             usersMap = ClientsDAO.getInstance().getUsersMap();      //get current users
             //Style message
             Text t_nick = new Text(nick);
-            Text t_msg = new Text(": " + message);
-            t_nick.setStyle(nick_style + " -fx-fill: " + usersMap.get(nick) + ";");
+            Text t_msg = new Text(": "+message);
+            t_nick.setStyle(nick_style+" -fx-fill: "+ usersMap.get(nick)+";");
             t_msg.setStyle(msg_style);
+
             //Display message
             Platform.runLater(() -> {
                 chatBox.getChildren().addAll(t_nick, t_msg);
             });
         }
+
+
+
     }
 }

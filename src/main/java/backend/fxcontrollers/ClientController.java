@@ -5,8 +5,8 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import backend.database.FXTableGenerator;
-import backend.database.ServerObject;
+import backend.FXTableGenerator;
+import backend.ServerObject;
 import javafx.animation.FadeTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
@@ -35,7 +35,8 @@ public class ClientController implements Initializable {
 
     private Stage window;
     private static VBox vbox;
-    public static boolean showOnlyPublic;
+    public static boolean showOnlyPublic;  //true to all false to online
+
     private ServerObject server;
 
     @FXML
@@ -83,12 +84,14 @@ public class ClientController implements Initializable {
         vbox = client_stage;
         progress.setTranslateY(200.0);
         progress.setTranslateX(400.0);
+
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         ipColumn.setCellValueFactory(new PropertyValueFactory<>("ip"));
         portColumn.setCellValueFactory(new PropertyValueFactory<>("port"));
         usersColumn.setCellValueFactory(new PropertyValueFactory<>("current"));
         protectedColumn.setCellValueFactory(new PropertyValueFactory<>("protect"));
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("online"));
+
         final FXTableGenerator gen = new FXTableGenerator(ServerTable);
         progress.visibleProperty().bind(gen.runningProperty());
         gen.setOnSucceeded(workerStateEvent -> {
@@ -100,30 +103,37 @@ public class ClientController implements Initializable {
             connectManuallyButton.setDisable(false);
             switchonlineButton.setDisable(false);
         });
-        //gen.setOnFailed(workerStateEvent -> System.out.println("FAILED TO LOAD DB DATA"));
+        gen.setOnFailed(workerStateEvent -> System.out.println("FAILED TO LOAD DB DATA"));
         gen.restart();
     }
 
     @FXML
     private void startManualConnection(ActionEvent event) { //Manual connection from button
+
         Parent root;
+
         try {
             //Styling dialog
             BoxBlur blur = new BoxBlur();
             blur.setIterations(3);
             client_stage.setEffect(blur);
+
+
             //Loading CustomConnectionView
             window = new Stage();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/CustomConnectionView.fxml"));
             root = loader.load();
+
             Scene scene = new Scene(root);
             scene.setFill(Color.TRANSPARENT);
             window.initModality(Modality.APPLICATION_MODAL);
             window.initStyle(StageStyle.TRANSPARENT);
             window.setScene(scene);
             window.setTitle("WebChat");
+
             //Centrowanie mConnectionView według pozycji ClientView
             centerConnectionDialog(event);
+
             window.show();
 
         } catch (IOException e) {
@@ -133,62 +143,83 @@ public class ClientController implements Initializable {
 
     @FXML
     private void startConnection(MouseEvent event) {    //Connection from table
-        Node node = ((Node) event.getTarget()).getParent();
-        TableRow row;
-        if (node instanceof TableRow) {
-            row = (TableRow) node;
-        } else {
-            // clicking on text part
-            row = (TableRow) node.getParent();
-        }
-        //Pass data from clicked row
-        server = (ServerObject) row.getItem();
 
-        //Check if server is offline
-        if (server.getOnline().equals("OFFLINE")) {
-            //Display warning dialog
-            Alert alert = new Alert(AlertType.WARNING);
-            alert.initModality(Modality.APPLICATION_MODAL);
-            alert.initStyle(StageStyle.TRANSPARENT);
-            BoxBlur blur = new BoxBlur();
-            blur.setIterations(3);
-            client_stage.setEffect(blur);
-            DialogPane dialogPane = alert.getDialogPane();
-            dialogPane.getStylesheets().add(getClass().getResource("/css/Dialog.css").toExternalForm());
-            dialogPane.getStyleClass().add("view");
-            dialogPane.getScene().setFill(Color.TRANSPARENT);
-            alert.setTitle("WARNING");
-            alert.setHeaderText("THIS SERVER IS OFFLINE");
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == ButtonType.OK) {
-                client_stage.setEffect(null);
+
+        System.out.println("tesssst");
+        //2-click on table row
+        //if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
+
+            Node node = ((Node) event.getTarget()).getParent();
+            TableRow row;
+
+            if (node instanceof TableRow) {
+                row = (TableRow) node;
+            } else {
+                // clicking on text part
+                row = (TableRow) node.getParent();
             }
-        } else {    //if server is ONLINE pass server data to CustomConnectionView
-            Parent root;
-            try {
-                //Styling dialog
+
+            //Pass data from clicked row
+            server = (ServerObject) row.getItem();
+
+            System.out.println("Data from row: "+server.getId()+" "+server.getIp()+" "+server.getPort()+" "+server.getPassword());
+
+            //Check if server is offline
+            if (server.getOnline().equals("OFFLINE")) {
+
+                //Display warning dialog
+                Alert alert = new Alert(AlertType.WARNING);
+                alert.initModality(Modality.APPLICATION_MODAL);
+                alert.initStyle(StageStyle.TRANSPARENT);
                 BoxBlur blur = new BoxBlur();
                 blur.setIterations(3);
                 client_stage.setEffect(blur);
-                //Loading CustomConnectionView
-                window = new Stage();
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/CustomConnectionView.fxml"));
-                root = loader.load();
-                Scene scene = new Scene(root);
-                scene.setFill(Color.TRANSPARENT);
-                window.initModality(Modality.APPLICATION_MODAL);
-                window.initStyle(StageStyle.TRANSPARENT);
-                window.setScene(scene);
-                window.setTitle("WebChat");
-                CustomConnectionController customConnectionController = loader.getController();
-                customConnectionController.setServerData(server);       //Pass server data to CustomConnectionView
-                //Centrowanie mConnectionView według pozycji ClientView
-                centerConnectionDialog(event);
-                window.show();
-            } catch (IOException e) {
-                e.printStackTrace();
+                DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add(getClass().getResource("/css/Dialog.css").toExternalForm());
+                dialogPane.getStyleClass().add("view");
+                dialogPane.getScene().setFill(Color.TRANSPARENT);
+                alert.setTitle("WARNING");
+                alert.setHeaderText("THIS SERVER IS OFFLINE");
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get() == ButtonType.OK) {
+                    client_stage.setEffect(null);
+                }
             }
-        }
+            else
+            {    //if server is ONLINE pass server data to CustomConnectionView
+                Parent root;
+
+                try {
+                    //Styling dialog
+                    BoxBlur blur = new BoxBlur();
+                    blur.setIterations(3);
+                    client_stage.setEffect(blur);
+
+
+                    //Loading CustomConnectionView
+                    window = new Stage();
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/CustomConnectionView.fxml"));
+                    root = loader.load();
+                    Scene scene = new Scene(root);
+                    scene.setFill(Color.TRANSPARENT);
+                    window.initModality(Modality.APPLICATION_MODAL);
+                    window.initStyle(StageStyle.TRANSPARENT);
+                    window.setScene(scene);
+                    window.setTitle("WebChat");
+
+                    CustomConnectionController customConnectionController = loader.getController();
+                    customConnectionController.setServerData(server);       //Pass server data to CustomConnectionView
+
+                    //Centrowanie mConnectionView według pozycji ClientView
+                    centerConnectionDialog(event);
+
+                    window.show();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        //}
     }
 
     @FXML
@@ -208,6 +239,7 @@ public class ClientController implements Initializable {
     private void centerConnectionDialog(Event event) {
         Node source = (Node) event.getSource();
         Window parentStage = source.getScene().getWindow();
+
         ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
             double stageWidth = newValue.doubleValue();
             window.setX(parentStage.getX() + parentStage.getWidth() / 2 - stageWidth / 2);
@@ -216,8 +248,10 @@ public class ClientController implements Initializable {
             double stageHeight = newValue.doubleValue();
             window.setY(parentStage.getY() + parentStage.getHeight() / 2 - stageHeight / 2);
         };
+
         window.widthProperty().addListener(widthListener);
         window.heightProperty().addListener(heightListener);
+
         window.setOnShown(e -> {
             window.widthProperty().removeListener(widthListener);
             window.heightProperty().removeListener(heightListener);

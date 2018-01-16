@@ -10,20 +10,20 @@ public abstract class AbstractLogger {
     protected AbstractLogger nextLogger;
     public static final AbstractLogger loggerChain = getChainOfLoggers();
 
-    private void setNextLogger(AbstractLogger nextLogger) {
+    private void setNextLogger(AbstractLogger nextLogger){
         this.nextLogger = nextLogger;
     }
 
-    public void logMessage(int level, String message) {
-        if (this.level <= level) {
+    public void logMessage(int level, String message){
+        if(this.level <= level){
             write(message);
         }
-        if (nextLogger != null) {
+        if(nextLogger !=null){
             nextLogger.logMessage(level, message);
         }
     }
 
-    private static AbstractLogger getChainOfLoggers() {
+    private static AbstractLogger getChainOfLoggers(){
         AbstractLogger fileLogger = new FileLogger(AbstractLogger.LOG);
         AbstractLogger consoleLogger = new ConsoleLogger(AbstractLogger.INFO);
         consoleLogger.setNextLogger(fileLogger);

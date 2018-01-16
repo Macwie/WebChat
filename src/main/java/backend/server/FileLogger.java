@@ -4,7 +4,7 @@ import java.io.*;
 
 public class FileLogger extends AbstractLogger {
 
-    public FileLogger(int level) {
+    public FileLogger(int level){
         this.level = level;
     }
 
@@ -19,5 +19,6 @@ public class FileLogger extends AbstractLogger {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        //System.out.println("PLIK " + message);
     }
 }

@@ -14,6 +14,7 @@ public class Main extends Application {
 
 	public static Stage WINDOW;
 
+
     @Override
     public void start(Stage primaryStage) throws Exception{
     	WINDOW = primaryStage;
@@ -25,6 +26,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 890, 565));
         primaryStage.show();
         primaryStage.setOnCloseRequest(e -> {   //zakoncz wszystkie watki jak zamyka sie aplkacje Xem
+
             if(WINDOW.getUserData() != null && WINDOW.getUserData().equals("Chat")) {   //do stuff on ChatView X end
                 ChatController.exit();
                 ClientsDAO.getInstance().updateCurrentUsers(false);
@@ -32,8 +34,10 @@ public class Main extends Application {
                 Platform.exit();
                 System.exit(0);
             }
+
         });
     }
+
 
     public static void main(String[] args) {
         launch(args);

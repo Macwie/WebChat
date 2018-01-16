@@ -16,4 +16,8 @@ public class MessageCensorDecorator extends MessageDecorator {
     public void show(TextFlow chatBox, TextFlow activeUsers) {
         super.show(chatBox, activeUsers);
     }
+
+
+
+
 }

@@ -25,7 +25,7 @@ public class ServerController implements Initializable {
     private String IP;
     private String serverName;
     private int port;
-    private String infoStart;
+    String infoStart;
 
     @FXML
     private Button StartButton;
@@ -64,10 +64,17 @@ public class ServerController implements Initializable {
         IP = ipTextField.getText();
         serverName = serverNameTextField.getText();
         port = Integer.parseInt(portTextField.getText());
+
         //Start server and it's logs
-        infoStart = "Server: " + IP + " online on port: " + port + "\nName:" + serverName + " Password:" + password + "\nWaiting for clients ...";
+        infoStart = "Server: "
+                + IP + " online on port: " + port + "\nName:" + serverName
+                + " Password:" + password + "\nWaiting for clients ...";
+       /* serverLogArea.setText("Server: "
+                + IP + " online on port: " + port + "\nName:" + serverName
+                + " Password:" + password + "\nWaiting for clients ...");*/
         Server server = Server.getInstance(port);
         server.start(infoStart);
+
         //Adding new server to DB
         ServersDAO serversDAO = ServersDAO.getInstance();
         if (IP.equals(getPublicIP())) {
@@ -79,12 +86,15 @@ public class ServerController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //Get public IP address as default server address
         ipTextField.setText(getPublicIP());
+
         //Animations
         Object[] inputs = new Object[]{
                 StartButton, ipLabel, serverNameLabel, portLabel, passwordLabel, ipTextField, serverNameTextField, portTextField,
                 passwordPasswordField, serverLogArea
         };
+
         for (int i = 0; i < inputs.length; i++) {
             FadeTransition fadeIn = new FadeTransition(Duration.seconds(1.0), (Node) inputs[i]);
             fadeIn.setFromValue(0.0);
