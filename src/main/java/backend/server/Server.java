@@ -19,8 +19,7 @@ public class Server {
 	private List<ServerThread> serverThreads;
 	private boolean isOnline;
 	private int port;
-	private static TextArea serverLogs;
-	AbstractLogger loggerChain = getChainOfLoggers();
+	//private String infoStart;
 
 	private static Server instance = null;
 
@@ -75,13 +74,15 @@ public class Server {
 		}
 	}
 
-	public void start(TextArea serverLogs) {
+	public void start(String infoStart) {
 		System.out.println("Server - start ");
 		try {
 			System.out.println("Binding to port " + port + ", please wait  ...");
 			serverSocket = new ServerSocket(port);
 			isOnline = true;
-			this.serverLogs = serverLogs;
+
+			AbstractLogger.loggerChain.logMessage(AbstractLogger.INFO, infoStart);
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -103,22 +104,15 @@ public class Server {
 			Socket socket = serverSocket.accept();
 
 
-			loggerChain.logMessage(AbstractLogger.INFO,
-					"\nClient connected: "+socket);
+			AbstractLogger.loggerChain.logMessage(AbstractLogger.INFO,
+					"Client connected: "+socket);
 
             //serverLogs.appendText("\nClient connected: "+socket);
-			ServerThread serverThread = new ServerThread(this, socket, serverLogs);
+			ServerThread serverThread = new ServerThread(this, socket);
 			serverThreads.add(serverThread);
 			serverThread.start();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-
-	private static AbstractLogger getChainOfLoggers(){
-		AbstractLogger fileLogger = new FileLogger(AbstractLogger.LOG);
-		AbstractLogger consoleLogger = new ConsoleLogger(AbstractLogger.INFO,serverLogs);
-		consoleLogger.setNextLogger(fileLogger);
-		return consoleLogger;
 	}
 }

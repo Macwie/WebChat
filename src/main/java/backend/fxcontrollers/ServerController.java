@@ -25,6 +25,7 @@ public class ServerController implements Initializable {
     private String IP;
     private String serverName;
     private int port;
+    String infoStart;
 
     @FXML
     private Button StartButton;
@@ -65,11 +66,14 @@ public class ServerController implements Initializable {
         port = Integer.parseInt(portTextField.getText());
 
         //Start server and it's logs
-        serverLogArea.setText("Server: "
+        infoStart = "Server: "
                 + IP + " online on port: " + port + "\nName:" + serverName
-                + " Password:" + password + "\nWaiting for clients ...");
+                + " Password:" + password + "\nWaiting for clients ...";
+       /* serverLogArea.setText("Server: "
+                + IP + " online on port: " + port + "\nName:" + serverName
+                + " Password:" + password + "\nWaiting for clients ...");*/
         Server server = Server.getInstance(port);
-        server.start(serverLogArea);
+        server.start(infoStart);
 
         //Adding new server to DB
         ServersDAO serversDAO = ServersDAO.getInstance();

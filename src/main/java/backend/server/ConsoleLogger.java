@@ -6,7 +6,7 @@ import javafx.scene.control.TextArea;
 public class ConsoleLogger extends AbstractLogger {
 
     private TextArea serverLogs;
-    public ConsoleLogger(int level, TextArea serverLogs){
+    public ConsoleLogger(int level){
         this.level = level;
         this.serverLogs = Controllers.ServerController.getServerLogArea();
     }

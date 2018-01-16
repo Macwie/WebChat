@@ -17,13 +17,10 @@ public class ServerThread {
 	private ObjectInputStream streamIn;
 	private ObjectOutputStream streamOut;
 	private ExecutorService async;
-	private static TextArea serverLogs;
-	AbstractLogger loggerChain = getChainOfLoggers();
 
-	public ServerThread(Server server, Socket socket, TextArea serverLogs) {
+	public ServerThread(Server server, Socket socket) {
 		this.server = server;
 		this.socket = socket;
-		this.serverLogs = serverLogs;
 		ID = socket.getPort();
 		System.out.println("ServerThread - ServerThread ");
 	}
@@ -67,8 +64,8 @@ public class ServerThread {
 	public void send(Message msg) {
 
 		if(!msg.getNick().equals("JqK9ZG5TSabOAND81Clp")) {
-			loggerChain.logMessage(AbstractLogger.LOG,
-					"WIADOMOSC PRZESLANA. nick: " + msg.getNick() + "tresc: " + msg.getMessage() + "IP: " + socket.getInetAddress());
+			AbstractLogger.loggerChain.logMessage(AbstractLogger.LOG,
+					"WIADOMOSC PRZESLANA: nick: " + msg.getNick() + "tresc: " + msg.getMessage() + "IP: " + socket.getInetAddress());
 		}
 
 		//serverLogs.appendText(msg.getNick() + " " +msg.getMessage() + " " +socket.getInetAddress());
@@ -95,8 +92,8 @@ public class ServerThread {
 				async.shutdown();
 
 
-				loggerChain.logMessage(AbstractLogger.INFO,
-						"\nClient disconnected: "+socket);
+				AbstractLogger.loggerChain.logMessage(AbstractLogger.INFO,
+						"Client disconnected: "+socket);
 
 
                // serverLogs.appendText("\nClient disconnected: "+socket);
@@ -116,11 +113,4 @@ public class ServerThread {
 		return ID;
 	}
 
-
-	private static AbstractLogger getChainOfLoggers(){
-		AbstractLogger fileLogger = new FileLogger(AbstractLogger.LOG);
-		AbstractLogger consoleLogger = new ConsoleLogger(AbstractLogger.INFO,serverLogs);
-		consoleLogger.setNextLogger(fileLogger);
-		return consoleLogger;
-	}
 }
