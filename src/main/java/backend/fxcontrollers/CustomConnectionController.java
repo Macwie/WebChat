@@ -5,8 +5,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import backend.*;
-import backend.database.ClientsDAO;
+import backend.database.FXTableGenerator;
+import backend.database.ServerObject;
 import javafx.animation.ScaleTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,7 +32,7 @@ public class CustomConnectionController implements Initializable {
 
 
     private ArrayList<ServerObject> list;
-    public  ServerObject server;
+    public ServerObject server;
 
     @FXML
     private AnchorPane pane;
@@ -74,32 +74,29 @@ public class CustomConnectionController implements Initializable {
         String port = portTextField.getText();
         String password = passwordPasswordField.getText();
         String nick = nickTextField.getText();
-
         boolean goodPassword = true;
 
-        if(server == null)  //ManualConnection
+        if (server == null)  //ManualConnection
         {
             //Find server id using ip and port delivered by user
             for (ServerObject s : list) {
                 if (s.getPort().equals(port) && s.getIp().equals(ip)) {
                     server = s;
                     //Server has password
-                    if(server.getPassword() != null){
+                    if (server.getPassword() != null) {
                         //Passwords match
-                        if(server.getPassword().equals(password)) {
+                        if (server.getPassword().equals(password)) {
                             goodPassword = true;
-                        }else{
+                        } else {
                             goodPassword = false;
                         }
                     }
                     break;
                 }
             }
-        }
-        else    //Table connection
-        {
+        } else {
             //Wrong password
-            if(!server.getPassword().equals(password))
+            if (!server.getPassword().equals(password))
                 goodPassword = false;
         }
 
@@ -115,30 +112,19 @@ public class CustomConnectionController implements Initializable {
             alert.setTitle("ERROR");
             alert.setHeaderText("Wrong password !");
             alert.showAndWait();
-        }
-        else    //Password match -> open chat view
+        } else    //Password match -> open chat view
         {
             Parent root;
-
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/ChatView.fxml"));
                 root = loader.load();
                 Controllers.ChatController = loader.getController();
                 Controllers.ChatController.init(server, nick);
-
                 Scene scene = new Scene(root);
                 Stage window = Main.WINDOW;
                 window.setScene(scene);
                 window.setTitle("WebChat");
                 window.setUserData("Chat");
-
-
-                /*ClientsDAO clientsDAO = new ClientsDAO();   //dodawanie do online list
-
-                // System.out.println(server.getId());
-                clientsDAO.addClient(server.getId(), nick);
-                clientsDAO.updateCurrentUsers(server.getId(), true);
-                clientsDAO.startUpdatingUsers(server.getId());*/
                 Controllers.clientController.close();
                 window.show();
                 window.setOnCloseRequest(e -> {
@@ -148,15 +134,12 @@ public class CustomConnectionController implements Initializable {
                 e.printStackTrace();
             }
         }
-
-
     }
 
     @FXML
     private void cancelCustomConnection(ActionEvent event) {
         // get a handle to the stage
         Stage stage = (Stage) cancelButton.getScene().getWindow();
-
         //Animations
         ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(0.4), pane);
         scaleTransition.setFromX(1.0);
@@ -174,20 +157,15 @@ public class CustomConnectionController implements Initializable {
 
     public void controlInputs() {
         if (server != null) {   //Connection from table
-            System.out.println("test");
             ipTextField.setText(server.getIp());
             portTextField.setText(server.getPort());
             portTextField.setDisable(true);
             ipTextField.setDisable(true);
-
             if (server.getPassword().length() == 0)     //block password input if server doesn't need password
                 passwordPasswordField.setDisable(true);
             else
                 passwordPasswordField.setDisable(false);
-
-        }
-        else
-        {
+        } else {
             //Connection manual from button
             ipTextField.setText("");
             portTextField.setText("");
@@ -199,6 +177,6 @@ public class CustomConnectionController implements Initializable {
     public void setServerData(ServerObject serverObject) {
         server = serverObject;
         controlInputs();
-}
+    }
 
 }

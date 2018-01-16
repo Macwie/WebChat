@@ -2,7 +2,6 @@ package backend.client;
 
 import backend.messages.*;
 import javafx.scene.text.TextFlow;
-
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
@@ -34,7 +33,7 @@ public class Client {
         this.chatBox = chatBox;
         this.activeUsers = activeUsers;
         clientThread = null;
-        this.strategy=strategy;
+        this.strategy = strategy;
     }
 
     public void openStreams() throws IOException {
@@ -42,51 +41,41 @@ public class Client {
     }
 
     public void startConnection() {
-        System.out.println("Establishing connection. Please wait ...");
-
         try {
             socket = new Socket(serverIP, serverPort);
-            System.out.println("Connected: " + socket);
             openStreams();
-
             clientThread = new ClientThread(this, socket);
             clientThread.start();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void stopConnection() {
-        try
-        {
+        try {
             if (streamOut != null)
                 streamOut.close();
-            if (socket    != null)
+            if (socket != null)
                 socket.close();
-
             clientThread.closeConnection();
-
             System.exit(0);
-        }
-        catch(IOException ioe)
-        {
-            System.out.println("Error closing ...");
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
         }
     }
 
     public void handle(Message msg) {
         iMessage temp;
-        if(!msg.getNick().equals("JqK9ZG5TSabOAND81Clp")) { //notify client for updating active users
+        if (!msg.getNick().equals("JqK9ZG5TSabOAND81Clp")) { //notify client for updating active users
             temp = new MessageDateDecorator(new MessageCensorDecorator(new Message(msg), strategy));
-        }else{
+        } else {
             temp = new Message(msg);
         }
-            temp.show(chatBox, activeUsers);
+        temp.show(chatBox, activeUsers);
     }
 
     public void sendMsg(Message message) {
-        if(message.getMessage().equals("END"))
+        if (message.getMessage().equals("END"))
             stopConnection();
         else {
             message.setNick(nick);
@@ -98,8 +87,6 @@ public class Client {
                 stopConnection();
             }
         }
-
     }
-
 }
 

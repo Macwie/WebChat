@@ -1,21 +1,13 @@
 package backend.database;
 
-import backend.ServerObject;
-
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Iterator;
-
 
 public class ServerObjects implements Iterable<ServerObject> {
     private ArrayList<ServerObject> serverList;
 
     public ServerObjects() {
         serverList = new ArrayList<ServerObject>();
-    }
-
-    public void addServer(ServerObject server) {
-        serverList.add(server);
     }
 
     public Iterator<ServerObject> publicIterator() {
@@ -40,29 +32,7 @@ public class ServerObjects implements Iterable<ServerObject> {
 
         @Override
         public boolean hasNext() {
-            System.out.println(index);
-            if(serverList.size() == 0){
-                return false;
-            }else if(serverList.size() == 1){
-                if(serverList.get(0).isS_public()){
-                    index++;
-                    return true;
-                }else{
-                    return false;
-                }
-            } else if(index >= serverList.size()){
-                return false;
-            } else{
-                if(serverList.get(index).isS_public()){
-                    index++;
-                    return true;
-                }else{
-                    index++;
-                    return hasNext();
-                }
-            }
-
-           /* if (index >= serverList.size()) {
+            if (serverList.size() == 0) {
                 return false;
             } else if (serverList.size() == 1) {
                 if (serverList.get(0).isS_public()) {
@@ -71,16 +41,17 @@ public class ServerObjects implements Iterable<ServerObject> {
                 } else {
                     return false;
                 }
+            } else if (index >= serverList.size()) {
+                return false;
             } else {
-                while (true) {
-                    if (serverList.get(index).isS_public()) {
-                        index++;
-                        return true;
-                    } else {
-                        index++;
-                    }
+                if (serverList.get(index).isS_public()) {
+                    index++;
+                    return true;
+                } else {
+                    index++;
+                    return hasNext();
                 }
-            }*/
+            }
         }
 
         @Override

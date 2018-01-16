@@ -22,23 +22,18 @@ public class MessageDateDecorator extends MessageDecorator {
         setDate();
         Text t_date = new Text("\t\t\t\t\t"+date);
         t_date.setStyle(" -fx-fill: white;");
-
         Platform.runLater(() -> {
             chatBox.getChildren().addAll(t_date);
-
         });
     }
 
     private void setDate() {
-
         Date date_D = new Date();
         Calendar calendar = GregorianCalendar.getInstance();
         calendar.setTime(date_D);
-
         String hour = String.valueOf(calendar.get(Calendar.HOUR_OF_DAY));
         String minutes = String.valueOf(calendar.get(Calendar.MINUTE));
         String day = String.valueOf(calendar.get(Calendar.DAY_OF_WEEK));
-
         switch(Integer.parseInt(day)-1) {
             case 1:
                 day = "Monday";
@@ -62,8 +57,6 @@ public class MessageDateDecorator extends MessageDecorator {
                 day = "Sunday";
                 break;
         }
-
         date = day+" at "+hour+":"+minutes+"\n";
     }
-
 }
