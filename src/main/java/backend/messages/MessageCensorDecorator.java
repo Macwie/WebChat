@@ -18,6 +18,4 @@ public class MessageCensorDecorator extends MessageDecorator {
     }
 
 
-
-
 }

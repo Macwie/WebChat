@@ -14,57 +14,57 @@ import java.util.concurrent.Executors;
  */
 public class ClientThread {
 
-	private Socket socket;
-	private Client client;
-	private ObjectInputStream streamIn;
-	private ExecutorService async;
-	private boolean isActive = false;
+    private Socket socket;
+    private Client client;
+    private ObjectInputStream streamIn;
+    private ExecutorService async;
+    private boolean isActive = false;
 
-	public ClientThread(Client client, Socket socket) {
-		this.socket = socket;
-		this.client = client;
-		async = null;
-	}
+    public ClientThread(Client client, Socket socket) {
+        this.socket = socket;
+        this.client = client;
+        async = null;
+    }
 
-	public void start() {
+    public void start() {
 
-		openStream();
-		isActive = true;
+        openStream();
+        isActive = true;
 
-		async = Executors.newSingleThreadExecutor();
+        async = Executors.newSingleThreadExecutor();
 
-		async.execute(() -> {
-			while(isActive) {
-				try {
-					client.handle((Message) streamIn.readObject());
-				} catch (IOException e) {
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
-			}
-		});
+        async.execute(() -> {
+            while (isActive) {
+                try {
+                    client.handle((Message) streamIn.readObject());
+                } catch (IOException e) {
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
-	}
+    }
 
-	private void openStream() {
-		try {
-			streamIn = new ObjectInputStream(socket.getInputStream());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+    private void openStream() {
+        try {
+            streamIn = new ObjectInputStream(socket.getInputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-	public void closeConnection() {
-		try {
-			isActive = false;
-			if(streamIn != null)
-				streamIn.close();
+    public void closeConnection() {
+        try {
+            isActive = false;
+            if (streamIn != null)
+                streamIn.close();
 
-			async.shutdown();
+            async.shutdown();
 
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

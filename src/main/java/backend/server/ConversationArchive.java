@@ -59,8 +59,8 @@ public class ConversationArchive {
 
             in.close();
         } catch (IOException e) {
-            System.out.println("Convestation archive for that server doesn't exist yet.");
-        }
+            e.printStackTrace();
+            }
     }
 
 }

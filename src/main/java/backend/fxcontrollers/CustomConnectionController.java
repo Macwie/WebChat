@@ -32,7 +32,7 @@ public class CustomConnectionController implements Initializable {
 
 
     private ArrayList<ServerObject> list;
-    public  ServerObject server;
+    public ServerObject server;
 
     @FXML
     private AnchorPane pane;
@@ -77,29 +77,28 @@ public class CustomConnectionController implements Initializable {
 
         boolean goodPassword = true;
 
-        if(server == null)  //ManualConnection
+        if (server == null)  //ManualConnection
         {
             //Find server id using ip and port delivered by user
             for (ServerObject s : list) {
                 if (s.getPort().equals(port) && s.getIp().equals(ip)) {
                     server = s;
                     //Server has password
-                    if(server.getPassword() != null){
+                    if (server.getPassword() != null) {
                         //Passwords match
-                        if(server.getPassword().equals(password)) {
+                        if (server.getPassword().equals(password)) {
                             goodPassword = true;
-                        }else{
+                        } else {
                             goodPassword = false;
                         }
                     }
                     break;
                 }
             }
-        }
-        else    //Table connection
+        } else    //Table connection
         {
             //Wrong password
-            if(!server.getPassword().equals(password))
+            if (!server.getPassword().equals(password))
                 goodPassword = false;
         }
 
@@ -115,8 +114,7 @@ public class CustomConnectionController implements Initializable {
             alert.setTitle("ERROR");
             alert.setHeaderText("Wrong password !");
             alert.showAndWait();
-        }
-        else    //Password match -> open chat view
+        } else    //Password match -> open chat view
         {
             Parent root;
 
@@ -167,7 +165,6 @@ public class CustomConnectionController implements Initializable {
 
     public void controlInputs() {
         if (server != null) {   //Connection from table
-            System.out.println("test");
             ipTextField.setText(server.getIp());
             portTextField.setText(server.getPort());
             portTextField.setDisable(true);
@@ -178,9 +175,7 @@ public class CustomConnectionController implements Initializable {
             else
                 passwordPasswordField.setDisable(false);
 
-        }
-        else
-        {
+        } else {
             //Connection manual from button
             ipTextField.setText("");
             portTextField.setText("");
@@ -192,6 +187,6 @@ public class CustomConnectionController implements Initializable {
     public void setServerData(ServerObject serverObject) {
         server = serverObject;
         controlInputs();
-}
+    }
 
 }

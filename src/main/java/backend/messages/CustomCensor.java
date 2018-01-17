@@ -17,21 +17,19 @@ public class CustomCensor implements Strategy {
     List<String> list = new ArrayList<>();
 
 
-    public void openFile(){
-        try{
-            x= new Scanner(new File("cenzura.txt"));
-        }catch (FileNotFoundException e) {
+    public void openFile() {
+        try {
+            x = new Scanner(new File("cenzura.txt"));
+        } catch (FileNotFoundException e) {
             //do something with e, or handle this case
         }
         int count = -1;
 
-        while(x.hasNext()){
+        while (x.hasNext()) {
             list.add(x.nextLine());
             //words[++count] = x.nextLine();
-            //System.out.println(words[++count]);
         }
     }
-
 
 
     @Override
@@ -43,9 +41,9 @@ public class CustomCensor implements Strategy {
         openFile();
         String[] splittedMsg = message.getMessage().split(" ");
 
-        for (int i=0;i<splittedMsg.length;i++) {
-            for(int j=0;j<list.size();j++) {
-                if(splittedMsg[i].equals(list.get(j))) {
+        for (int i = 0; i < splittedMsg.length; i++) {
+            for (int j = 0; j < list.size(); j++) {
+                if (splittedMsg[i].equals(list.get(j))) {
                     splittedMsg[i] = applyStars(splittedMsg[i]);
                 }
             }
@@ -56,7 +54,7 @@ public class CustomCensor implements Strategy {
 
     private String applyStars(String msg) {
 
-        for(int i=0;i<msg.length();i++) {
+        for (int i = 0; i < msg.length(); i++) {
             msg = msg.replaceAll(msg, "&");
         }
         return msg;

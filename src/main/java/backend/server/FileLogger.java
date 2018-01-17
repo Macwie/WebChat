@@ -19,6 +19,5 @@ public class FileLogger extends AbstractLogger {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //System.out.println("PLIK " + message);
     }
 }

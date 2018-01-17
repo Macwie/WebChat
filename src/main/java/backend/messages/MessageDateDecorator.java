@@ -20,7 +20,7 @@ public class MessageDateDecorator extends MessageDecorator {
     public void show(TextFlow chatBox, TextFlow activeUsers) {
         super.show(chatBox, activeUsers);
         setDate();
-        Text t_date = new Text("\t\t\t\t\t"+date);
+        Text t_date = new Text("\t\t\t\t\t" + date);
         t_date.setStyle(" -fx-fill: white;");
 
         Platform.runLater(() -> {
@@ -39,7 +39,7 @@ public class MessageDateDecorator extends MessageDecorator {
         String minutes = String.valueOf(calendar.get(Calendar.MINUTE));
         String day = String.valueOf(calendar.get(Calendar.DAY_OF_WEEK));
 
-        switch(Integer.parseInt(day)-1) {
+        switch (Integer.parseInt(day) - 1) {
             case 1:
                 day = "Monday";
                 break;
@@ -63,7 +63,7 @@ public class MessageDateDecorator extends MessageDecorator {
                 break;
         }
 
-        date = day+" at "+hour+":"+minutes+"\n";
+        date = day + " at " + hour + ":" + minutes + "\n";
     }
 
 }

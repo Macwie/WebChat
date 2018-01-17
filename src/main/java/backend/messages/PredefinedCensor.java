@@ -41,19 +41,19 @@ public class PredefinedCensor implements Strategy {
         String[] splittedMsg = message.getMessage().split(" ");
 
         for (int i = 0; i < list.size(); i++) {
-            message.getMessage().replaceAll(list.get(i),"*");
-            int sizeWord=list.get(i).length();
+            message.getMessage().replaceAll(list.get(i), "*");
+            int sizeWord = list.get(i).length();
 
 
-                message.setMessage(message.getMessage().replaceAll(list.get(i), buildStarsString(sizeWord)));
+            message.setMessage(message.getMessage().replaceAll(list.get(i), buildStarsString(sizeWord)));
 
         }
     }
 
     private String buildStarsString(int sizeWord) {
 
-        StringBuilder censoredMessage=new StringBuilder();
-        for(int j=0; j<sizeWord;j++){
+        StringBuilder censoredMessage = new StringBuilder();
+        for (int j = 0; j < sizeWord; j++) {
             censoredMessage.append("*");
         }
         return censoredMessage.toString();

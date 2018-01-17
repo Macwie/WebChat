@@ -22,11 +22,9 @@ public class ServerThread {
 		this.server = server;
 		this.socket = socket;
 		ID = socket.getPort();
-		System.out.println("ServerThread - ServerThread ");
 	}
 
     public void start() {
-		System.out.println("ServerThread - Start ");
 		async = Executors.newSingleThreadExecutor();
 
 		async.execute(() -> {
@@ -40,14 +38,12 @@ public class ServerThread {
 		try {
 			streamIn = new ObjectInputStream(socket.getInputStream());
 			streamOut = new ObjectOutputStream(socket.getOutputStream());
-			System.out.println("ServerThread - OpenStream ");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
 	public void closeConnection()  {
-		System.out.println("ServerThread - closeConnection");
 		try {
 			if (socket != null)
 				socket.close();

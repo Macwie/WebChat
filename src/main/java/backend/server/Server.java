@@ -24,14 +24,12 @@ public class Server {
 	private static Server instance = null;
 
 	private Server (int port) {
-		System.out.println("Server - Server ");
 		this.port = port;
 		async = null;
 		serverThreads = new ArrayList<>();
 	}
 
 	public static Server getInstance(int port) {
-		System.out.println("Server - getInstance ");
 		if(instance == null)
 			instance = new Server(port);
 
@@ -39,7 +37,6 @@ public class Server {
 	}
 
 	private int findClient(int ID) {
-		System.out.println("Server - findClient ");
 		for (int i=0; i<serverThreads.size();i++) {
 			if(serverThreads.get(i).getID() == ID)
 				return i;
@@ -48,7 +45,6 @@ public class Server {
 	}
 
 	public synchronized void handle(Message msg) {
-		System.out.println("Server - handle ");
 		for(int i=0; i<serverThreads.size(); i++) {
 			serverThreads.get(i).send(msg);
 
@@ -61,7 +57,6 @@ public class Server {
 	}
 
 	public synchronized void remove(int ID) {
-		System.out.println("Server - remove ");
 		int index = findClient(ID);
 		if(index >= 0) {
 			ServerThread toTerminate = serverThreads.get(index);
@@ -75,9 +70,7 @@ public class Server {
 	}
 
 	public void start(String infoStart) {
-		System.out.println("Server - start ");
 		try {
-			System.out.println("Binding to port " + port + ", please wait  ...");
 			serverSocket = new ServerSocket(port);
 			isOnline = true;
 
